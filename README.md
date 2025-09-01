@@ -1,6 +1,6 @@
 # Portal Institucional UNPA-UARG
 
-Este repositorio contiene el desarrollo del **Portal Institucional de la UNPA - Unidad Académica Río Gallegos**, realizado con **Joomla 5.3.2** sobre XAMPP en entorno Windows 11.
+Este repositorio contiene el desarrollo del **Portal Institucional de la UNPA - Unidad Académica Río Gallegos**, realizado con **Joomla 5.3.2** sobre XAMPP.
 
 ## 🚀 Tecnologías
 - CMS: Joomla 5.3.2 (LTS)
@@ -19,4 +19,5 @@ Este repositorio contiene el desarrollo del **Portal Institucional de la UNPA - 
 - Los usuarios y contraseñas de la base se documentan en `configuration.example.php`.
 
 ## 👩‍💻 Autora
-Carla Gleadell – Proyecto académico UNPA-UARG
+Carla Gleadell – Alumna becaria 
+AdeS. Luis Sierpe - Tutor académico
