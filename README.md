@@ -19,5 +19,5 @@ Este repositorio contiene el desarrollo del **Portal Institucional de la UNPA - 
 - Los usuarios y contraseñas de la base se documentan en `configuration.example.php`.
 
 ## 👩‍💻 Autora
-Carla Gleadell – Alumna becaria 
-AdeS. Luis Sierpe - Tutor académico
+- Carla Gleadell – Alumna becaria 
+- AdeS. Luis Sierpe - Tutor académico
