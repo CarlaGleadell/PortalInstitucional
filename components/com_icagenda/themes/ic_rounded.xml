@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<installtheme method="icthemes" type="component">
+
+	<name>iC rounded - iCagenda Theme</name>
+	<author>iCagenda</author>
+	<creationDate>2023-12-01</creationDate>
+	<copyright>Copyright (c) 2012-2024 Cyril Rezé / iCagenda. All rights reserved.</copyright>
+	<license>GNU General Public License version 3 or later; see LICENSE.txt</license>
+	<authorEmail></authorEmail>
+	<authorWebsite>www.icagenda.com</authorWebsite>
+	<authorUrl>https://www.icagenda.com</authorUrl>
+	<version>3.8.23</version>
+	<description>Theme pack iC rounded for iCagenda (component + module)</description>
+
+	<administration>
+	</administration>
+
+	<files folder="site">
+		<folder>ic_rounded</folder>
+		<filename>ic_rounded.xml</filename>
+	</files>
+
+	<themeUpdate>https://www.joomlic.com/icupdate/themes</themeUpdate>
+
+</installtheme>

@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+
+	<layout title="COM_ICAGENDA_SUBMIT_VIEW_DEFAULT_TITLE" option="COM_ICAGENDA_SUBMIT_VIEW_DEFAULT_OPTION">
+		<!--help
+			key = "COM_ICAGENDA_HELP_MENUS_MENU_ITEM_SUBMIT"
+		/-->
+		<message>
+			<![CDATA[COM_ICAGENDA_SUBMIT_VIEW_DEFAULT_DESC]]>
+		</message>
+	</layout>
+
+	<fields id="params" name="params" type="fields" label="params">
+
+		<fieldset
+			name="ICAGENDA"
+			label="COM_ICAGENDA_MENU_OPTIONS"
+			addfieldpath="/administrator/components/com_content/models/fields"
+			addfieldprefix="Joomla\Component\Content\Administrator\Field"
+			>
+
+			<field
+				name="template"
+				type="hidden"
+				label="COM_ICAGENDA_LBL_TEMPLATE"
+				description="COM_ICAGENDA_DESC_TEMPLATE"
+				default="default"
+			/>
+
+			<field
+				name="separator_form"
+				type="icagenda.Separator"
+				label="COM_ICAGENDA_FORM_LABEL"
+				class="ic-lead ic-lead-bg-light"
+				iconprefix="iCicon-"
+				icon="form"
+				iconclass="text-info"
+				labelclass="text-info"
+			/>
+
+			<field
+				name="orderby_catlist"
+				type="list"
+				label="COM_ICAGENDA_CATEGORY_ORDER_LABEL"
+				description="COM_ICAGENDA_CATEGORY_SELECT_LIST_ORDER_DESC"
+				default="alpha"
+				>
+				<option value="none">JGLOBAL_NO_ORDER</option>
+				<option value="alpha">JGLOBAL_TITLE_ALPHABETICAL</option>
+				<option value="ralpha">JGLOBAL_TITLE_REVERSE_ALPHABETICAL</option>
+				<option value="order">JGLOBAL_CATEGORY_MANAGER_ORDER</option>
+			</field>
+
+			<field
+				name="default_catlist"
+				type="icagenda.CategorySelect"
+				label="COM_ICAGENDA_CATEGORY_SELECT_LIST_DEFAULT_LABEL"
+				description="COM_ICAGENDA_CATEGORY_SELECT_LIST_DEFAULT_DESC"
+				class="form-select"
+			/>
+
+			<field
+				name="submit_language_display"
+				type="list"
+				label="JFIELD_LANGUAGE_LABEL"
+				description=""
+				useglobal="true"
+				class="form-select-color-state"
+				>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="submit_imageDisplay"
+				type="list"
+				label="COM_ICAGENDA_SUBMIT_EVENT_IMAGE_DISPLAY_LABEL"
+				description="COM_ICAGENDA_SUBMIT_EVENT_IMAGE_DISPLAY_DESC"
+				useglobal="true"
+				class="form-select-color-state"
+				>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="submit_imageMaxSize"
+				type="number"
+				label="COM_ICAGENDA_SUBMIT_EVENT_IMAGE_MAX_SIZE_LABEL"
+				description="COM_ICAGENDA_SUBMIT_EVENT_IMAGE_MAX_SIZE_MENU_DESC"
+				min="10"
+				useglobal="true"
+				showon="submit_imageDisplay!:0"
+			/>
+
+			<field
+				name="submit_periodDisplay"
+				type="list"
+				label="COM_ICAGENDA_SUBMIT_PERIOD_DISPLAY_LABEL"
+				description="COM_ICAGENDA_SUBMIT_PERIOD_DISPLAY_DESC"
+				useglobal="true"
+				class="form-select-color-state"
+				>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="submit_weekdaysDisplay"
+				type="list"
+				label="COM_ICAGENDA_SUBMIT_WEEKDAYS_DISPLAY_LABEL"
+				description="COM_ICAGENDA_SUBMIT_WEEKDAYS_DISPLAY_DESC"
+				useglobal="true"
+				class="form-select-color-state"
+				>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="submit_datesDisplay"
+				type="list"
+				label="COM_ICAGENDA_SUBMIT_DATES_DISPLAY_LABEL"
+				description="COM_ICAGENDA_SUBMIT_DATES_DISPLAY_DESC"
+				useglobal="true"
+				class="form-select-color-state"
+				>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="submit_displaytimeDisplay"
+				type="list"
+				label="COM_ICAGENDA_SUBMIT_DISPLAYTIME_DISPLAY_LABEL"
+				description="COM_ICAGENDA_SUBMIT_DISPLAYTIME_DISPLAY_DESC"
+				useglobal="true"
+				class="form-select-color-state"
+				>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="submit_shortdescDisplay"
+				type="list"
+				label="COM_ICAGENDA_SUBMIT_SHORTDESC_DISPLAY_LABEL"
+				description="COM_ICAGENDA_SUBMIT_SHORTDESC_DISPLAY_DESC"
+				useglobal="true"
+				class="form-select-color-state"
+				>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="char_limit_short_description"
+				type="number"
+				label="COM_ICAGENDA_LBL_LIMIT"
+				description="COM_ICAGENDA_SHORT_DESCRIPTION_LIMIT_DESC"
+				min="10"
+				useglobal="true"
+				showon="submit_shortdescDisplay!:0"
+			/>
+
+			<field
+				name="submit_descDisplay"
+				type="list"
+				label="COM_ICAGENDA_SUBMIT_DESCRIPTION_DISPLAY_LABEL"
+				description="COM_ICAGENDA_SUBMIT_DESCRIPTION_DISPLAY_DESC"
+				useglobal="true"
+				class="form-select-color-state"
+				>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="submit_metadescDisplay"
+				type="list"
+				label="COM_ICAGENDA_SUBMIT_METADESCRIPTION_DISPLAY_LABEL"
+				description="COM_ICAGENDA_SUBMIT_METADESCRIPTION_DISPLAY_DESC"
+				useglobal="true"
+				class="form-select-color-state"
+				>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="char_limit_meta_description"
+				type="number"
+				label="COM_ICAGENDA_LBL_LIMIT"
+				description="COM_ICAGENDA_META_DESCRIPTION_LIMIT_DESC"
+				min="80"
+				useglobal="true"
+				showon="submit_metadescDisplay!:0"
+			/>
+
+			<field
+				name="submit_venueDisplay"
+				type="list"
+				label="COM_ICAGENDA_SUBMIT_VENUE_DISPLAY_LABEL"
+				description="COM_ICAGENDA_SUBMIT_VENUE_DISPLAY_DESC"
+				useglobal="true"
+				class="form-select-color-state"
+				>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="submit_websiteDisplay"
+				type="list"
+				label="COM_ICAGENDA_SUBMIT_WEBSITE_DISPLAY_LABEL"
+				description="COM_ICAGENDA_SUBMIT_WEBSITE_DISPLAY_DESC"
+				useglobal="true"
+				class="form-select-color-state"
+				>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="submit_emailDisplay"
+				type="list"
+				label="COM_ICAGENDA_SUBMIT_EMAIL_DISPLAY_LABEL"
+				description="COM_ICAGENDA_SUBMIT_EMAIL_DISPLAY_DESC"
+				useglobal="true"
+				class="form-select-color-state"
+				>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="submit_phoneDisplay"
+				type="list"
+				label="COM_ICAGENDA_SUBMIT_PHONE_DISPLAY_LABEL"
+				description="COM_ICAGENDA_SUBMIT_PHONE_DISPLAY_DESC"
+				useglobal="true"
+				class="form-select-color-state"
+				>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="submit_customfieldsDisplay"
+				type="list"
+				label="COM_ICAGENDA_CUSTOMFIELDS"
+				description="COM_ICAGENDA_SUBMIT_CUSTOMFIELDS_DISPLAY_DESC"
+				useglobal="true"
+				class="form-select-color-state"
+				>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="submit_fileDisplay"
+				type="list"
+				label="COM_ICAGENDA_SUBMIT_ATTACHMENT_DISPLAY_LABEL"
+				description="COM_ICAGENDA_SUBMIT_ATTACHMENT_DISPLAY_DESC"
+				useglobal="true"
+				class="form-select-color-state"
+				>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="submit_gmapDisplay"
+				type="list"
+				label="COM_ICAGENDA_SUBMIT_MAP_DISPLAY_LABEL"
+				description="COM_ICAGENDA_SUBMIT_MAP_DISPLAY_DESC"
+				useglobal="true"
+				class="form-select-color-state"
+				>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="submit_regoptionsDisplay"
+				type="list"
+				label="COM_ICAGENDA_SUBMIT_REGISTRATION_OPTIONS_DISPLAY_LABEL"
+				description="COM_ICAGENDA_SUBMIT_REGISTRATION_OPTIONS_DISPLAY_DESC"
+				useglobal="true"
+				class="form-select-color-state"
+				>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="submit_captcha"
+				type="list"
+				label="COM_ICAGENDA_CAPTCHA"
+				description="COM_ICAGENDA_SUBMIT_CAPTCHA_DESC"
+				useglobal="true"
+				class="form-select-color-state"
+				>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+
+			<field
+				name="submitReturn"
+				type="list"
+				label="COM_ICAGENDA_SUBMIT_RETURN_LBL"
+				description="COM_ICAGENDA_SUBMIT_RETURN_DESC"
+				useglobal="true"
+				>
+				<option value="1">IC_ARTICLE</option>
+				<option value="2">IC_URL</option>
+			</field>
+
+			<field
+				name="submitReturn_Article"
+				type="modal_article"
+				label=""
+				showon="submitReturn:1"
+			/>
+
+			<field
+				name="submitReturn_Url"
+				type="url"
+				label=""
+				hint="IC_HINT_URL"
+				showon="submitReturn:2"
+			/>
+		</fieldset>
+	</fields>
+</metadata>

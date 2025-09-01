@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="library" method="upgrade">
+	<name>iC Library</name>
+	<libraryname>ic_library</libraryname>
+	<author>Cyril Reze</author>
+	<creationDate>2025-04-22</creationDate>
+	<copyright>Copyright (c)2013-2025 Cyril Reze / JoomliC - All rights reserved</copyright>
+	<license>GNU General Public License version 3 or later; see LICENSE.txt</license>
+	<authorEmail>info@joomlic.com</authorEmail>
+	<authorUrl>https://www.joomlic.com</authorUrl>
+	<version>2.2.3</version>
+	<description>ICLIB_XML_DESCRIPTION</description>
+	<packager>Jooml!C</packager>
+	<packagerurl>https://www.joomlic.com</packagerurl>
+
+	<files>
+		<folder>Color</folder>
+		<folder>Date</folder>
+		<folder>File</folder>
+		<folder>Field</folder>
+		<folder>Filter</folder>
+		<folder>Globalize</folder>
+		<folder>lib</folder>
+		<folder>Library</folder>
+		<folder>Render</folder>
+		<folder>Rule</folder>
+		<folder>String</folder>
+		<folder>Thumb</folder>
+		<folder>Url</folder>
+		<folder>Utf8</folder>
+		<folder>Vendor</folder>
+		<file>LICENSE.txt</file>
+	</files>
+
+	<languages>
+		<language tag="en-GB">language/en-GB/en-GB.lib_ic_library.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.lib_ic_library.sys.ini</language>
+		<language tag="fr-FR">language/fr-FR/fr-FR.lib_ic_library.ini</language>
+		<language tag="fr-FR">language/fr-FR/fr-FR.lib_ic_library.sys.ini</language>
+		<language tag="it-IT">language/it-IT/it-IT.lib_ic_library.ini</language>
+		<language tag="it-IT">language/it-IT/it-IT.lib_ic_library.sys.ini</language>
+	</languages>
+
+</extension>

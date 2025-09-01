@@ -1,0 +1,711 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="module" method="upgrade" client="site">
+	<name>iCagenda - Calendar</name>
+	<author>Cyril Rezé</author>
+	<creationDate>2025-03-10</creationDate>
+	<copyright>Copyright (c) 2012-2025 Cyril Rezé / JoomliC. All rights reserved.</copyright>
+	<license>GNU General Public License version 3 or later; see LICENSE.txt</license>
+	<authorEmail>info@joomlic.com</authorEmail>
+	<authorUrl>www.joomlic.com</authorUrl>
+	<version>3.9.10</version>
+	<description>Calendar module for iCagenda component</description>
+
+	<files>
+		<filename>mod_iccalendar.xml</filename>
+		<filename module="mod_iccalendar">mod_iccalendar.php</filename>
+		<filename>helper.php</filename>
+		<folder>js</folder>
+	</files>
+
+	<languages folder="site">
+		<language tag="en-GB">language/en-GB/en-GB.mod_iccalendar.ini</language>
+		<language tag="fr-FR">language/fr-FR/fr-FR.mod_iccalendar.ini</language>
+		<language tag="it-IT">language/it-IT/it-IT.mod_iccalendar.ini</language>
+	</languages>
+
+	<config>
+
+		<fields id="params" name="params" type="fields" label="params">
+
+			<fieldset name="basic" addfieldpath="/administrator/components/com_icagenda/utilities/field">
+
+				<field
+					name="template"
+					type="icagenda.Theme"
+					label="MOD_ICCALENDAR_THEME_PACK_LBL"
+					description="MOD_ICCALENDAR_THEME_PACK_DESC"
+					default="default"
+					class="form-select"
+					size="40"
+				/>
+
+				<field
+					name="iCmenuitem"
+					type="icagenda.EventsMenuItems"
+					label="ICAGENDA_MODULE_MENU_ITEM_LABEL"
+					description="ICAGENDA_MODULE_MENU_ITEM_DESC"
+					default=""
+					class="form-select"
+				/>
+
+				<field
+					name="iCmenu_filters"
+					type="radio"
+					label="ICAGENDA_MODULE_MENU_FILTERS_LABEL"
+					description="ICAGENDA_MODULE_MENU_FILTERS_DESC"
+					default="0"
+					layout="joomla.form.field.radio.switcher"
+					>
+					<option value="0">JDISABLED</option>
+					<option value="1">JENABLED</option>
+				</field>
+
+				<field
+					name="firstMonth"
+					type="calendar"
+					label="MOD_ICCALENDAR_LOADING_ON_DATE_LBL"
+					description="MOD_ICCALENDAR_LOADING_ON_DATE_DESC"
+					default=""
+				/>
+
+				<field
+					name="separator_filters"
+					type="icagenda.Separator"
+					label="MOD_ICCALENDAR_FILTERS_LABEL"
+					class="ic-lead ic-lead-bg-light"
+					iconprefix="iCicon-"
+					icon="filter"
+					iconclass="text-info"
+					labelclass="text-info"
+				/>
+
+				<field
+					name="mcatid"
+					type="icagenda.MultipleCategory"
+					label="MOD_ICCALENDAR_LBL_CATEGORY"
+					description="MOD_ICCALENDAR_DESC_CATEGORY"
+					default=""
+					multiple="true"
+					extension="com_icagenda"
+					layout="joomla.form.field.list-fancy-select"
+				/>
+
+				<field
+					name="onlyStDate"
+					type="list"
+					label="MOD_ICCALENDAR_LBL_PERIOD"
+					description="MOD_ICCALENDAR_PERIOD_ONLY_START_DATE_DESC"
+					default=""
+					class="btn-group"
+					>
+					<option value="">PERIOD_ALL_DATES</option>
+					<option value="1">PERIOD_ONLY_START_DATE</option>
+				</field>
+
+				<field
+					name="separator_header"
+					type="icagenda.Separator"
+					label="MOD_ICCALENDAR_HEADER_TEXT_LBL"
+					class="ic-lead ic-lead-bg-light"
+					iconprefix="iCicon-"
+					icon="bi-color-header"
+					iconclass="text-info"
+					labelclass="text-info"
+				/>
+
+				<field
+					name="header_text"
+					type="editor"
+					label="MOD_ICCALENDAR_HEADER_TEXT_LBL"
+					description="MOD_ICCALENDAR_HEADER_TEXT_DESC"
+					default=""
+					filter="\Joomla\CMS\Component\ComponentHelper::filterText"
+				/>
+
+				<field
+					name="separator_tooltip"
+					type="icagenda.Separator"
+					label="MOD_ICCALENDAR_LBL_TOOLTIP"
+					class="ic-lead ic-lead-bg-light"
+					iconprefix="iCicon-"
+					icon="calendar-2"
+					iconclass="text-info"
+					labelclass="text-info"
+				/>
+
+				<field
+					name="tipwidth"
+					type="number"
+					label="MOD_ICCALENDAR_LBL_TIP_WIDTH"
+					description="MOD_ICCALENDAR_DESC_TIP_WIDTH"
+					default="390"
+					min="120"
+				/>
+
+				<field
+					name="position"
+					type="radio"
+					label="MOD_ICCALENDAR_LBL_HORIZ_POSITION"
+					description="MOD_ICCALENDAR_DESC_HORIZ_POSITION"
+					default="center"
+					class="btn-group"
+					>
+					<option value="left">MOD_ICCALENDAR_HORIZ_POSITION_LEFT</option>
+					<option value="center">MOD_ICCALENDAR_HORIZ_POSITION_MIDDLE</option>
+					<option value="right">MOD_ICCALENDAR_HORIZ_POSITION_RIGHT</option>
+				</field>
+
+				<field
+					name="posmiddle"
+					type="radio"
+					label="MOD_ICCALENDAR_LBL_VERT_POSITION"
+					description="MOD_ICCALENDAR_DESC_VERT_POSITION"
+					default="top"
+					class="btn-group"
+					>
+					<option value="top">MOD_ICCALENDAR_VERT_POSITION_TOP</option>
+					<option value="bottom">MOD_ICCALENDAR_VERT_POSITION_BOTTOM</option>
+				</field>
+
+				<field
+					name="verticaloffset"
+					type="number"
+					label="MOD_ICCALENDAR_LBL_VERT_POSITION_OFFSET"
+					description="MOD_ICCALENDAR_DESC_VERT_POSITION_OFFSET"
+					default="50"
+					min="0"
+				/>
+
+				<field
+					name="padding"
+					type="number"
+					label="MOD_ICCALENDAR_LBL_TIP_PADDING"
+					description="MOD_ICCALENDAR_DESC_TIP_PADDING"
+					default="0"
+					min="0"
+				/>
+
+				<field
+					name="mouseover"
+					type="radio"
+					label="MOD_ICCALENDAR_LBL_MOUSEOVER"
+					description="MOD_ICCALENDAR_DESC_MOUSEOVER"
+					default="click"
+					class="btn-group"
+					>
+					<option value="click">MOD_ICCALANDAR_OPEN_CLICK</option>
+					<option value="mouseover">MOD_ICCALANDAR_OPEN_MOUSEOVER</option>
+				</field>
+
+				<field
+					name="mouseout"
+					type="radio"
+					label="MOD_ICCALENDAR_CLOSE_ON_MOUSEOUT_LBL"
+					description="MOD_ICCALENDAR_CLOSE_ON_MOUSEOUT_DESC"
+					default="1"
+					layout="joomla.form.field.radio.switcher"
+					>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+
+				<field
+					name="separator_globalization"
+					type="icagenda.Separator"
+					label=" "
+					separatortype="subheader"
+					hr="true"
+					class="col-12"
+				/>
+
+				<field
+					name="format"
+					type="ic.LocaleDateFormats"
+					label="COM_ICAGENDA_LBL_FORMAT"
+					default=""
+					class="form-select"
+				/>
+
+				<field
+					name="date_separator"
+					type="text"
+					label="COM_ICAGENDA_LBL_DATE_SEPARATOR"
+					description="COM_ICAGENDA_DESC_DATE_COMPONENTS_SEPARATOR"
+					default=""
+					showon="format:d * m * Y[OR]format:d * m * y[OR]format:d * m * y[OR]format:d * m[OR]format:m * y[OR]format:d * F * Y[OR]format:d * M * Y[OR]format:m * d * Y[OR]format:m * d * y[OR]format:m * d[OR]format:m * y[OR]format:F * d * Y[OR]format:M * d * Y[OR]format:Y * m * d[OR]format:y * m * d[OR]format:m * d[OR]format:y * m[OR]format:Y * F * d[OR]format:Y * M * d"
+				/>
+
+				<field
+					name="separator_globalizationinfo"
+					type="icagenda.Separator"
+					label="COM_ICAGENDA_DATE_FORMAT_NOTE1"
+					separatortype="information"
+					class="alert alert-info mt-1 mb-0 py-3"
+					iconprefix="iCicon-"
+					icon="circle-info"
+				/>
+
+				<field
+					name="separator_globalizationinfo2"
+					type="icagenda.Separator"
+					label="COM_ICAGENDA_DATE_FORMAT_NOTE2"
+					separatortype="information"
+					class="alert alert-warning ic-n-mt-1 mb-0 py-3"
+					iconprefix="icon-"
+					icon="lamp"
+				/>
+
+				<field
+					name="separator_tooltipinfos"
+					type="icagenda.Separator"
+					label="MOD_ICCALENDAR_LBL_TOOLTIP_INFOS"
+					separatortype="subheader"
+					hr="true"
+					class="col-12"
+					labelclass="text-info"
+				/>
+
+				<field
+					name="dp_time"
+					type="radio"
+					label="MOD_ICCALENDAR_DISPLAY_TIME_LABEL"
+					description="MOD_ICCALENDAR_DISPLAY_TIME_DESC"
+					default="1"
+					layout="joomla.form.field.radio.switcher"
+					>
+					<option value="0">JHIDE</option>
+					<option value="1">JSHOW</option>
+				</field>
+
+				<field
+					name="dp_venuename"
+					type="radio"
+					label="MOD_ICCALENDAR_DISPLAY_VENUE_NAME_LABEL"
+					description="MOD_ICCALENDAR_DISPLAY_VENUE_NAME_DESC"
+					default="1"
+					layout="joomla.form.field.radio.switcher"
+					>
+					<option value="0">JHIDE</option>
+					<option value="1">JSHOW</option>
+				</field>
+
+				<field
+					name="dp_city"
+					type="radio"
+					label="MOD_ICCALENDAR_DISPLAY_CITY_LABEL"
+					description="MOD_ICCALENDAR_DISPLAY_CITY_DESC"
+					default="1"
+					layout="joomla.form.field.radio.switcher"
+					>
+					<option value="0">JHIDE</option>
+					<option value="1">JSHOW</option>
+				</field>
+
+				<field
+					name="dp_country"
+					type="radio"
+					label="MOD_ICCALENDAR_DISPLAY_COUNTRY_LABEL"
+					description="MOD_ICCALENDAR_DISPLAY_COUNTRY_DESC"
+					default="1"
+					layout="joomla.form.field.radio.switcher"
+					>
+					<option value="0">JHIDE</option>
+					<option value="1">JSHOW</option>
+				</field>
+
+				<field
+					name="dp_regInfos"
+					type="radio"
+					label="MOD_ICCALENDAR_DISPLAY_REGISTRATION_INFOS_LABEL"
+					description="MOD_ICCALENDAR_DISPLAY_REGISTRATION_INFOS_DESC"
+					default="1"
+					layout="joomla.form.field.radio.switcher"
+					>
+					<option value="0">JHIDE</option>
+					<option value="1">JSHOW</option>
+				</field>
+
+				<field
+					name="features_icon_size"
+					type="list"
+					label="MOD_ICCALENDAR_FEATURES_ICONSIZE_LABEL"
+					description="MOD_ICCALENDAR_FEATURES_ICONSIZE_DESC"
+					default=""
+					class="inputbox"
+					filter="options"
+					>
+					<option value="">COM_ICAGENDA_FEATURES_ICONSIZE_NONE</option>
+					<option value="16_bit">COM_ICAGENDA_FEATURES_ICONSIZE_16</option>
+					<option value="24_bit">COM_ICAGENDA_FEATURES_ICONSIZE_24</option>
+					<option value="32_bit">COM_ICAGENDA_FEATURES_ICONSIZE_32</option>
+					<option value="48_bit">COM_ICAGENDA_FEATURES_ICONSIZE_48</option>
+					<option value="64_bit">COM_ICAGENDA_FEATURES_ICONSIZE_64</option>
+				</field>
+
+				<field
+					name="show_icon_title"
+					type="radio"
+					label="MOD_ICCALENDAR_SHOW_FEATURE_ICON_TITLE_LABEL"
+					description="MOD_ICCALENDAR_SHOW_FEATURE_ICON_TITLE_DESC"
+					default="1"
+					layout="joomla.form.field.radio.switcher"
+					>
+					<option value="0">JHIDE</option>
+					<option value="1">JSHOW</option>
+				</field>
+
+				<field
+					name="dp_shortDesc"
+					type="radio"
+					label="COM_ICAGENDA_LIST_INTROTEXT_DISPLAY_LABEL"
+					description="COM_ICAGENDA_LIST_INTROTEXT_DISPLAY_DESC"
+					default=""
+					class="btn-group"
+					>
+					<option value="">IC_AUTO</option>
+					<option value="0">JHIDE</option>
+					<option value="1">IC_SHORTDESC</option>
+					<option value="2">IC_AUTO_INTROTEXT</option>
+				</field>
+
+				<field
+					name="filtering_shortDesc"
+					type="list"
+					label="ICAGENDA_FILTERING_SHORTDESC_LABEL"
+					description="ICAGENDA_FILTERING_SHORTDESC_DESC"
+					default=""
+					class="btn-group"
+					>
+					<option value="">ICAGENDA_GLOBAL_OPTION</option>
+					<option value="1">ICAGENDA_FILTERING_NO_HTML</option>
+					<option value="2">ICAGENDA_FILTERING_ALL_ITALIC</option>
+				</field>
+
+				<field
+					name="paramlimit"
+					type="radio"
+					label="ICAGENDA_AUTO_INTROTEXT_LIMIT_LABEL"
+					description="ICAGENDA_AUTO_INTROTEXT_LIMIT_DESC"
+					default="0"
+					class="btn-group"
+					>
+					<option value="0">JGLOBAL_USE_GLOBAL</option>
+					<option value="1">COM_ICAGENDA_LBL_CUSTOM_VALUE</option>
+				</field>
+
+				<field
+					name="paramlimit_Content"
+					type="text"
+					label=" "
+					class="form-control"
+					showon="paramlimit:1"
+				/>
+
+				<field
+					name="calendarclosebtn"
+					type="radio"
+					label="COM_ICAGENDA_LBL_CLOSE_TEXT"
+					description="COM_ICAGENDA_DESC_CLOSE_TEXT"
+					default="0"
+					class="btn-group"
+					>
+					<option value="0">IC_DEFAULT</option>
+					<option value="1">COM_ICAGENDA_LBL_CUSTOM_VALUE</option>
+				</field>
+
+				<field
+					name="calendarclosebtn_Content"
+					type="text"
+					label=" "
+					default="X"
+					class="form-control"
+					showon="calendarclosebtn:1"
+				/>
+
+				<field
+					name="separator_display"
+					type="icagenda.Separator"
+					label="MOD_ICCALENDAR_LBL_DISPLAY"
+					class="ic-lead ic-lead-bg-light"
+					iconprefix="iCicon-"
+					icon="eye"
+					iconclass="text-info"
+					labelclass="text-info"
+				/>
+
+				<field
+					name="separator_navigation"
+					type="icagenda.Separator"
+					label="MOD_ICCALENDAR_NAVIGATION"
+					separatortype="subheader"
+					class="col-12"
+					labelclass="text-info"
+				/>
+
+				<field
+					name="month_nav"
+					type="radio"
+					label="MOD_ICCALENDAR_NAVIGATION_MONTH_DISPLAY_LBL"
+					description="MOD_ICCALENDAR_NAVIGATION_MONTH_DISPLAY_DESC"
+					default="1"
+					layout="joomla.form.field.radio.switcher"
+					>
+					<option value="0">JHIDE</option>
+					<option value="1">JSHOW</option>
+				</field>
+
+				<field
+					name="year_nav"
+					type="radio"
+					label="MOD_ICCALENDAR_NAVIGATION_YEAR_DISPLAY_LBL"
+					description="MOD_ICCALENDAR_NAVIGATION_YEAR_DISPLAY_DESC"
+					default="1"
+					layout="joomla.form.field.radio.switcher"
+					>
+					<option value="0">JHIDE</option>
+					<option value="1">JSHOW</option>
+				</field>
+
+				<field
+					name="separator_firstday"
+					type="icagenda.Separator"
+					label="MOD_ICCALENDAR_LBL_FIRSTDAY_WEEK"
+					separatortype="subheader"
+					hr="true"
+					class="col-12"
+					labelclass="text-info"
+				/>
+
+				<field
+					name="firstday"
+					type="list"
+					label="MOD_ICCALENDAR_LBL_FIRSTDAY"
+					default="1"
+					>
+					<option value="0">SUNDAY</option>
+					<option value="1">MONDAY</option>
+					<option value="2">TUESDAY</option>
+					<option value="3">WEDNESDAY</option>
+					<option value="4">THURSDAY</option>
+					<option value="5">FRIDAY</option>
+					<option value="6">SATURDAY</option>
+				</field>
+
+				<field
+					name="separator_fontcolor"
+					type="icagenda.Separator"
+					label="MOD_ICCALENDAR_LBL_FONTCOLORS"
+					separatortype="subheader"
+					hr="true"
+					class="col-12"
+					labelclass="text-info"
+				/>
+
+				<field
+					name="calfontcolor"
+					type="color"
+					label="MOD_ICCALENDAR_CALENDAR_FONTCOLOR_LBL"
+					description="MOD_ICCALENDAR_CALENDAR_FONTCOLOR_DESC"
+					default=" "
+					filter="safehtml"
+				/>
+
+				<field
+					name="separator_bgcolor"
+					type="icagenda.Separator"
+					label="MOD_ICCALENDAR_LBL_BGCOLORS"
+					separatortype="subheader"
+					hr="true"
+					class="col-12"
+					labelclass="text-info"
+				/>
+
+				<field
+					name="OneEventbgcolor"
+					type="color"
+					label="MOD_ICCALENDAR_DAY_WITH_ONE_EVENT_BACKGROUND_COLOR_LBL"
+					description="MOD_ICCALENDAR_DAY_WITH_ONE_EVENT_BACKGROUND_COLOR_DESC"
+					default=" "
+					filter="safehtml"
+				/>
+
+				<field
+					name="Eventsbgcolor"
+					type="color"
+					label="MOD_ICCALENDAR_DAY_WITH_EVENTS_BACKGROUND_COLOR_LBL"
+					description="MOD_ICCALENDAR_DAY_WITH_EVENTS_BACKGROUND_COLOR_DESC"
+					default=" "
+					filter="safehtml"
+				/>
+
+				<field
+					name="bgcolor"
+					type="color"
+					label="ICCALENDAR_BACKGROUND_COLOR"
+					description="ICCALENDAR_BACKGROUND_COLOR_DESC"
+					default=" "
+					filter="safehtml"
+				/>
+
+				<field
+					name="bgimage"
+					type="media"
+					label="ICCALENDAR_BACKGROUND_IMAGE"
+					description="ICCALENDAR_BACKGROUND_IMAGE_DESC"
+					default=""
+					filter="safehtml"
+				/>
+
+				<field
+					name="bgimagerepeat"
+					type="list"
+					label="ICCALENDAR_BACKGROUND_IMAGE_REPEAT"
+					description="ICCALENDAR_BACKGROUND_IMAGE_REPEAT_DESC"
+					default="repeat"
+					>
+					<option value="repeat">repeat</option>
+					<option value="repeat-x">repeat-x</option>
+					<option value="repeat-y">repeat-y</option>
+					<option value="no-repeat">no-repeat</option>
+				</field>
+
+				<field
+					name="mon"
+					type="color"
+					label="MONDAY"
+					default=" "
+					filter="safehtml"
+				/>
+
+				<field
+					name="tue"
+					type="color"
+					label="TUESDAY"
+					default=" "
+					filter="safehtml"
+				/>
+
+				<field
+					name="wed"
+					type="color"
+					label="WEDNESDAY"
+					default=" "
+					filter="safehtml"
+				/>
+
+				<field
+					name="thu"
+					type="color"
+					label="THURSDAY"
+					default=" "
+					filter="safehtml"
+				/>
+
+				<field
+					name="fri"
+					type="color"
+					label="FRIDAY"
+					default=" "
+					filter="safehtml"
+				/>
+
+				<field
+					name="sat"
+					type="color"
+					label="SATURDAY"
+					default=" "
+					filter="safehtml"
+				/>
+
+				<field
+					name="sun"
+					type="color"
+					label="SUNDAY"
+					default=" "
+					filter="safehtml"
+				/>
+
+			</fieldset>
+
+			<fieldset name="ADVANCED" label="MOD_ICCALENDAR_LBL_ADVANCED">
+
+				<field
+					name="moduleclass_sfx"
+					type="text"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					icon="text_signature.png"
+				/>
+
+				<field
+					name="cache"
+					type="list"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					default="0"
+					readonly="true"
+					>
+					<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+
+				<field
+					name="separator_modulecache"
+					type="icagenda.Separator"
+					label="WARNING"
+					description="MOD_ICCALENDAR_CACHE_NOTE"
+					separatortype="information"
+					class="alert alert-warning ic-n-mt-1 py-3"
+					iconprefix="icon-"
+					icon="warning"
+					labelclass="text-danger fw-bolder"
+				/>
+
+				<field
+					name="loadJquery"
+					type="hidden"
+					label="MOD_ICCALENDAR_LBL_LOADJQUERY"
+					description="MOD_ICCALENDAR_DESC_LOADJQUERY"
+					default="auto"
+					class="btn-group"
+					>
+					<option value="auto">MOD_ICCALENDAR_LOADJQUERY_AUTO</option>
+					<option value="0">MOD_ICCALENDAR_LOADJQUERY_NO</option>
+					<option value="1">MOD_ICCALENDAR_LOADJQUERY_YES</option>
+				</field>
+
+				<field
+					name="setTodayTimezone"
+					type="list"
+					label="ICAGENDA_LBL_TODAY_TIMEZONE"
+					description="ICAGENDA_DESC_TODAY_TIMEZONE"
+					default=""
+					>
+					<option value="">ICAGENDA_VISITOR_TIMEZONE</option>
+					<option value="SITE">ICAGENDA_JOOMLA_SERVER_TIMEZONE</option>
+					<option value="UTC">ICAGENDA_UTC_TIMEZONE</option>
+					<!--option value="2">ICAGENDA_HOSTING_SERVER_TIMEZONE</option-->
+				</field>
+
+				<!--field
+					name="cache_time"
+					type="text"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC"
+					default="900"
+					icon="hourglass.png"
+					suffix="min"
+				/-->
+
+				<field
+					name="cachemode"
+					type="hidden"
+					default="itemid"
+					>
+					<option	value="itemid"></option>
+				</field>
+
+			</fieldset>
+
+		</fields>
+
+	</config>
+
+</extension>

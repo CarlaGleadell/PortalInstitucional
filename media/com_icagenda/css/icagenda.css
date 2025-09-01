@@ -1,0 +1,683 @@
+/**
+ *----------------------------------------------------------------------------
+ * iCagenda     Events Management Extension for Joomla!
+ *----------------------------------------------------------------------------
+ * @version     3.8.19 2023-10-18
+ *
+ * @package     iCagenda.Media
+ * @subpackage  CSS
+ * @link        https://www.icagenda.com
+ *
+ * @author      Cyril Rezé
+ * @copyright   (c) 2012-2024 Cyril Rezé / iCagenda. All rights reserved.
+ * @license     GNU General Public License version 3 or later; see LICENSE.txt
+ *
+ * @since       3.5
+ *----------------------------------------------------------------------------
+*/
+
+/**
+ *--------------*
+ *  CSS Common  *
+ *--------------*
+*/
+
+.ic-svg {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+.ic-text-decoration-none {
+  text-decoration: none !important;
+}
+.ic-button {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.ic-button:hover {
+  opacity: 0.8;
+}
+
+.ic-field-muted {
+  margin: 1px 0;
+}
+
+.ic-bolder {
+  font-weight: bolder;
+}
+
+.ic-border-1 {
+  border-width: 1px;
+}
+
+.ic-border-2 {
+  border-width: 2px;
+}
+
+.ic-opacity-1 {
+  opacity: 1 !important;
+}
+
+.ic-label-hidden > label {
+  display: none;
+}
+
+.ic-lead {
+  font-size: 1.25rem;
+  font-weight: 300;
+  margin-top: 2rem;
+  padding: 0.65rem 1rem;
+  width: 100%;
+}
+.ic-lead-first {
+  margin-top: 0;
+}
+.ic-lead-bg-light {
+  background: linear-gradient(rgba(0,0,0,.05), transparent);
+  border-radius: 0.2rem 0.2rem 0 0;
+}
+
+.ic-fs-1 {
+  font-size: 1rem;
+}
+.ic-fs-1-25 {
+  font-size: 1.25rem;
+}
+.ic-fs-1-5 {
+  font-size: 1.5rem;
+}
+.ic-fs-1-75 {
+  font-size: 1.75rem;
+}
+.ic-fs-2 {
+  font-size: 2rem;
+}
+.ic-fs-2-5 {
+  font-size: 2.5rem;
+}
+
+/*
+ * iC Dropdown
+ */
+.ic-dropdown {
+  display: inline-block;
+  width: auto;
+}
+.ic-dropdown-menu {
+  position: absolute;
+  z-index: 1000;
+  display: none;
+  min-width: 10rem;
+  max-height: 50vh;
+  overflow: auto;
+  padding: 0;
+  margin: 0;
+  font-size: 1rem;
+  color: #22262a;
+  text-align: left;
+  list-style: none;
+  background-clip: padding-box;
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: .25rem;
+  border-top-left-radius: 0;
+}
+.ic-dropdown-menu.open {
+  display: block;
+  position: absolute;
+}
+.ic-dropdown-item {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  clear: both;
+  font-weight: 400;
+  color: #22262a;
+  text-align: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0;
+}
+.ic-dropdown-item a {
+  text-decoration: none;
+}
+.ic-dropdown-item:hover,
+.ic-dropdown-item:focus-within {
+  background: rgba(0,0,0,0.05);
+}
+.ic-dropdown-item img {
+  vertical-align: middle;
+  padding: 0;
+  margin: 0;
+}
+.ic-dropdown-toggle {
+  border-bottom-right-radius: .25rem !important;
+  border-bottom-left-radius: .25rem !important;
+}
+.ic-dropdown-toggle::after {
+  display: inline-block;
+  margin-left: .255em;
+  vertical-align: .255em;
+  content: "";
+  border-top: .3em solid;
+  border-right: .3em solid transparent;
+  border-bottom: 0;
+  border-left: .3em solid transparent;
+}
+.ic-dropdown-toggle.show {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+/*
+ * iC Tooltip
+ */
+/* Tooltip container */
+.ic-tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+/* Tooltip Legend */
+.ic-tooltip-legend {
+  font-weight: 600;
+  width: auto;
+  margin: -5px -5px -15px -5px;
+  padding: 5px;
+  border-radius: 0.25rem 0.25rem 0 0;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/* Tooltip Content (Legend + Text) */
+.ic-tooltip .ic-tooltip-content {
+  visibility: hidden;
+  width: 160px;
+  background-color: white;
+  color: #111;
+  text-align: center;
+  padding: 5px;
+  border: 1px solid #999;
+  border-radius: 0.3rem;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.4);
+  font-size: 0.9rem;
+  position: absolute;
+  z-index: 1070;
+}
+
+/* Show the tooltip content when you mouse over the tooltip container */
+.ic-tooltip:focus .ic-tooltip-content,
+.ic-tooltip:hover .ic-tooltip-content {
+  visibility: visible;
+}
+
+.ic-tooltip .ic-tooltip-top {
+  bottom: 120%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+.ic-tooltip .ic-tooltip-top::after {
+  content: " ";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -6px;
+  border-width: 6px;
+  border-style: solid;
+  border-color: #999 transparent transparent transparent;
+}
+
+.ic-tooltip .ic-tooltip-bottom {
+  top: 120%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+.ic-tooltip .ic-tooltip-bottom::after {
+  content: " ";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -6px;
+  border-width: 6px;
+  border-style: solid;
+  border-color: transparent transparent #999 transparent;
+}
+
+.ic-tooltip .ic-tooltip-left {
+  top: -5px;
+  right: 110%;
+}
+
+.ic-tooltip .ic-tooltip-left::after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  margin-top: -3px;
+  margin-left: 0;
+  border-width: 6px;
+  border-style: solid;
+  border-color: transparent transparent transparent #999;
+}
+
+.ic-tooltip .ic-tooltip-right {
+  top: -5px;
+  left: 110%;
+}
+
+.ic-tooltip .ic-tooltip-right::after {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  margin-top: -3px;
+  margin-left: -6px;
+  border-width: 6px;
+  border-style: solid;
+  border-color: transparent #999 transparent transparent;
+}
+
+/*
+ * element border-radius
+ */
+.ic-radius-0,
+input.ic-radius-0 + [type="button"] {
+  border-radius: 0;
+}
+.ic-radius-1,
+input.ic-radius-1 + [type="button"] {
+  border-radius: 0.25rem;
+}
+.ic-radius-2,
+input.ic-radius-2 + [type="button"] {
+  border-radius: 0.5rem;
+}
+.ic-radius-3,
+input.ic-radius-3 + [type="button"] {
+  border-radius: 1rem;
+}
+.ic-radius-4,
+input.ic-radius-4 + [type="button"] {
+  border-radius: 1.5rem;
+}
+.ic-radius-5,
+input.ic-radius-5 + [type="button"] {
+  border-radius: 3rem;
+}
+
+/*
+ * element negative margin
+ */
+.ic-n-mt-1 {
+  margin-top: -0.25rem !important;
+}
+.ic-n-mt-2 {
+  margin-top: -0.5rem !important;
+}
+.ic-n-mt-3 {
+  margin-top: -1rem !important;
+}
+.ic-n-mt-4 {
+  margin-top: -1.5rem !important;
+}
+.ic-n-mt-5 {
+  margin-top: -3rem !important;
+}
+.ic-n-mb-1 {
+  margin-bottom: -0.25rem !important;
+}
+.ic-n-mb-2 {
+  margin-bottom: -0.5rem !important;
+}
+.ic-n-mb-3 {
+  margin-bottom: -1rem !important;
+}
+.ic-n-mb-4 {
+  margin-bottom: -1.5rem !important;
+}
+.ic-n-mb-5 {
+  margin-bottom: -3rem !important;
+}
+
+/*
+ * element margin
+ */
+.ic-margin-0 {
+  margin: 0 !important;
+}
+.ic-margin-1 {
+  margin: 0.25rem !important;
+}
+.ic-margin-2 {
+  margin: 0.5rem !important;
+}
+.ic-margin-3 {
+  margin: 1rem !important;
+}
+.ic-margin-4 {
+  margin: 1.5rem !important;
+}
+.ic-margin-5 {
+  margin: 3rem !important;
+}
+
+/*
+ * element padding
+ */
+ .ic-padding-0 {
+  padding: 0 !important;
+}
+.ic-padding-1 {
+  padding: 0.25rem !important;
+}
+.ic-padding-2 {
+  padding: 0.5rem !important;
+}
+.ic-padding-3 {
+  padding: 1rem !important;
+}
+.ic-padding-4 {
+  padding: 1.5rem !important;
+}
+.ic-padding-5 {
+  padding: 3rem !important;
+}
+.ic-padding-x-0 {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.ic-padding-x-1 {
+  padding-left: 0.25rem !important;
+  padding-right: 0.25rem !important;
+}
+.ic-padding-x-2 {
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
+}
+.ic-padding-x-3 {
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+.ic-padding-x-4 {
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+}
+.ic-padding-x-5 {
+  padding-left: 3rem !important;
+  padding-right: 3rem !important;
+}
+.ic-padding-y-0 {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+.ic-padding-y-1 {
+  padding-top: 0.25rem !important;
+  padding-bottom: 0.25rem !important;
+}
+.ic-padding-y-2 {
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+}
+.ic-padding-y-3 {
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+}
+.ic-padding-y-4 {
+  padding-top: 1.5rem !important;
+  padding-bottom: 1.5rem !important;
+}
+.ic-padding-y-5 {
+  padding-top: 3rem !important;
+  padding-bottom: 3rem !important;
+}
+
+
+.ic-row {
+  --gutter-x: 1rem;
+  --gutter-y: 0;
+}
+.ic-input-number-col-2 {
+  padding: .5rem;
+  text-align: right;
+}
+
+/* J3 */
+.ic-separator-input {
+  width: max-content;
+  max-width: 100%;
+}
+
+/*
+ * Extend BS breakpoints for big screen
+ */
+@media (min-width: 1600px) {
+  .col-xxxl-auto {
+    flex: 0 0 auto;
+    width: auto;
+  }
+
+  .col-xxxl-1 {
+    flex: 0 0 auto;
+    width: 8.33333333%;
+  }
+
+  .col-xxxl-2 {
+    flex: 0 0 auto;
+    width: 16.66666667%;
+  }
+
+  .col-xxxl-3 {
+    flex: 0 0 auto;
+    width: 25%;
+  }
+
+  .col-xxxl-4 {
+    flex: 0 0 auto;
+    width: 33.33333333%;
+  }
+
+  .col-xxxl-5 {
+    flex: 0 0 auto;
+    width: 41.66666667%;
+  }
+
+  .col-xxxl-6 {
+    flex: 0 0 auto;
+    width: 50%;
+  }
+
+  .col-xxxl-7 {
+    flex: 0 0 auto;
+    width: 58.33333333%;
+  }
+
+  .col-xxxl-8 {
+    flex: 0 0 auto;
+    width: 66.66666667%;
+  }
+
+  .col-xxxl-9 {
+    flex: 0 0 auto;
+    width: 75%;
+  }
+
+  .col-xxxl-10 {
+    flex: 0 0 auto;
+    width: 83.33333333%;
+  }
+
+  .col-xxxl-11 {
+    flex: 0 0 auto;
+    width: 91.66666667%;
+  }
+
+  .col-xxxl-12 {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+}
+
+/*
+ * Font color
+ */
+.ic-bg-bright {
+  color: #000;
+}
+.ic-bg-bright:focus,
+.ic-bg-bright:hover {
+  color: #000;
+}
+.ic-bg-dark {
+  color: #fff;
+}
+.ic-bg-dark:focus,
+.ic-bg-dark:hover {
+  color: #fff;
+}
+
+/* 
+ * Textarea live counter (Since 3.8.0)
+ */
+.ic-livecounter {
+  display: inline-block;
+}
+.ic-livecounter-20 {
+  color: initial;
+}
+.ic-livecounter-10 {
+  font-weight: 500;
+  color: initial;
+}
+.ic-livecounter-0 {
+  font-weight: 700;
+  color: red;
+}
+
+
+.ic-float-left {
+  float: left;
+}
+.ic-float-right {
+  float: right;
+}
+
+.ic-text-left {
+  text-align: left;
+}
+.ic-text-right {
+  text-align: right;
+}
+
+/* Form Field class */
+.ic-h4 {
+  margin: 9px 0;
+  font-family: inherit;
+  font-weight: bold;
+  line-height: 18px;
+  color: inherit;
+  text-rendering: optimizelegibility;
+}
+/* -- IC TEXT CHARACTERS COUNTER -------------------- */
+.ic-counter-container {
+  display: inline-block;
+  text-align: right;
+  vertical-align: bottom !important;
+  color: #777;
+  font-size: 0.9em;
+}
+.ic-counter {
+  display: inline-block;
+}
+.ic-counter input {
+  width: auto !important;
+  float: none !important; /* admin j2.5 */
+  vertical-align: bottom !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  text-align: right !important;
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  font-size: 1em;
+}
+.ic-counter-limit {
+  font-weight: bold;
+  color: red;
+}
+
+/* -- MAPS ----------------------------------- */
+.ic-map-container {
+  width: 100%;
+  margin-left: inherit;
+}
+/*
+.ic-map-container .search-input {
+  width: 94%;
+}
+*/
+.ic-map-box {
+  margin-top: 30px;
+}
+.ic-map-wrapper,
+.ic-map-iframe {
+  width: 100%;
+  height: 380px;
+  overflow: hidden;
+  box-sizing: content-box;
+}
+.ic-map-embed {
+  margin-top: 10px;
+}
+.ic-map-legend {
+  font-size: .8rem;
+  font-style: italic;
+}
+
+/**
+ *  Google Maps Integration
+ */
+
+/* For img in the map remove borders, shadow, no margin and no max-width */
+.map img, .svPanel img {
+  border: 0px;
+  box-shadow: none;
+  margin: 0px !important;
+  padding: 0px !important;
+  max-width: none !important;
+  background: none !important;
+}
+/* Make sure the directions are below the map */
+.directions {
+  clear: left;
+}
+.adp-directions {
+  width: 100%;
+}
+/* Solve problems in chrome with the show of the direction steps in full width */
+.adp-placemark {
+  width : 100%;
+}
+/* Padding for image overlay */
+.controlDiv {
+  padding : 5px;
+}
+/*
+.google-map-canvas,
+.google-map-canvas * {.box-sizing(content-box); }
+*/
+
+/* Fixed Known conflict Bootstrap/Google Maps (joomla 3.2) */
+.ic-map-wrapper img {
+  max-width: none;
+}

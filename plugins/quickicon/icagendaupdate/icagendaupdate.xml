@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="plugin" group="quickicon" method="upgrade">
+	<name>plg_quickicon_icagendaupdate</name>
+	<author>Cyril Rezé</author>
+	<creationDate>2024-03-04</creationDate>
+	<copyright>Copyright (c) 2012-2024 Cyril Rezé / iCagenda. All rights reserved.</copyright>
+	<license>GNU General Public License version 3 or later; see LICENSE.txt</license>
+	<authorEmail>info@joomlic.com</authorEmail>
+	<authorUrl>www.joomlic.com</authorUrl>
+	<version>2.0.0</version>
+	<description>PLG_QUICKICON_ICAGENDAUPDATE_XML_DESCRIPTION</description>
+	<namespace path="src">W3biC\Plugin\Quickicon\Icagendaupdate</namespace>
+	<files>
+		<filename plugin="icagendaupdate">icagendaupdate.php</filename>
+		<folder plugin="icagendaupdate">services</folder>
+		<folder>src</folder>
+	</files>
+	<languages>
+		<language tag="en-GB">language/en-GB/en-GB.plg_quickicon_icagendaupdate.ini</language>
+		<language tag="en-GB">language/en-GB/en-GB.plg_quickicon_icagendaupdate.sys.ini</language>
+		<language tag="fr-FR">language/fr-FR/fr-FR.plg_quickicon_icagendaupdate.ini</language>
+		<language tag="fr-FR">language/fr-FR/fr-FR.plg_quickicon_icagendaupdate.sys.ini</language>
+		<language tag="it-IT">language/it-IT/it-IT.plg_quickicon_icagendaupdate.ini</language>
+		<language tag="it-IT">language/it-IT/it-IT.plg_quickicon_icagendaupdate.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="context"
+					type="text"
+					label="PLG_QUICKICON_ICAGENDAUPDATE_GROUP_LABEL"
+					description="PLG_QUICKICON_ICAGENDAUPDATE_GROUP_DESC"
+					default="mod_quickicon"
+				/>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

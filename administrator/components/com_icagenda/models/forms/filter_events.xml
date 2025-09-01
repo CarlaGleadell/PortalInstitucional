@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+
+	<fields name="filter">
+
+		<field
+			name="search"
+			type="text"
+			inputmode="search"
+			label="COM_ICAGENDA_EVENTS_FILTER_SEARCH_LABEL"
+			description="COM_ICAGENDA_EVENTS_FILTER_SEARCH_DESC"
+			hint="JSEARCH_FILTER"
+		/>
+
+		<field
+			name="published"
+			type="status"
+			label="JSTATUS"
+			onchange="this.form.submit();"
+			>
+			<option value="">COM_ICAGENDA_SELECT_STATE</option>
+		</field>
+
+		<field
+			name="approval"
+			type="list"
+			label="COM_ICAGENDA_EVENTS_APPROVAL"
+			default=""
+			onchange="this.form.submit();"
+			>
+			<option value="">COM_ICAGENDA_SELECT_APPROVAL</option>
+			<option value="0">COM_ICAGENDA_APPROVED</option>
+			<option value="1">COM_ICAGENDA_UNAPPROVED</option>
+		</field>
+
+		<field
+			name="category"
+			type="icagenda.CategorySelect"
+			label="COM_ICAGENDA_EVENTS_CATID"
+			class="form-select"
+			onchange="this.form.submit();"
+			>
+			<option value="">COM_ICAGENDA_SELECT_CATEGORY</option>
+		</field>
+
+		<field
+			name="upcoming"
+			type="list"
+			label="COM_ICAGENDA_SELECT_DATES"
+			default=""
+			onchange="this.form.submit();"
+			validate="options"
+			>
+			<option value="">COM_ICAGENDA_SELECT_DATES</option>
+			<option value="1">COM_ICAGENDA_OPTION_TODAY_AND_UPCOMING</option>
+			<option value="2">COM_ICAGENDA_OPTION_PAST_EVENTS</option>
+			<option value="3">COM_ICAGENDA_OPTION_UPCOMING_EVENTS</option>
+			<option value="4">COM_ICAGENDA_OPTION_TODAY</option>
+		</field>
+
+		<field
+			name="site_itemid"
+			type="icagenda.FilterSubmitMenuItemid"
+			label="COM_ICAGENDA_SELECT_SITE_ITEMID"
+			class="form-select"
+			onchange="this.form.submit();"
+			>
+			<option value="">COM_ICAGENDA_SELECT_SITE_ITEMID</option>
+		</field>
+	</fields>
+
+	<fields name="list">
+
+		<field
+			name="fullordering"
+			type="list"
+			label="JGLOBAL_SORT_BY"
+			default="e.id DESC"
+			statuses="*,0,1,2,-2"
+			onchange="this.form.submit();"
+			validate="options"
+			>
+			<option value="">JGLOBAL_SORT_BY</option>
+			<option value="e.ordering ASC">JGRID_HEADING_ORDERING_ASC</option>
+			<option value="e.ordering DESC">JGRID_HEADING_ORDERING_DESC</option>
+			<option value="e.state ASC">JSTATUS_ASC</option>
+			<option value="e.state DESC">JSTATUS_DESC</option>
+			<option value="e.title ASC">JGLOBAL_TITLE_ASC</option>
+			<option value="e.title DESC">JGLOBAL_TITLE_DESC</option>
+			<option value="e.id ASC">JGRID_HEADING_ID_ASC</option>
+			<option value="e.id DESC">JGRID_HEADING_ID_DESC</option>
+		</field>
+
+		<field
+			name="limit"
+			type="limitbox"
+			label="JGLOBAL_LIST_LIMIT"
+			default="25"
+			onchange="this.form.submit();"
+		/>
+	</fields>
+</form>

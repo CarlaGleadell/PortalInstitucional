@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<installtheme method="icthemes" type="component">
+
+	<name>Default - iCagenda Theme</name>
+	<author>iCagenda</author>
+	<creationDate>2023-12-02</creationDate>
+	<copyright>Copyright (c) 2012-2024 Cyril Rezé / iCagenda. All rights reserved.</copyright>
+	<license>GNU General Public License version 3 or later; see LICENSE.txt</license>
+	<authorEmail></authorEmail>
+	<authorWebsite>www.icagenda.com</authorWebsite>
+	<authorUrl>https://www.icagenda.com</authorUrl>
+	<version>3.8.23</version>
+	<description>Theme pack by default for iCagenda (component + module)</description>
+
+	<administration>
+	</administration>
+
+	<files folder="site">
+		<folder>default</folder>
+		<filename>default.xml</filename>
+	</files>
+
+	<themeUpdate>https://www.joomlic.com/icupdate/themes</themeUpdate>
+
+</installtheme>

@@ -1,0 +1,607 @@
+/**
+ *----------------------------------------------------------------------------
+ * iCicons      icon font for iCagenda
+ *----------------------------------------------------------------------------
+ * @version     2.1.0 2024-10-10
+ *
+ * @package     iCagenda.Media
+ * @subpackage  iCicons
+ * @link        https://www.joomlic.com
+ *
+ * @author      Cyril Reze
+ * @copyright   (c) 2012-2024 Cyril Reze / JoomliC - All rights reserved.
+ * @license     GNU General Public License version 3 or later; see LICENSE.txt
+ *
+ * @since       iCagenda 3.2.2
+ *----------------------------------------------------------------------------
+*/
+
+@font-face {
+  font-family: 'iCicons';
+  src:  url('fonts/iCicons.eot?be68ex');
+  src:  url('fonts/iCicons.eot?be68ex#iefix') format('embedded-opentype'),
+    url('fonts/iCicons.ttf?be68ex') format('truetype'),
+    url('fonts/iCicons.woff?be68ex') format('woff'),
+    url('fonts/iCicons.svg?be68ex#iCicons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="iCicon-"], [class*=" iCicon-"],
+[class^="icon-iCicon-"], [class*=" icon-iCicon-"],
+[class^="menu-iCicon-"], [class*=" menu-iCicon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  display: inline-block;
+  font-family: 'iCicons', sans-serif !important;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Need inline-block to be able to scale icons */
+[class^="iCicon-"]:before, [class*=" iCicon-"]:before,
+[class^="icon-iCicon-"]:before, [class*=" icon-iCicon-"]:before,
+[class^="menu-iCicon-"]:before, [class*=" menu-iCicon-"]:before {
+  display: inline-block;
+}
+
+/* Dashboard Icon (J4/J5) */
+.icon-iCicon-icagenda:before {
+  content: "\e606";
+  color: #cc0000;
+  -webkit-margin-end: 1.1rem !important;
+  margin-inline-end: 1.1rem !important;
+  -webkit-transform: scale(1.6);
+  transform: scale(1.6);
+  width: 0;
+}
+
+/* Menus Icons Styles (J4/J5) */
+[class^="iCicon-jmenu-"]:before,
+[class*=" iCicon-jmenu-"]:before {
+  margin-right: .85rem;
+  text-align: center;
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+  width: 1rem;
+}
+
+/* Menu JoomliC Icon */
+.iCicon-jmenu-icagenda:before {
+  content: "\e606";
+  -webkit-margin-end: .15rem !important;
+  margin-inline-end: .15rem !important;
+  -webkit-transform: scale(1.6) !important;
+  transform: scale(1.6) !important;
+}
+
+.iCicon-jmenu-dashboard:before {
+  content: "\e900";
+}
+
+.iCicon-jmenu-categories:before {
+  content: "\e902";
+}
+
+.iCicon-jmenu-events:before {
+  content: "\e90a";
+}
+
+.iCicon-jmenu-registrations:before {
+  content: "\e904";
+}
+
+.icon-iCicon-newsletter:before {
+  content: "\e905";
+}
+
+.iCicon-jmenu-customfields:before {
+  content: "\e907";
+}
+
+.iCicon-jmenu-features:before {
+  content: "\e920";
+}
+
+.iCicon-jmenu-themes:before {
+  content: "\e921";
+}
+
+.iCicon-jmenu-information:before {
+  content: "\e922";
+}
+
+/* Menus Icons Styles (J3) */
+[class^="menu-iCicon-"]:before,
+[class*=" menu-iCicon-"]:before {
+  float: left;
+  margin-right: .5rem;
+  width: 1rem;
+}
+.menu-iCicon-icagenda:before {
+  float: left;
+  margin-right: 0 !important;
+  margin-top: .15rem;
+  -webkit-transform: scale(1.2) !important;
+  transform: scale(1.2) !important;
+  width: .9rem !important;
+}
+.menu-iCicon-icagenda:before {
+  content: "\e606";
+}
+.menu-iCicon-dashboard:before {
+  content: "\e900";
+}
+.menu-iCicon-categories:before {
+  content: "\e902";
+}
+.menu-iCicon-events:before {
+  content: "\e90a";
+}
+.menu-iCicon-registrations:before {
+  content: "\e904";
+}
+.menu-iCicon-newsletter:before {
+  content: "\e905";
+}
+.menu-iCicon-customfields:before {
+  content: "\e907";
+}
+.menu-iCicon-features:before {
+  content: "\e920";
+}
+.menu-iCicon-themes:before {
+  content: "\e921";
+}
+.menu-iCicon-information:before {
+  content: "\e922";
+}
+
+/*
+ * Icons Font
+ */
+.iCicon-iclogo:before {
+  content: "\e606";
+}
+.iCicon-icagenda:before {
+  content: "\e606";
+}
+.iCicon-dashboard:before {
+  content: "\e900";
+}
+.iCicon-folder-open:before {
+  content: "\e902";
+}
+.iCicon-categories:before {
+  content: "\e902";
+}
+.iCicon-calendar-days:before {
+  content: "\e90a";
+}
+.iCicon-calendar-2:before {
+  content: "\e90a";
+}
+.iCicon-events:before {
+  content: "\e90a";
+}
+.iCicon-user-check:before {
+  content: "\e904";
+}
+.iCicon-registrations:before {
+  content: "\e904";
+}
+.iCicon-paper-plane:before {
+  content: "\e905";
+}
+.iCicon-newsletter:before {
+  content: "\e905";
+}
+.iCicon-rectangle-list:before {
+  content: "\e907";
+}
+.iCicon-customfields:before {
+  content: "\e907";
+}
+.iCicon-square-check:before {
+  content: "\e920";
+}
+.iCicon-features:before {
+  content: "\e920";
+}
+.iCicon-palette:before {
+  content: "\e921";
+}
+.iCicon-themes:before {
+  content: "\e921";
+}
+.iCicon-circle-info:before {
+  content: "\e922";
+}
+.iCicon-information:before {
+  content: "\e922";
+}
+.iCicon-backicY:before {
+  content: "\e997";
+}
+.iCicon-backic:before {
+  content: "\e998";
+}
+.iCicon-nextic:before {
+  content: "\e999";
+}
+.iCicon-nexticY:before {
+  content: "\e99a";
+}
+.iCicon-backward:before {
+  content: "\e906";
+}
+.iCicon-back:before {
+  content: "\e90e";
+}
+.iCicon-next:before {
+  content: "\e90f";
+}
+.iCicon-forward:before {
+  content: "\e908";
+}
+.iCicon-calendar-day:before {
+  content: "\e909";
+}
+.iCicon-calendar:before {
+  content: "\e903";
+}
+.iCicon-calendar-week:before {
+  content: "\e90b";
+}
+.iCicon-calendar-check:before {
+  content: "\e90c";
+}
+.iCicon-calendar-plus:before {
+  content: "\e90d";
+}
+.iCicon-calendar-minus:before {
+  content: "\e910";
+}
+.iCicon-calendar-xmark:before {
+  content: "\e913";
+}
+.iCicon-folder:before {
+  content: "\e919";
+}
+.iCicon-folder-tree:before {
+  content: "\e91a";
+}
+.iCicon-square-envelope:before {
+  content: "\e91b";
+}
+.iCicon-envelope:before {
+  content: "\e91c";
+}
+.iCicon-envelope-open:before {
+  content: "\e91d";
+}
+.iCicon-envelope-open-text:before {
+  content: "\e91e";
+}
+.iCicon-house-chimney:before {
+  content: "\e91f";
+}
+.iCicon-location:before {
+  content: "\e923";
+}
+.iCicon-filter:before {
+  content: "\e924";
+}
+.iCicon-filter-circle-xmark:before {
+  content: "\e925";
+}
+.iCicon-lock:before {
+  content: "\e926";
+}
+.iCicon-private:before {
+  content: "\e926";
+}
+.iCicon-ban:before {
+  content: "\e927";
+}
+.iCicon-blocked:before {
+  content: "\e927";
+}
+.iCicon-list-check:before {
+  content: "\e928";
+}
+.iCicon-tags:before {
+  content: "\e929";
+}
+.iCicon-tag:before {
+  content: "\e92a";
+}
+.iCicon-play:before {
+  content: "\e92b";
+}
+.iCicon-clipboard-check:before {
+  content: "\e92c";
+}
+.iCicon-mobile:before {
+  content: "\e92d";
+}
+.iCicon-tablet:before {
+  content: "\e92e";
+}
+.iCicon-desktop:before {
+  content: "\e92f";
+}
+.iCicon-print:before {
+  content: "\e930";
+}
+.iCicon-sign-in:before {
+  content: "\e931";
+}
+.iCicon-register:before {
+  content: "\e931";
+}
+.iCicon-sign-out:before {
+  content: "\e932";
+}
+.iCicon-images:before {
+  content: "\e933";
+}
+.iCicon-thumbs:before {
+  content: "\e933";
+}
+.iCicon-shield:before {
+  content: "\e934";
+}
+.iCicon-clock:before {
+  content: "\e935";
+}
+.iCicon-user-card:before {
+  content: "\e993";
+}
+.iCicon-circle-user:before {
+  content: "\e994";
+}
+.iCicon-user:before {
+  content: "\e995";
+}
+.iCicon-user-lock:before {
+  content: "\e936";
+}
+.iCicon-permissions:before {
+  content: "\e936";
+}
+.iCicon-user-shield:before {
+  content: "\e937";
+}
+.iCicon-user-gear:before {
+  content: "\e938";
+}
+.iCicon-user-group:before {
+  content: "\e996";
+}
+.iCicon-users:before {
+  content: "\e99b";
+}
+.iCicon-users-gear:before {
+  content: "\e939";
+}
+.iCicon-gear:before {
+  content: "\e93a";
+}
+.iCicon-gears:before {
+  content: "\e93b";
+}
+.iCicon-addthis:before {
+  content: "\e93c";
+  color: orangered;
+}
+.iCicon-file-fields:before {
+  content: "\e986";
+}
+.iCicon-form:before {
+  content: "\e986";
+}
+.iCicon-file-form:before {
+  content: "\e987";
+}
+.iCicon-file-form-checked:before {
+  content: "\e988";
+}
+.iCicon-file-lines:before {
+  content: "\e989";
+}
+.iCicon-layer-group:before {
+  content: "\e93d";
+}
+.iCicon-eye:before {
+  content: "\e98a";
+}
+.iCicon-eye-slash:before {
+  content: "\e98b";
+}
+.iCicon-info:before {
+  content: "\e98c";
+}
+.iCicon-pagination:before {
+  content: "\e96f";
+}
+.iCicon-pagination-2:before {
+  content: "\e970";
+}
+.iCicon-chevron-down:before {
+  content: "\e98d";
+}
+.iCicon-chevron-up:before {
+  content: "\e98e";
+}
+.iCicon-magnifying-glass:before {
+  content: "\e98f";
+}
+.iCicon-search:before {
+  content: "\e98f";
+}
+.iCicon-arrow-rotate-left:before {
+  content: "\e990";
+}
+.iCicon-reset:before {
+  content: "\e990";
+}
+.iCicon-icons:before {
+  content: "\e610";
+}
+.iCicon-people:before {
+  content: "\e60b";
+}
+.iCicon-avatar:before {
+  content: "\e918";
+}
+.iCicon-plus:before {
+  content: "\e991";
+}
+.iCicon-minus:before {
+  content: "\e992";
+}
+.iCicon-position:before {
+  content: "\e93e";
+}
+.iCicon-header-after:before {
+  content: "\e617";
+}
+.iCicon-header-before:before {
+  content: "\e618";
+}
+.iCicon-icons-2:before {
+  content: "\e96e";
+}
+.iCicon-earth:before {
+  content: "\e600";
+}
+.iCicon-timezone:before {
+  content: "\e601";
+}
+.iCicon-home:before {
+  content: "\e901";
+}
+.iCicon-register-2:before {
+  content: "\e609";
+}
+.iCicon-location-2:before {
+  content: "\e605";
+}
+.iCicon-info-circle:before {
+  content: "\e614";
+}
+.iCicon-print-2:before {
+  content: "\e602";
+}
+.iCicon-lock-2:before {
+  content: "\e608";
+}
+.iCicon-filter-2:before {
+  content: "\e611";
+}
+.iCicon-thumbs-2:before {
+  content: "\e60c";
+}
+.iCicon-clock-2:before {
+  content: "\e60d";
+}
+.iCicon-screen:before {
+  content: "\e60e";
+}
+.iCicon-options:before {
+  content: "\e60f";
+}
+.iCicon-info-2:before {
+  content: "\e613";
+}
+.iCicon-navigation:before {
+  content: "\e615";
+}
+.iCicon-form-2:before {
+  content: "\e616";
+}
+.iCicon-reset-2:before {
+  content: "\e911";
+}
+.iCicon-search-2:before {
+  content: "\e912";
+}
+.iCicon-arrow-down:before {
+  content: "\e914";
+}
+.iCicon-arrow-up:before {
+  content: "\e915";
+}
+.iCicon-eye-2:before {
+  content: "\e916";
+}
+.iCicon-eye-close-2:before {
+  content: "\e917";
+}
+
+
+/* Multiple icons */
+.iCicon-eyes-1:before {
+  content: "\e905\e905\e905";
+  vertical-align: middle;
+  letter-spacing: 4px;
+}
+.iCicon-eyes-2:before {
+  content: "\e906\e905\e905";
+  vertical-align: middle;
+  letter-spacing: 4px;
+}
+.iCicon-eyes-3:before {
+  content: "\e906\e906\e905";
+  vertical-align: middle;
+  letter-spacing: 4px;
+}
+.iCicon-eyes-4:before {
+  content: "\e906\e906\e906";
+  vertical-align: middle;
+  letter-spacing: 4px;
+}
+
+/* BI-COLOR ICONS */
+.iCicon-bi-color-header:before {
+  content: "\e618";
+  letter-spacing: -1em;
+  color: #b5b5b5;
+}
+.iCicon-bi-color-header:after {
+  content: "\e617";
+/*  color: #cc0000; */
+}
+
+/* ONE-COLOR ICONS */
+[class^="iCicon-iclogo"]:before,
+[class*=" iCicon-iclogo"]:before {
+  content: "\e606";
+}
+[class$="-iCagendaColor"]:before {
+  color: #cc0000;
+}
+[class$="-colorBlue"]:before {
+  color: blue;
+}
+[class$="-colorOrange"]:before {
+  color: orange;
+}
+
+/* ADDITIONAL STYLES */
+.iCicon-info-circle:active,
+.iCicon-info-circle:hover,
+.iCicon-info-circle:focus {
+  text-decoration: none !important;
+  background: none;
+  text-shadow: 0px 0px 5px rgba(0,0,0,0.3);;
+  cursor: help;
+}

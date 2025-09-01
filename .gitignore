@@ -1,0 +1,38 @@
+# --- JOOMLA RUNTIME / CARPETAS VOLÁTILES ---
+/installation/
+/tmp/
+/cache/
+/logs/
+/administrator/cache/
+/administrator/logs/
+/cli/logs/
+/session/
+
+# --- CONFIGURACIÓN LOCAL/SECRETOS ---
+/configuration.php
+/configuration.php.bak
+/.env
+/.env.local
+
+# --- SI USÁS THUMBNAILS AUTO-GENERADOS (opcionales de ignorar) ---
+/images/thumbnails/
+
+# --- RESPALDOS LOCALES (dejamos carpeta dedicada al SQL) ---
+/_db/backups/
+
+# --- SISTEMA / IDE ---
+Thumbs.db
+.DS_Store
+/.vscode/
+/.idea/
+/*.code-workspace
+
+# --- NPM/COMPOSER (si los llegás a usar en el proyecto) ---
+node_modules/
+npm-debug.log*
+# Si instalaste Joomla por ZIP, no ignores vendor; si usás Composer pro, evaluá ignorar:
+/vendor/bin/
+
+# --- DESCARGAS/ARCHIVOS GRANDES ACCIDENTALES ---
+*.zip
+*.rar

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+
+	<fields name="filter">
+
+		<field
+			name="search"
+			type="text"
+			inputmode="search"
+			label="JSEARCH_FILTER_LABEL"
+			description="COM_ICAGENDA_CUSTOMFIELDS_FILTER_SEARCH_DESC"
+			hint="JSEARCH_FILTER"
+		/>
+
+		<field
+			name="state"
+			type="status"
+			label="JSTATUS"
+			onchange="this.form.submit();"
+			>
+			<option value="">COM_ICAGENDA_SELECT_STATE</option>
+		</field>
+
+		<field
+			name="parent_form"
+			type="list"
+			label="COM_ICAGENDA_CUSTOMFIELD_PARENT_FORM_LBL"
+			class="form-select"
+			onchange="this.form.submit();"
+			>
+			<option value="">COM_ICAGENDA_CUSTOMFIELDS_FILTER_OPTION_SELECT_PARENT_FORM</option>
+			<option value="1">COM_ICAGENDA_CUSTOMFIELD_PARENT_REGISTRATION_FORM</option>
+			<option value="2">COM_ICAGENDA_CUSTOMFIELD_PARENT_EVENT_EDIT</option>
+		</field>
+
+		<field
+			name="group"
+			type="icagenda.FilterCustomfieldGroups"
+			label="COM_ICAGENDA_CUSTOMFIELDS_GROUPS_LBL"
+			class="form-select"
+			onchange="this.form.submit();"
+			>
+			<option value="">COM_ICAGENDA_CUSTOMFIELDS_FILTER_OPTION_SELECT_GROUP</option>
+		</field>
+
+		<field
+			name="type"
+			type="icagenda.FilterCustomfieldTypes"
+			label="COM_ICAGENDA_CUSTOMFIELD_TYPE_LBL"
+			class="form-select"
+			onchange="this.form.submit();"
+			>
+			<option value="">COM_ICAGENDA_CUSTOMFIELDS_FILTER_OPTION_SELECT_TYPE</option>
+		</field>
+
+	</fields>
+
+	<fields name="list">
+
+		<field
+			name="fullordering"
+			type="list"
+			label="JGLOBAL_SORT_BY"
+			default="cf.ordering ASC"
+			statuses="*,0,1,2,-2"
+			onchange="this.form.submit();"
+			validate="options"
+			>
+			<option value="">JGLOBAL_SORT_BY</option>
+			<option value="cf.ordering ASC">JGRID_HEADING_ORDERING_ASC</option>
+			<option value="cf.ordering DESC">JGRID_HEADING_ORDERING_DESC</option>
+			<option value="cf.state ASC">JSTATUS_ASC</option>
+			<option value="cf.state DESC">JSTATUS_DESC</option>
+			<option value="cf.title ASC">COM_ICAGENDA_CUSTOMFIELDS_LABEL_ASC</option>
+			<option value="cf.title DESC">COM_ICAGENDA_CUSTOMFIELDS_LABEL_DESC</option>
+			<option value="cf.type ASC">COM_ICAGENDA_CUSTOMFIELDS_TYPE_ASC</option>
+			<option value="cf.type DESC">COM_ICAGENDA_CUSTOMFIELDS_TYPE_DESC</option>
+			<option value="cf.id ASC">JGRID_HEADING_ID_ASC</option>
+			<option value="cf.id DESC">JGRID_HEADING_ID_DESC</option>
+		</field>
+
+		<field
+			name="limit"
+			type="limitbox"
+			label="JGLOBAL_LIST_LIMIT"
+			default="25"
+			onchange="this.form.submit();"
+		/>
+	</fields>
+</form>

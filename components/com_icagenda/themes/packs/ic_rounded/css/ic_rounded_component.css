@@ -1,0 +1,1309 @@
+/*
+ * COM_ICAGENDA
+ * iCagenda
+ * Theme Pack Official
+ * iC Rounded Theme - component
+ *
+ * @name        ic_rounded
+ * @author      iCagenda
+ * @version     3.8.6 2022-05-12
+ * @since       1.0
+ */
+
+
+/*
+ * GENERAL STYLES (list and event details)
+ */
+
+/* General */
+#icagenda {
+	width: auto;
+	margin: 0;
+	padding: 0;
+}
+
+/* Align styles */
+.ic-align-left {
+	text-align: left;
+}
+.ic-align-right {
+	text-align: right;
+}
+.ic-align-center {
+	text-align: center;
+}
+
+/* Float styles */
+.ic-float-left {
+	float: left;
+}
+.ic-float-right {
+	float: right;
+}
+.ic-float-none {
+	float: none;
+}
+
+/* Global Styling - colors */
+.ic-box-shadow {
+	box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+}
+.ic-border {
+/*	border: 1px solid #E3E3E3; */
+	border: 1px solid #999;
+}
+
+/* Global Styling */
+.ic-rounded-10 {
+	border-radius: 10px;
+}
+
+/* Clear Float div */
+.ic-clearfix {
+	*zoom: 1;
+}
+.ic-clearfix:before,
+.ic-clearfix:after {
+	display: table;
+	content: "";
+	line-height: 0;
+}
+.ic-clearfix:after {
+	clear: both;
+}
+
+/* Style iC Alert */
+.ic-alert-info {}
+.ic-alert-error {}
+
+
+#icagenda .clr {
+	clear: both;
+}
+
+#icagenda a:hover {
+	text-decoration: none;
+}
+
+
+/*
+ * LIST PAGE CSS
+ */
+
+/*
+ * Style Pagination
+ */
+.ic-pagination {
+	font-size: 14px;
+	line-height: 18px;
+	vertical-align: middle;
+}
+.ic-pagination a {
+	text-decoration: none;
+	background: #fff;
+}
+.ic-pagination a:hover,
+.ic-pagination a:active,
+.ic-pagination a:focus {
+	cursor: pointer;
+}
+.ic-pagination .ic-prev {
+	float: left;
+}
+.ic-pagination .ic-next {
+	float: right;
+}
+.ic-pagination .ic-prev,
+.ic-pagination .ic-next {
+	margin: 2px 0;
+}
+.ic-pagination .ic-prev a,
+.ic-pagination .ic-next a {
+	padding: 5px;
+	background: none;
+}
+.ic-pagination .ic-prev a:hover,
+.ic-pagination .ic-next a:hover {
+	background: #f3f3f3;
+	background: rgba(221, 221, 221, 0.2);
+}
+.ic-pagination .ic-prev-text,
+.ic-pagination .ic-next-text,
+.ic-pagination .iCicon-backic,
+.ic-pagination .iCicon-nextic {
+	font-family: inherit;
+	vertical-align: middle;
+}
+.ic-pagination .ic-go-to-page {
+	padding: 2px;
+	background: none;
+}
+.ic-pagination .ic-current-page {
+	padding: 2px;
+	background: none;
+}
+.ic-pagination .ic-current-page .ic-active {
+	color: #fff;
+	font-weight: bold;
+}
+.ic-pagination .ic-hidden-pages {
+	padding: 2px;
+	background: none;
+}
+
+
+/*
+ * Style Search Filters
+ */
+.ic-filters {
+	background: none; /* Old IE version */
+	background: rgba(221,221,221,0.2);
+	padding: 5px;
+}
+
+/* Search Filters - Main */
+.ic-filters-label {
+	background: #f0ad4e;
+	color: #fff;
+	font-size : 20px;
+	font-weight: bold;
+	line-height: 20px;
+	text-shadow: -1px 0 #eea236, 0 1px #eea236, 1px 0 #eea236, 0 -1px #eea236;
+	text-transform: uppercase;
+}
+/*
+.ic-filters-label-title-3 {
+	height: 128px;
+	line-height: 128px;
+}
+.ic-filters-label-title-2 {
+	height: 84px;
+	line-height: 84px;
+}
+.ic-filters-label-title-1 {
+	height: 40px;
+	line-height: 40px;
+}
+.ic-filters-btn-3 {
+	height: 128px;
+	line-height: 128px;
+}
+.ic-filters-btn-2 {
+	height: 84px;
+	line-height: 84px;
+}
+.ic-filters-btn-1 {
+	height: 40px;
+	line-height: 40px;
+}
+*/
+
+/* Search Filters - filters */
+/*
+.ic-filter-search input,
+.ic-filter-from input,
+.ic-filter-to input,
+.ic-filter-from button,
+.ic-filter-to button,
+.ic-filter-category select,
+.ic-filter-month select,
+.ic-filter-year select {
+	border-radius: 0;
+}
+*/
+/*
+.ic-filter-search {
+	background: #dddddd;
+	background: rgba(221,221,221,0.2);
+}
+.ic-filter-from,
+.ic-filter-to,
+.ic-filter-category,
+.ic-filter-month,
+.ic-filter-year {
+	background: #dddddd;
+	background: rgba(221,221,221,0.2);
+}
+*/
+/*
+.ic-filter-search input,
+.ic-filter-from input,
+.ic-filter-to input,
+.ic-filter-from button,
+.ic-filter-to button {
+	display: inline-block;
+	height: 40px;
+}
+.ic-filter-search input,
+.ic-filter-category select,
+.ic-filter-month select,
+.ic-filter-year select {
+	width: 100%;
+	height: 40px;
+}
+*/
+/* Search Filters - buttons */
+.ic-button-more {
+	background: rgba(221,221,221,0);
+}
+.ic-filter-more-btn {
+	background: #5bc0de;
+	border: 1px solid #46b8da;
+	color: #fff;
+	font-weight: bold;
+	text-shadow: -1px 0 #269abc, 0 1px #269abc, 1px 0 #269abc, 0 -1px #269abc;
+/*
+	word-wrap: break-word;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	-ms-hyphens: auto;
+	hyphens: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+*/
+}
+/*
+.ic-filter-more-btn .iCicon-arrow-down,
+.ic-filter-more-btn .iCicon-arrow-up {
+	vertical-align: middle;
+}
+*/
+.ic-filter-more-btn:hover {
+	background: #31b0d5;
+	color: #fff;
+	border: 1px solid #269abc;
+	cursor: pointer;
+}
+.ic-filter-more-btn.ic-active {
+	background: #5bc0de;
+	color: #fff;
+	text-shadow: -1px 0 #2083a1, 0 1px #2083a1, 1px 0 #2083a1, 0 -1px #2083a1;
+	border: 1px solid #2083a1;
+}
+.ic-filter-more-btn.ic-inactive {
+	background: #5bc0de;
+	color: #fff;
+	border: 1px solid #46b8da;
+}
+.ic-filters-controls {
+	background: #dddddd;
+	background: rgba(221,221,221,0.2);
+	text-align: center;
+	padding: 0;
+}
+.ic-control-submit {
+}
+.ic-control-reset {
+}
+.ic-filters-controls button {
+/*
+	width: 100%;
+	border-radius: 0;
+	margin: 0;
+	padding: 0;
+*/
+}
+.ic-filter-submit-btn {
+	font-size: 16px;
+	color: #fff;
+	background: #5cb85c;
+	border: 1px solid #4cae4c;
+	font-weight: bold;
+	text-shadow: -1px 0 #398439, 0 1px #398439, 1px 0 #398439, 0 -1px #398439;
+}
+.ic-filter-submit-btn:hover {
+	background: #449d44;
+	border: 1px solid #398439;
+}
+.ic-filter-reset-btn {
+	font-size: 13px;
+	color: #fff;
+	background: #d9534f;
+	border: 1px solid #d43f3a;
+	font-weight: bold;
+	text-shadow: -1px 0 #ac2925, 0 1px #ac2925, 1px 0 #ac2925, 0 -1px #ac2925;
+}
+.ic-filter-reset-btn:hover {
+	background: #c9302c;
+	border: 1px solid #ac2925;
+}
+
+
+/*
+ * Style Background alternative
+ */
+.ic-list-event {
+	background: none; /* Old IE version */
+	background: rgba(221,221,221,0.1);
+	border-radius: .25rem;
+	margin: 1% 2px;
+	padding: 5px;
+	width: 100%;
+}
+.ic-list-event:nth-child(2n+1) {
+	background: none; /* Old IE version */
+	background: rgba(221,221,221,0.2);
+}
+
+
+/*
+ * Style Box Date
+ */
+.ic-box-date {
+	float: left;
+	vertical-align: top;
+	width: 25%;
+	height: auto;
+	min-height: 80px;
+	margin: 0;
+	padding: 3% 0 25px 0;
+	text-align: center;
+	font-size: 20px;
+	color: #fff;
+	font-weight: bold;
+	border-radius: .5rem;
+	text-shadow: #000 2px 2px 10px;
+	background-color: #ddd;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	border-width: 0px;
+	border-style: solid;
+	border-color: #ddd; /*overrided inline by category color in ic_rounded_events.php file */
+	/* css3 box-sizing added to prevent conflict with a site template provider who adds a 'problematic' style for div tags */
+	box-sizing: content-box;
+	transition: border-radius 0.5s, color 0.5s;
+	-moz-transition: border-radius 0.5s, color 0.5s;
+	-webkit-transition: border-radius 0.5s, color 0.5s;
+	-o-transition: border-radius 0.5s, color 0.5s;
+}
+.ic-box-date:hover {
+	transition: border-radius 0.5s, color 0.5s;
+	-moz-transition: border-radius 0.5s, color 0.5s;
+	-webkit-transition: border-radius 0.5s, color 0.5s;
+	-o-transition: border-radius 0.5s, color 0.5s;
+	border-radius: 1rem;
+}
+
+/* Current period */
+.ic-current-period {
+	text-decoration: overline;
+}
+
+#icagenda .fontColor {
+	color: #333 !important;
+}
+
+/* Box Date content */
+.ic-date {
+	line-height: 0 !important;
+	text-align: center;
+}
+.ic-day {
+	line-height: 42px !important;
+	font-size: 42px;
+	font-weight: 700;
+}
+.ic-month {
+	line-height: 28px !important;
+	font-size: 28px;
+	letter-spacing: 2px;
+	font-weight: 500;
+}
+.ic-year {
+	line-height: 24px !important;
+	font-size: 20px;
+	letter-spacing: 2px;
+	font-weight: 500;
+}
+.ic-time {
+	line-height: 18px !important;
+	font-size: 14px;
+	letter-spacing: 3px;
+	font-weight: 400;
+}
+.ic-no-image {
+	line-height: 13px !important;
+	font-size: 8px;
+}
+
+
+/*
+ * Style Content (Title, Category, Description...)
+ */
+.ic-content {
+	float: left;
+	margin: 0;
+	padding: 5px 0 0 10px;
+	width: 75%;
+	white-space: normal;
+	box-sizing: border-box;
+/*	color: #555; Removed to be more friendly with dark site templates */
+}
+div.ic-event-title {
+	display: inline-block;
+	width: 100%;
+	border-bottom: 1px solid #cccccc;
+	height: auto;
+	margin: 0;
+	padding: 0;
+	padding-bottom: 3px !important;
+}
+
+/* Style Title/Category Header */
+.ic-title-header {
+	float: left;
+	width: 70%;
+	height: auto;
+	vertical-align: top;
+}
+.ic-title-header h1,
+.ic-title-header h2,
+.ic-title-header h3 {
+	margin: 0;
+	padding: 0;
+	line-height: auto;
+	text-shadow: none;
+	border-bottom: 0;
+	background: none;
+}
+.ic-title-header a:hover,
+.ic-title-header a:active,
+.ic-title-header a:focus {
+	text-shadow: none;
+	background: none;
+}
+.ic-title-cat {
+	float: left;
+	width: 30%;
+	font-size: 0.9rem;
+	line-height: 1rem;
+	font-weight: 500;
+	text-align: right;
+	vertical-align: top;
+}
+.ic-title-cat-btn {
+}
+
+.ic-text-border-grey {
+	text-shadow:
+		-1px 0 grey,
+		0 1px grey,
+		1px 0 grey,
+		0 -1px grey;
+}
+.ic-text-border {
+	text-shadow: 0 0 #000; /* horizontal-offset vertical-offset 'blur' colour */
+	-moz-text-shadow: 0 0 #000;
+	-webkit-text-shadow: 0 0 #000;
+}
+.ic-text-shadow {
+	text-shadow: 0 0 2px #000; /* horizontal-offset vertical-offset 'blur' colour */
+	-moz-text-shadow: 0 0 2px #000;
+	-webkit-text-shadow: 0 0 2px #000;
+}
+.ic-title-cat .caticon {
+	color: #FFFFFF;
+	font-weight: normal;
+	padding: 2px;
+	border-radius:3px;
+	box-shadow: 0 0 0 1px rgba(0,0,0,0.25);
+	cursor: default;
+}
+
+.ic-content .category {
+	text-align: right;
+	float: right;
+	font-size: 0.8em;
+	text-transform: uppercase;
+	margin: 0;
+	padding: 0;
+}
+.ic-content .ic-next-date {
+	margin: 5px 0;
+	font-size: 16px;
+}
+.ic-place {
+	font-weight: normal;
+	font-size: 14px;
+}
+.ic-descshort {
+	font-weight: normal;
+	font-size: 12px;
+	margin: 5px 0 0 0 !important;
+}
+.ic-descshort p {
+	margin: 0px !important;
+}
+.ic-more-info {
+	background: none;
+	float: right;
+	font-weight: bold;
+	font-size: 10px;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+.ic-more-info a:link,
+.ic-more-info a:visited {
+	background: none;
+/*	color: #555; Removed to be more friendly with dark site templates */
+	text-decoration: none;
+}
+.ic-more-info a:hover,
+.ic-more-info a:active,
+.ic-more-info a:focus {
+	background: none;
+/*	color: #111; Removed to be more friendly with dark site templates */
+	cursor: pointer;
+}
+
+
+
+/*
+ * EVENT PAGE CSS
+ */
+
+/* Event Header */
+.ic-event-header {
+	display: block;
+	width: auto;
+	height: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	background: #f5f5f5;
+	background: rgba(221,221,221,0.3);
+	padding: 10px 15px;
+	border: 1px solid #999;
+	border-radius: 10px;
+}
+.ic-event-header h1 {
+	font-size: 26px;
+/*	color: #333; Removed to be more friendly with dark site templates */
+	margin: 0;
+	padding: 0;
+	text-shadow: none;
+	text-decoration: none;
+	border: 0;
+}
+
+/* Event Header - Category */
+.ic-details-cat {
+	font-size: larger;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+/* Style AddThis div */
+.ic-event-addthis {
+}
+
+/* Style Registration box button */
+.ic-registration-box .ic-button-box {
+	float: left;
+	margin: 5px;
+}
+.ic-registration-box a {
+	text-decoration: none !important;
+}
+.ic-registration-box a:hover,
+.ic-registration-box a:focus {
+	text-decoration: none !important;
+	cursor: pointer;
+}
+
+/* icon people (nb of registered users) */
+.ic-people {
+	color: #999;
+}
+
+/* Nb of registered people (in bubble) */
+.ic-registered {
+	display: inline-block;
+	color: #333333;
+	text-align: center;
+	background: url('../images/regis-baloon.png');
+	height: 16px;
+	line-height: 16px;
+	width: 36px;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+/* Style Event General */
+.ic-info {
+	margin: 10px 0;
+	padding: 10px 5px 10px 5px;
+/*	color:#333333; Removed to be more friendly with dark site templates */
+	text-align: center;
+	background: #e5e5e5;
+	background: rgba(0,0,0,0.1);
+	border: 1px solid #999;
+	border-radius: 10px;
+	word-break: break-word;
+	word-wrap: break-word;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	hyphens: auto;
+}
+.ic-info .ic-details {
+	text-align: center;
+	padding: 1%;
+}
+.ic-info .ic-details label {
+	float: none !important;
+	font-weight: bold;
+}
+
+/* Style Image */
+.ic-image {
+	text-align: center;
+}
+.ic-image img {
+	max-width: 98%;
+	border: 0px solid #ccc;
+	margin-bottom: 10px;
+	border-radius: 5px;
+}
+
+/* Style Time (in date) */
+#icagenda .evttime {
+	font-size: 0.8em;
+}
+.ic-next-today {
+	font-weight: bold;
+}
+.ic-period-starttime,
+.ic-period-endtime,
+.ic-single-starttime,
+.ic-single-endtime,
+.ic-datetime-separator {
+	font-size: 0.8em;
+}
+
+/* Style Table-style List */
+.ic-divTable {
+	display: table;
+	width: auto;
+	border-collapse: separate;
+	border-spacing: 5px;
+}
+.ic-divRow {
+	display: table-row;
+}
+.ic-divCell {
+/*	float: left; */ /* fix for buggy browsers */
+	padding: 1px 5px;
+}
+.ic-label {
+	display: table-cell;
+	min-width: 110px;
+	font-weight: bold;
+	padding-right: 20px;
+}
+.ic-value {
+	display: table-cell;
+	width: auto;
+}
+
+/* Style Description */
+.ic-detail-desc {
+	padding: 10px;
+	margin: 10px;
+	background: #fff;
+	background: rgba(255,255,255,0.9);
+	color: #333;
+	text-align: left;
+	text-shadow: none;
+	border: 0;
+	border-radius: 5px;
+}
+.ic-short-description {
+	font-weight: bold;
+}
+.ic-full-description {
+}
+
+/* Style Information */
+.ic-info-box {
+	display: block;
+	width: 100%;
+	text-align:center;
+	background: #ccc;
+	color: #333;
+	padding-top: 0px;
+	margin: 0;
+	border: 0;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-o-border-radius: 5px;
+	border-radius: 5px;
+}
+.ic-info-box-header label {
+	text-transform:uppercase;
+	font-weight:bold;
+}
+.ic-info-box-header {
+	display: block;
+	background: #555;
+	vertical-align: middle;
+	border: 0;
+	padding: 10px;
+	text-align: center;
+	color: #fff;
+	-webkit-border-radius: 5px 5px 0 0;
+	-moz-border-radius: 5px 5px 0 0;
+	-o-border-radius: 5px 5px 0 0;
+	border-radius: 5px 5px 0 0;
+}
+.ic-info-box-content {
+	display: block;
+	width: auto;
+	vertical-align: top;
+	border: 0;
+	margin: 10px;
+	text-align: left;
+	color: #111;
+}
+.ic-info-box-file {
+	display: block;
+	float: right;
+	width: auto;
+	max-width: 25%;
+	background: #fafafa;
+	vertical-align: top;
+	text-align: center;
+	padding: 10px;
+	margin: 10px;
+	color: #333;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-o-border-radius: 5px;
+	border-radius: 5px;
+}
+.ic-info-box-file label {
+	font-size: 0.8em;
+	color: #555;
+}
+
+/* Style Attachment */
+.ic-download {
+	font-weight: bold;
+}
+.ic-attachment-link {
+	overflow: hidden;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+}
+.ic-attachment-filename {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	flex-shrink: 1;
+}
+.ic-attachment-extension {
+	white-space: nowrap;
+	flex-basis: content;
+	flex-grow: 0;
+	flex-shrink: 0;
+}
+
+/* Slider */
+#icagenda .icpanel {
+}
+.ic-participants .panel {
+	border: none !important;
+}
+.ic-participants .panel h3 {
+	border: none !important;
+}
+.ic-participants {
+	padding: 5px;
+	border: 1px solid #999;
+	background: #f5f5f5;
+	background: rgba(221,221,221,0.3);
+}
+.ic-participants h3 a {
+	display: block;
+	text-decoration: none;
+	padding: 0 1%;
+/*	color: #444; Removed to be more friendly with dark site templates */
+	width: 98%;
+}
+.ic-participants .panel h3.pane-toggler a {
+	background: url(../images/pluslist.png) 99% 50% no-repeat;
+}
+.ic-participants .panel h3.pane-toggler-down a {
+	background: url(../images/minuslist.png) 99% 50% no-repeat;
+}
+#icagenda .pane-slider .ic-content {
+}
+#icagenda .pane-slider {
+	overflow: unset;
+}
+
+/* Slider Full list of Participants */
+#icagenda .list_table {
+	background:#cccccc;
+	background:rgba(204,204,204,0.5);
+	border-radius:3px 3px 3px 3px;
+	float:left;
+}
+#icagenda .imgbox {
+	width: 40px;
+	padding: 3px;
+}
+#icagenda .imgbox img {
+	border-radius: 3px 3px 3px 3px;
+	margin: 1px 0;
+}
+#icagenda .imgbox .ic-avatar {
+	font-size: 36px;
+	border-radius: 3px 3px 3px 3px;
+	margin: 1px 0;
+	color: #c4c4c4;
+	background: #fff;
+}
+#icagenda .list_name {
+	font-weight:bold;
+}
+#icagenda .list_places {
+	font-size:smaller;
+}
+#icagenda .list_date {
+	font-size:smaller;
+}
+
+/* Style Maps */
+#ic-detail-map {
+	margin: 0px 2px 0 0;
+}
+.ic-map-wrapper {
+	margin: auto;
+	text-shadow: none;
+	border: 1px solid #999;
+	border-radius: 10px;
+	background: #ffffff;
+}
+
+/* Style All Dates */
+#detail-date-list {}
+#detail-date-list .datesList {}
+#detail-date-list .alldates ul {
+	padding-left:1%;
+}
+#detail-date-list .alldates li {
+	background-image:none;
+}
+#detail-date-list .alldates h3 {
+	font-size:12px;
+	margin-top:10px;
+	font-weight:bold;
+}
+
+
+/*
+ * Feature Icons
+ */
+
+/* Event List */
+.ic-event-title > .ic-features-container {
+}
+/* Event Detail */
+.ic-event-header > .ic-features-container {
+	display: block;
+	margin-right: -5px;
+	margin-top: 5px;
+}
+.ic-feature-icon {
+	float: right;
+	margin: 3px 0.5px;
+}
+
+
+/*
+ * FORMS - COMMON STYLES
+ */
+
+/* Terms and Conditions Legend */
+.ic-terms-legend {
+	margin: 12px 0;
+}
+
+
+/* deprecated 3.6.0 (kept for Joomla 2.5 ?)
+/* Style Form (general) */
+.icagenda_form {
+	color: #333;
+}
+.icagenda_form h3 {
+	color: #333;
+	font-weight: bold;
+	font-size: 14px;
+	margin: 15px 0 10px 0;
+}
+.icagenda_form legend {
+	font-weight: bold;
+}
+.icagenda_form .fieldset {
+	border-radius: 5px;
+	margin: 10px 0;
+	background: #f3f3f3;
+	padding: 10px;
+}
+
+/* Style Label */
+.icagenda_form label {
+	color: #333;
+	display: block;
+	width: 130px;
+	float: left;
+	margin: 0 3px;
+}
+
+/* Style Input field */
+.icagenda_form input {
+	display: inline-block;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset;
+	transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+	border-radius: 3px;
+	padding: 3px;
+	width: auto;
+}
+.icagenda_form input[type="file"] {
+	width: 270px;
+}
+.icagenda_form .input-small {
+	width: 90px;
+}
+.icagenda_form .select-small {
+	width: 104px;
+}
+.icagenda_form .input-large {
+	width: 210px;
+}
+.icagenda_form .select-large {
+	width: 224px;
+}
+.icagenda_form .input-xlarge {
+	width: 270px;
+}
+.icagenda_form .select-xlarge {
+	width: 284px;
+}
+.icagenda_form .input-xxlarge {
+	width: 330px;
+}
+.icagenda_form .select-xxlarge {
+	width: 344px;
+}
+.icagenda_form .ic-date-input {
+	width: auto;
+}
+
+/* Style Form Invalid */
+.icagenda_form label.invalid {
+	color: red;
+	font-weight: bold;
+}
+.icagenda_form input.invalid,
+.icagenda_form select.invalid {
+	border: 2px solid red;
+	color: red;
+	font-weight: bold;
+}
+
+/* Style button left (joomla 2.5) */
+.icagenda_form .button2-left {
+	margin: 3px 3px 3px 0;
+	float: left;
+}
+
+/* Style Terms of Service content */
+.icagenda_form .ic-tos-content {
+	background: #c0c0c0;
+	color: #fff;
+	margin-top: 25px;
+	padding: 5px;
+	border: none;
+	border-radius: 5px;
+	text-align: center;
+}
+
+/* Style Terms of Service */
+.icagenda_form .ic-tos-text {
+	padding: 25px;
+	background: #fff;
+	color: #333;
+	text-align: left
+}
+.icagenda_form .ic-tos-agree {
+	color: #fff;
+	font-weight: bold;
+}
+
+/* Style Button Submit */
+.icagenda_form .button {
+	font-family: arial;
+	font-size: 12px;
+	background: #555;
+	color: #fff;
+	padding: 5px;
+	border: none;
+	border-radius: 6px;
+	text-align: center;
+}
+.icagenda_form .button:hover {
+	background: #c72031;
+	color: #fff;
+}
+.icagenda_form .ic-loader {
+	display: block;
+	width: 100%;
+	height: 60px;
+	background: url(../../../../../../media/com_icagenda/images/loader.gif) 50% 50% no-repeat;
+}
+
+/* Style Button Cancel */
+.icagenda_form .buttonx a {
+	font-family: arial;
+	font-size: 12px;
+	background: none !important;
+	text-decoration: none;
+	color: #555;
+	padding: 0px;
+	border: none;
+	border-radius: 6px;
+	text-align: center;
+}
+.icagenda_form .buttonx a:hover {
+	background: none !important;
+	text-decoration: none;
+	color: #c72031 !important;
+}
+
+
+/*
+ * SUBMIT AN EVENT FORM
+ */
+
+/* Short Description textarea */
+.ic-submit-shortdesc,
+.ic-submit-metadesc {
+	width: 100%;
+	box-sizing: border-box;
+}
+
+
+/*
+ * REGISTRATION FORM
+ */
+
+/* Style fields required info */
+.ic-required-info {
+	font-size: 0.95em;
+	margin-bottom: 2em;
+}
+
+/* Style Header*/
+.ic-reg-event {
+	background: none; /* Old IE version */
+	background: rgba(221,221,221,0.2);
+	border-radius: 5px;
+	margin: 5px 0;
+	padding: 0px;
+}
+
+/* Registration icon */
+.ic-reg-icon {
+	background: url(../../../../../../media/com_icagenda/images/registration-48.png) 50% 50% no-repeat;
+	display: block;
+	width: 48px;
+	height: 48px;
+	padding: 8px;
+	margin-right: 8px;
+}
+
+/* Style Right (Container Event title, category) */
+.ic-reg-content {
+	display: block;
+	border: 0;
+	margin: 0;
+	padding: 8px;
+	vertical-align: top;
+}
+
+/* Category */
+.ic-reg-cat {
+	color: #555555;
+	font-size: 12px;
+	line-height: 20px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+/* Event title */
+.ic-reg-event-title {
+	font-size: 22px;
+	line-height: 28px;
+	font-weight: bold;
+}
+
+/* Style Registration infos */
+.ic-reg-info {
+	font-size: 0.8em;
+}
+
+/* Google Maps */
+.icmap-label {
+	float: left;
+	width: 140px;
+	padding-top: 5px;
+	padding-right: 5px;
+	text-align: left;
+}
+.icmap-field {
+	margin: 5px;
+}
+.form-validate .icmap-field input,
+.icagenda_form .icmap-field input {
+	background-color: #eee;
+/*	width: auto; */
+	color: #777;
+}
+
+
+/*
+ * STYLES for classes not presents in Theme Pack php files, but in iCagenda core php files
+ */
+
+/* Style iCagenda Header - List of Events */
+.ic-header-container {
+}
+.ic-header-title {
+}
+.ic-header-subtitle {
+	font-size: 0.85em;
+}
+.ic-subtitle-string {
+}
+.ic-subtitle-pages {
+}
+
+/* Style Back Button */
+.ic-back {
+	display: block;
+	width: auto;
+	text-align: left;
+	font-size: 10px;
+	font-weight: normal;
+	letter-spacing: 1px;
+}
+.ic-back a:link,
+.ic-back a:visited {
+}
+.ic-back a:hover,
+.ic-back a:active,
+.ic-back a:focus {
+}
+
+/* Buttons (print, Add to Cal, ...) */
+.ic-manager-toolbar {
+	display: block;
+	text-align: right;
+	margin-bottom: 10px;
+}
+.ic-buttons {
+	display: block;
+	text-align: right;
+	margin-bottom: 10px;
+}
+.ic-icon {
+	display: inline-block;
+	margin-left: 7px;
+}
+.ic-printpopup-btn {
+	display: block;
+	text-align: center;
+	margin: 15px 0;
+}
+div.ic-tip-title {
+	text-align: center;
+	font-weight: bold;
+	margin-bottom: 3px;
+}
+div.ic-tip-link {
+	display: block;
+	text-align: left;
+	margin-bottom: 3px;
+}
+div.ic-tip-link a {
+	color: #D4D4D4;
+	text-decoration: none;
+}
+div.ic-tip-link a:hover {
+	color: #FFFFFF;
+}
+div.ic-tip-link img {
+	margin-right: 5px;
+}
+
+/* Header - List of Categories */
+.ic-header-categories {
+	display: block;
+	width: 100%;
+	margin-bottom: 20px;
+}
+#icagenda .cat_header_title {
+	display: block;
+	padding: 1px 7px;
+	font-size: 1em;
+	text-align: center;
+	color: #fff;
+	font-weight: normal;
+	float: left;
+	margin: 3px 10px -2px 0;
+	border-radius: 4px;
+	text-shadow: 0 -1px 0 rgba(0,0,0,0.15);
+	background: #dddddd;
+	background-size: cover;
+}
+#icagenda .cat_header_desc {
+	display: block;
+	padding: 3px 7px;
+	margin: 2px 0;
+}
+
+/* Share buttons (AddThis) */
+.ic-share {
+	float: right;
+	background: none;
+	padding: 5px 10px 5px 0;
+	text-shadow: none;
+	z-index: 1;
+}
+.ic-share a:link,
+.ic-share a:visited {
+/*	background: none; */
+	text-decoration: none;
+}
+.ic-share a:hover,
+.ic-share a:active,
+.ic-share a:focus {
+/*	background: none; */
+}
+
+/* Columns List of Participants (Full) */
+#icagenda .total {width:99%; min-width:180px; margin:0.5%;}
+#icagenda .demi {width:49%; min-width:180px; margin:0.5%;}
+#icagenda .tiers {width:32.3%; min-width:180px; margin:0.5%;}
+#icagenda .quart {width:24%; min-width:150px; margin:0.5%;}
+
+.names_noslide {text-align:justify;}
+.names_slide { padding:6px !important; text-align:justify;}

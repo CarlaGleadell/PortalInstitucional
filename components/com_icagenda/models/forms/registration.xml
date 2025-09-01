@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+
+	<!-- Core & Custom Fields -->
+	<fieldset
+		name="default"
+		label=""
+		>
+
+		<field
+			name="uid"
+			type="hidden"
+			label="ICAGENDA_REGISTRATION_FORM_USERID"
+			description="ICAGENDA_REGISTRATION_FORM_USERID_DESC"
+		/>
+
+		<!-- COM_ICAGENDA_REGISTRATION_NAME_LABEL, _DESC -->
+		<field
+			name="name"
+			type="text"
+			label="ICAGENDA_REGISTRATION_FORM_NAME"
+			description="ICAGENDA_REGISTRATION_FORM_NAME_DESC"
+			size="30"
+			filter="username"
+			required="true"
+		/>
+
+		<field
+			name="email"
+			type="email"
+			label="ICAGENDA_REGISTRATION_FORM_EMAIL"
+			description="ICAGENDA_REGISTRATION_FORM_EMAIL_DESC"
+			size="30"
+			field="id"
+			filter="string"
+			validate="email"
+		/>
+		<field name="note_email" type="note" description="COM_ICAGENDA_REGISTRATION_EMAIL_DESC" class="controls ic-input-note" />
+
+		<field
+			name="email2"
+			type="email"
+			label="IC_FORM_EMAIL_CONFIRM_LBL"
+			size="30"
+			field="email"
+			filter="string"
+			message="COM_ICAGENDA_FORM_VALIDATE_FIELD_EMAIL2_MESSAGE"
+			validate="equals"
+			hint="IC_FORM_EMAIL_CONFIRM_HINT"
+		/>
+		<field name="note_email2" type="note" description="COM_ICAGENDA_REGISTRATION_EMAIL2_DESC" class="controls ic-input-note" />
+
+		<field
+			name="phone"
+			type="tel"
+			label="ICAGENDA_REGISTRATION_FORM_PHONE"
+			description="ICAGENDA_REGISTRATION_FORM_PHONE_DESC"
+			size="30"
+			validate="tel"
+		/>
+
+		<field
+			name="date"
+			type="icagenda.RegistrationDates"
+			label="ICAGENDA_REGISTRATION_FORM_DATE"
+			class="form-select"
+			required="true"
+		/>
+
+		<field
+			name="period"
+			type="hidden"
+		/>
+
+		<field
+			name="people"
+			type="icagenda.RegistrationPeople"
+			label="COM_ICAGENDA_REGISTRATION_PEOPLE_LABEL"
+			class="form-select"
+		/>
+		<field name="note_people" type="note" description="COM_ICAGENDA_REGISTRATION_PEOPLE_DESC" class="controls ic-input-note" />
+
+	</fieldset>
+
+	<!-- Custom Fields -->
+	<fieldset name="customfields">
+
+		<field
+			name="custom_fields"
+			type="hidden"
+			default=""
+		/>
+
+	</fieldset>
+
+	<!-- Temporary Fields (to be migrated above) -->
+	<fieldset name="temporary" label="" >
+
+		<field
+			name="notes"
+			type="textarea"
+			label="ICAGENDA_REGISTRATION_FORM_NOTES"
+			description=""
+			cols="60"
+			rows="10"
+			class="row-fluid"
+			hint="ICAGENDA_REGISTRATION_FORM_NOTES_DESC"
+			filter="safehtml"
+		/>
+
+	</fieldset>
+
+
+	<!-- Consent Fields -->
+	<fields name="consent" label="COM_ICAGENDA_REGISTRATION_CONSENT_PERSONAL_DATA_LEGEND">
+
+		<!-- Privacy Fieldset -->
+		<fieldset name="privacy_consent" label="COM_ICAGENDA_REGISTRATION_CONSENT_PERSONAL_DATA_LEGEND">
+
+			<field
+				name="consent_name_public"
+				type="checkboxes"
+				label="COM_ICAGENDA_REGISTRATION_CONSENT_NAME_LABEL"
+				description="COM_ICAGENDA_REGISTRATION_CONSENT_NAME_DESC"
+				class="ic-checkboxes-option"
+				>
+				<option value="public">COM_ICAGENDA_REGISTRATION_CONSENT_NAME</option>
+			</field>
+
+			<field
+				name="consent_name_users"
+				type="checkboxes"
+				label="COM_ICAGENDA_REGISTRATION_CONSENT_NAME_LABEL"
+				description="COM_ICAGENDA_REGISTRATION_CONSENT_NAME_USERS_DESC"
+				class="ic-checkboxes-option"
+				>
+				<option value="users">COM_ICAGENDA_REGISTRATION_CONSENT_NAME_USERS</option>
+			</field>
+
+
+			<field
+				name="consent_gravatar"
+				type="checkboxes"
+				label="COM_ICAGENDA_REGISTRATION_CONSENT_GRAVATAR_LABEL"
+				class="ic-checkboxes-option"
+				>
+				<option value="gravatar">COM_ICAGENDA_REGISTRATION_CONSENT_GRAVATAR</option>
+			</field>
+
+			<field
+				name="consent_organiser"
+				type="checkboxes"
+				label="COM_ICAGENDA_REGISTRATION_CONSENT_ORGANISER_LABEL"
+				description="COM_ICAGENDA_REGISTRATION_CONSENT_ORGANISER_DESC"
+				required="true"
+				class="ic-checkboxes-option"
+				>
+				<option value="organiser">COM_ICAGENDA_REGISTRATION_CONSENT_ORGANISER</option>
+			</field>
+
+		</fieldset>
+
+		<!-- Terms & Conditions Fieldset -->
+		<fieldset name="terms_consent" label="COM_ICAGENDA_REGISTRATION_CONSENT_TERMS_LABEL">
+
+			<field
+				name="consent_terms"
+				type="icagenda.Terms"
+				label="COM_ICAGENDA_REGISTRATION_CONSENT_TERMS_LABEL"
+				required="true"
+				slug="terms"
+				>
+				<option value="terms">COM_ICAGENDA_REGISTRATION_CONSENT_TERMS</option>
+			</field>
+
+		</fieldset>
+
+	</fields>
+
+
+	<!-- Extra Fields -->
+	<fieldset name="extra" label="" >
+
+		<field
+			name="captcha"
+			type="captcha"
+			label="COM_ICAGENDA_CAPTCHA_LABEL"
+			validate="captcha"
+			namespace="registration"
+		/>
+
+	</fieldset>
+
+
+	<!-- Hidden Fields -->
+	<fieldset name="hidden" label="" >
+
+		<field
+			name="eventid"
+			type="hidden"
+		/>
+
+		<field
+			name="menuid"
+			type="hidden"
+		/>
+
+	</fieldset>
+
+
+	<fieldset name="control" label="" >
+
+		<field
+			name="typeReg"
+			type="hidden"
+		/>
+
+		<field
+			name="max_nb_of_tickets"
+			type="hidden"
+		/>
+	</fieldset>
+</form>

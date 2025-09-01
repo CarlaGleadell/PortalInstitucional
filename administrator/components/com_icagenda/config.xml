@@ -1,0 +1,2626 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config
+	addrulepath="/libraries/ic_library/lib/form/rule"
+	addruleprefix="iClib\Rule"
+	>
+	<inlinehelp button="show"/>
+
+	<fieldset
+		name="component"
+		label="COM_ICAGENDA_COMPONENT_LABEL"
+		>
+
+		<field
+			name="separator_icagenda"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA"
+			description="COM_ICAGENDA_COMPONENT_DESC"
+			position="label-desc"
+			imagelabel="icagenda"
+			imageclass="me-1 me-sm-3 me-xl-5"
+		/>
+
+		<field name="first_installed" type="hidden" />
+		<field name="icsys" type="hidden" />
+		<field name="version" type="hidden" />
+		<field name="release" type="hidden" />
+		<field name="release_installed" type="hidden" />
+		<field name="prior_release" type="hidden" />
+		<field name="prior_release_installed" type="hidden" />
+		<field name="upgrade_menu_events" type="hidden" />
+		<field name="author" type="hidden" />
+	</fieldset>
+
+	<fieldset
+		name="list"
+		label="ICLIST"
+		description="COM_ICAGENDA_LIST_PARAMS_DESC"
+		>
+
+		<field
+			name="separator_listfilters"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_LIST_FILTERS"
+			class="ic-lead ic-lead-first ic-lead-bg-light"
+			iconprefix="iCicon-"
+			icon="filter"
+			iconclass="text-info"
+			labelclass="text-info"
+		/>
+
+		<field
+			name="time"
+			type="list"
+			label="COM_ICAGENDA_TIME_LBL"
+			description="COM_ICAGENDA_TIME_DESC"
+			default="1"
+			class="inputbox"
+			>
+			<option value="2">COM_ICAGENDA_OPTION_PAST_EVENTS</option>
+			<option value="4">COM_ICAGENDA_OPTION_CURRENT_EVENTS_TODAY_EVENTS</option>
+			<option value="1">COM_ICAGENDA_OPTION_CURRENT_EVENTS_TODAY_AND_UPCOMING_EVENTS</option>
+			<option value="3">COM_ICAGENDA_OPTION_UPCOMING_EVENTS</option>
+			<option value="0">COM_ICAGENDA_OPTION_ALL_EVENTS</option>
+		</field>
+
+		<field
+			name="orderby"
+			type="list"
+			label="COM_ICAGENDA_LBL_DATE"
+			description="COM_ICAGENDA_DESC_DATE"
+			default="2"
+			>
+			<option value="1">COM_ICAGENDA_DATE_DESC</option>
+			<option value="2">COM_ICAGENDA_DATE_ASC</option>
+		</field>
+
+		<field
+			name="datesDisplay"
+			type="radio"
+			label="COM_ICAGENDA_LIST_TYPE_LBL"
+			description="COM_ICAGENDA_LIST_TYPE_DESC"
+			default="1"
+			layout="joomla.form.field.radio.switcher"
+			onchange="icalert()"
+			>
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</field>
+
+		<field
+			name="separator_listsearchfilters"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_LIST_SEARCH_FILTERS_FRONTEND"
+			class="ic-lead ic-lead-bg-light"
+			iconprefix="iCicon-"
+			icon="search"
+			iconclass="text-info"
+			labelclass="text-info"
+		/>
+
+		<field
+			name="search_filters"
+			type="radio"
+			label="COM_ICAGENDA_LIST_SEARCH_FILTERS_FRONTEND_LBL"
+			description="COM_ICAGENDA_LIST_SEARCH_FILTERS_FRONTEND_DESC"
+			default="0"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JDISABLED</option>
+			<option value="1">JENABLED</option>
+		</field>
+
+		<field
+			name="filters_mode"
+			type="list"
+			label="COM_ICAGENDA_LIST_SEARCH_FILTERS_MODE_LBL"
+			description="COM_ICAGENDA_LIST_SEARCH_FILTERS_MODE_DESC"
+			default="1"
+			class="btn-group"
+			showon="search_filters:1"
+			>
+			<option value="1">COM_ICAGENDA_LIST_SEARCH_FILTERS_MODE_CURRENT_LIST</option>
+			<option value="2">COM_ICAGENDA_LIST_SEARCH_FILTERS_MODE_GLOBAL_LIST</option>
+		</field>
+
+		<field
+			name="filters_display"
+			type="radio"
+			label="COM_ICAGENDA_LIST_SEARCH_FILTERS_DISPLAY_LBL"
+			description="COM_ICAGENDA_LIST_SEARCH_FILTERS_DISPLAY_DESC"
+			default="2"
+			class="btn-group"
+			showon="search_filters:1"
+			>
+			<option value="2">COM_ICAGENDA_RESPONSIVE</option>
+			<option value="1">COM_ICAGENDA_FULL_WIDTH</option>
+		</field>
+
+		<field
+			name="filters_label"
+			type="radio"
+			label="COM_ICAGENDA_LIST_SEARCH_FILTERS_LABEL_LBL"
+			description="COM_ICAGENDA_LIST_SEARCH_FILTERS_LABEL_DESC"
+			default="1"
+			layout="joomla.form.field.radio.switcher"
+			showon="search_filters:1"
+			>
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field
+			name="filter_search"
+			type="hidden"
+			rendertype="radio"
+			label="COM_ICAGENDA_LIST_SEARCH_FILTERS_SEARCH_LBL"
+			description=""
+			default="2"
+			class="btn-group btn-group-yesno"
+			showon="search_filters:1"
+			>
+			<option value="2">JSHOW</option>
+			<option value="0">JHIDE</option>
+		</field>
+
+		<field
+			name="filter_from"
+			type="hidden"
+			rendertype="radio"
+			label="COM_ICAGENDA_LIST_SEARCH_FILTERS_FROM_LBL"
+			description=""
+			default="1"
+			class="btn-group btn-group-yesno"
+			showon="search_filters:1"
+			>
+			<option value="1">JSHOW</option>
+			<option value="0">JHIDE</option>
+		</field>
+
+		<field
+			name="filter_to"
+			type="hidden"
+			rendertype="radio"
+			label="COM_ICAGENDA_LIST_SEARCH_FILTERS_TO_LBL"
+			description=""
+			default="1"
+			class="btn-group btn-group-yesno"
+			showon="search_filters:1"
+			>
+			<option value="1">JSHOW</option>
+			<option value="0">JHIDE</option>
+		</field>
+
+		<field
+			name="filter_category"
+			type="hidden"
+			rendertype="radio"
+			label="COM_ICAGENDA_LIST_SEARCH_FILTERS_CATEGORY_LBL"
+			description=""
+			default="1"
+			class="btn-group btn-group-yesno"
+			showon="search_filters:1"
+			>
+			<option value="1">JSHOW</option>
+			<option value="0">JHIDE</option>
+		</field>
+
+		<field
+			name="filter_month"
+			type="hidden"
+			rendertype="radio"
+			label="COM_ICAGENDA_LIST_SEARCH_FILTERS_MONTH_LBL"
+			description=""
+			default="1"
+			class="btn-group btn-group-yesno"
+			showon="search_filters:1"
+			>
+			<option value="1">JSHOW</option>
+			<option value="0">JHIDE</option>
+		</field>
+
+		<field
+			name="filter_year"
+			type="hidden"
+			rendertype="radio"
+			label="COM_ICAGENDA_LIST_SEARCH_FILTERS_YEAR_LBL"
+			description=""
+			default="1"
+			class="btn-group btn-group-yesno"
+			showon="search_filters:1"
+			>
+			<option value="1">JSHOW</option>
+			<option value="0">JHIDE</option>
+		</field>
+
+		<field
+			name="separator_frontsearchinfo"
+			type="icagenda.Separator"
+			description="COM_ICAGENDA_LIST_SEARCH_FILTERS_DESC"
+			separatortype="information"
+			class="alert alert-info mt-1 ic-n-mb-3 py-3"
+			labelclass="text-info"
+			showon="search_filters:1"
+		/>
+		<field
+			name="filter_ordering"
+			type="IC.SortableFields"
+			label="COM_ICAGENDA_LIST_SEARCH_FILTERS_LBL"
+			description=""
+			infotext="COM_ICAGENDA_LIST_SEARCH_FILTERS_DESC"
+			default="filter_search,filter_from,filter_to,filter_category,filter_month,filter_year"
+			showon="search_filters:1"
+		/>
+
+		<field
+			name="separator_listheader"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_LIST_HEADER"
+			class="ic-lead ic-lead-bg-light"
+			iconprefix="iCicon-"
+			icon="bi-color-header"
+			iconclass="text-info"
+			labelclass="text-info"
+		/>
+
+		<field
+			name="headerList"
+			type="list"
+			label="COM_ICAGENDA_LIST_HEADER_LABEL"
+			description="COM_ICAGENDA_LIST_HEADER_DESC"
+			default="1"
+			>
+			<option value="1">JALL</option>
+			<option value="2">COM_ICAGENDA_LIST_HEADER_ONLY_TITLE</option>
+			<option value="3">COM_ICAGENDA_LIST_HEADER_ONLY_SUBTITLE</option>
+			<option value="4">JNONE</option>
+		</field>
+
+		<field
+			name="CatDesc_global"
+			type="radio"
+			label="COM_ICAGENDA_DISPLAY_CATINFOS_LABEL"
+			description="COM_ICAGENDA_DISPLAY_CATINFOS_DESC"
+			default="0"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</field>
+
+		<field
+			name="CatDesc_checkbox"
+			type="checkboxes"
+			label=""
+			showon="CatDesc_global:1"
+			>
+			<option value="1">ICTITLE</option>
+			<option value="2">ICDESC</option>
+		</field>
+
+		<field
+			name="separator_listnavigation"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_LIST_NAVIGATOR"
+			class="ic-lead ic-lead-bg-light"
+			iconprefix="iCicon-"
+			icon="navigation"
+			iconclass="text-info"
+			labelclass="text-info"
+		/>
+
+		<field
+			name="navposition"
+			type="list"
+			label="COM_ICAGENDA_LIST_NAVIGATOR_POSITION_LABEL"
+			description="COM_ICAGENDA_LIST_NAVIGATOR_POSITION_DESC"
+			default="1"
+			>
+			<option value="0">COM_ICAGENDA_TOP</option>
+			<option value="1">COM_ICAGENDA_BOTTOM</option>
+			<option value="2">COM_ICAGENDA_TOP_AND_BOTTOM</option>
+		</field>
+
+		<field
+			name="arrowtext"
+			type="radio"
+			label="COM_ICAGENDA_LIST_ARROWS_TEXT_LABEL"
+			description="COM_ICAGENDA_LIST_ARROWS_TEXT_DESC"
+			default="1"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field
+			name="pagination"
+			type="radio"
+			label="COM_ICAGENDA_LIST_PAGINATION_LABEL"
+			description="COM_ICAGENDA_LIST_PAGINATION_TEXT_DESC"
+			default="1"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field
+			name="separator_listdatebox"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_LIST_DATEBOX"
+			class="ic-lead ic-lead-bg-light"
+			iconprefix="iCicon-"
+			icon="calendar"
+			iconclass="text-info"
+			labelclass="text-info"
+		/>
+
+		<field
+			name="day_display_global"
+			type="radio"
+			label="COM_ICAGENDA_LIST_DATEBOX_DAY_DISPLAY_LABEL"
+			description="COM_ICAGENDA_LIST_DATEBOX_DAY_DISPLAY_DESC"
+			default="1"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field
+			name="month_display_global"
+			type="radio"
+			label="COM_ICAGENDA_LIST_DATEBOX_MONTH_DISPLAY_LABEL"
+			description="COM_ICAGENDA_LIST_DATEBOX_MONTH_DISPLAY_DESC"
+			default="1"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field
+			name="event_month_format"
+			type="list"
+			label="COM_ICAGENDA_LIST_DATEBOX_MONTH_FORMAT_LABEL"
+			description="COM_ICAGENDA_LIST_DATEBOX_MONTH_FORMAT_DESC"
+			default="monthshort"
+			filter="options"
+			showon="month_display_global:1"
+			>
+			<option value="monthshort">COM_ICAGENDA_DATEFORMAT_EVENT_MONTH_SHORT</option>
+			<option value="month">COM_ICAGENDA_DATEFORMAT_EVENT_MONTH_FULL</option>
+			<option value="m">COM_ICAGENDA_DATEFORMAT_EVENT_MONTH_NUM_M</option>
+			<option value="n">COM_ICAGENDA_DATEFORMAT_EVENT_MONTH_NUM_N</option>
+		</field>
+
+		<field
+			name="year_display_global"
+			type="radio"
+			label="COM_ICAGENDA_LIST_DATEBOX_YEAR_DISPLAY_LABEL"
+			description="COM_ICAGENDA_LIST_DATEBOX_YEAR_DISPLAY_DESC"
+			default="1"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field
+			name="time_display_global"
+			type="radio"
+			label="COM_ICAGENDA_LIST_DATEBOX_TIME_DISPLAY_LABEL"
+			description="COM_ICAGENDA_LIST_DATEBOX_TIME_DISPLAY_DESC"
+			default="0"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field
+			name="separator_listinfo"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_LIST_INFORMATION"
+			class="ic-lead ic-lead-bg-light"
+			iconprefix="iCicon-"
+			icon="info"
+			iconclass="text-info"
+			labelclass="text-info"
+		/>
+
+		<field
+			name="list_title_length"
+			type="text"
+			label="COM_ICAGENDA_LIST_TITLE_LENGTH_LABEL"
+			description="COM_ICAGENDA_LIST_TITLE_LENGTH_DESC"
+			default=""
+			class="input-mini"
+			filter="integer"
+		/>
+
+		<field
+			name="venue_display_global"
+			type="radio"
+			label="COM_ICAGENDA_LIST_VENUE_DISPLAY_LABEL"
+			description="COM_ICAGENDA_LIST_VENUE_DISPLAY_DESC"
+			default="1"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field
+			name="city_display_global"
+			type="radio"
+			label="COM_ICAGENDA_LIST_CITY_DISPLAY_LABEL"
+			description="COM_ICAGENDA_LIST_CITY_DISPLAY_DESC"
+			default="1"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field
+			name="country_display_global"
+			type="radio"
+			label="COM_ICAGENDA_LIST_COUNTRY_DISPLAY_LABEL"
+			description="COM_ICAGENDA_LIST_COUNTRY_DISPLAY_DESC"
+			default="1"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field
+			name="shortdesc_display_global"
+			type="list"
+			label="COM_ICAGENDA_LIST_INTROTEXT_DISPLAY_LABEL"
+			default=""
+			class="form-select"
+			filter="options"
+			>
+			<option value="">IC_AUTO</option>
+			<option value="0">JHIDE</option>
+			<option value="1">IC_SHORTDESC</option>
+			<option value="2">IC_AUTO_INTROTEXT</option>
+		</field>
+		<field
+			name="separator_listintrotextinfo"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_LIST_INTROTEXT_INFO_SUMMARY"
+			description="COM_ICAGENDA_LIST_INTROTEXT_DISPLAY_DESC"
+			separatortype="details"
+			class="-mt-1 mb-0 ic-n-mt-3 form-text"
+		/>
+
+	</fieldset>
+
+	<fieldset
+		name="details"
+		label="ICEVENT"
+		description="COM_ICAGENDA_EVENT_PARAMS_DESC"
+		addfieldpath="/administrator/components/com_content/models/fields"
+		>
+
+		<field
+			name="separator_eventdesc"
+			type="icagenda.Separator"
+			label="ICDESC"
+			class="ic-lead ic-lead-first ic-lead-bg-light"
+			iconprefix="icon-"
+			icon="paragraph-justify"
+			iconclass="text-info"
+			labelclass="text-info"
+		/>
+
+		<field
+			name="desc_display_event"
+			type="list"
+			label="COM_ICAGENDA_EVENT_DESCRIPTION_DISPLAY_LABEL"
+			default=""
+			filter="options"
+			>
+			<option value="">IC_AUTO</option>
+			<option value="1">IC_FULLDESC</option>
+			<option value="2">IC_SHORTDESCRIPTION</option>
+			<option value="3">IC_SHORT_AND_FULL_DESCRIPTION</option>
+			<option value="0">JHIDE</option>
+		</field>
+
+		<field
+			name="separator_eventdescinfo"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_EVENT_DESCRIPTION_INFO_SUMMARY"
+			description="COM_ICAGENDA_EVENT_DESCRIPTION_DISPLAY_DESC"
+			separatortype="details"
+			class="-mt-1 mb-0 ic-n-mt-3 form-text"
+		/>
+
+		<field
+			name="separator_eventinfo"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_LEGEND_INFORMATION"
+			class="ic-lead ic-lead-bg-light"
+			iconprefix="iCicon-"
+			icon="info"
+			iconclass="text-info"
+			labelclass="text-info"
+		/>
+
+		<field
+			name="infoDetails"
+			type="radio"
+			label="COM_ICAGENDA_INFORMATION_LABEL"
+			description="COM_ICAGENDA_INFORMATION_DESC"
+			default="1"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field
+			name="accessInfoDetails"
+			type="accesslevel"
+			label="JFIELD_ACCESS_LABEL"
+			description="JFIELD_ACCESS_DESC"
+			default="1"
+			class="inputbox"
+			size="1"
+			showon="infoDetails:1"
+		/>
+
+		<field
+			name="targetLink"
+			type="list"
+			label="COM_ICAGENDA_TARGET_LINK_LABEL"
+			description="COM_ICAGENDA_TARGET_LINK_DESC"
+			default="1"
+			class="inputbox"
+			filter="options"
+			showon="infoDetails:1"
+			>
+			<option value="1">JBROWSERTARGET_NEW</option>
+			<option value="0">JBROWSERTARGET_PARENT</option>
+		</field>
+
+		<field
+			name="separator_eventmap"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_LEGEND_MAP"
+			class="ic-lead ic-lead-bg-light"
+			iconprefix="iCicon-"
+			icon="location"
+			iconclass="text-info"
+			labelclass="text-info"
+		/>
+
+		<field
+			name="GoogleMaps"
+			type="radio"
+			label="COM_ICAGENDA_LEGEND_MAP"
+			description="COM_ICAGENDA_EVENT_MAP_DESC"
+			default="1"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field
+			name="accessGoogleMaps"
+			type="accesslevel"
+			label="JFIELD_ACCESS_LABEL"
+			description="JFIELD_ACCESS_DESC"
+			default="1"
+			class="inputbox"
+			size="1"
+			showon="GoogleMaps:1"
+		/>
+
+		<field
+			name="separator_eventdates"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_EVENT_ALL_DATES"
+			class="ic-lead ic-lead-bg-light"
+			iconprefix="iCicon-"
+			icon="calendar-days"
+			iconclass="text-info"
+			labelclass="text-info"
+		/>
+
+		<field
+			name="separator_eventalldatesnote"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_EVENT_ALL_DATES_DESC"
+			separatortype="note"
+			class="col-12"
+			iconprefix="iCicon-"
+			icon="circle-info"
+			iconclass="text-info"
+			labelclass="text-info"
+		/>
+
+		<field
+			name="SingleDates"
+			type="radio"
+			label="COM_ICAGENDA_EVENT_SINGLE_DATES_LABEL"
+			description="COM_ICAGENDA_EVENT_SINGLE_DATES_DESC"
+			default="1"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field
+			name="SingleDatesOrder"
+			type="list"
+			label="COM_ICAGENDA_LBL_DATE"
+			description="COM_ICAGENDA_DESC_DATE"
+			default="1"
+			class="inputbox"
+			showon="SingleDates:1"
+			>
+			<option value="1">COM_ICAGENDA_DATE_DESC</option>
+			<option value="2">COM_ICAGENDA_DATE_ASC</option>
+		</field>
+
+		<field
+			name="SingleDatesListModel"
+			type="list"
+			label="COM_ICAGENDA_EVENT_SINGLE_DATES_LIST_LABEL"
+			description="COM_ICAGENDA_EVENT_SINGLE_DATES_LIST_DESC"
+			default="1"
+			class="inputbox"
+			showon="SingleDates:1"
+			>
+			<option value="1">COM_ICAGENDA_EVENT_SINGLE_DATES_VERTICAL</option>
+			<option value="2">COM_ICAGENDA_EVENT_SINGLE_DATES_HORIZONTAL</option>
+		</field>
+
+		<field
+			name="PeriodDates"
+			type="radio"
+			label="COM_ICAGENDA_EVENT_PERIOD_LABEL"
+			description="COM_ICAGENDA_EVENT_PERIOD_DESC"
+			default="1"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field
+			name="separator_eventparticipants"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_LIST_OF_PARTICIPANTS_LABEL"
+			class="ic-lead ic-lead-bg-light"
+			iconprefix="iCicon-"
+			icon="users"
+			iconclass="text-info"
+			labelclass="text-info"
+		/>
+
+		<field
+			name="participantList"
+			type="radio"
+			label="COM_ICAGENDA_LIST_OF_PARTICIPANTS_LABEL"
+			description="COM_ICAGENDA_LIST_OF_PARTICIPANTS_DESC"
+			default="0"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field
+			name="accessParticipantList"
+			type="accesslevel"
+			label="JFIELD_ACCESS_LABEL"
+			description="JFIELD_ACCESS_DESC"
+			showon="participantList:1"
+		/>
+
+		<field
+			name="participantSlide"
+			type="radio"
+			label="COM_ICAGENDA_LIST_OF_PARTICIPANTS_SLIDE_LABEL"
+			description="COM_ICAGENDA_LIST_OF_PARTICIPANTS_SLIDE_DESC"
+			default="1"
+			layout="joomla.form.field.radio.switcher"
+			showon="participantList:1"
+			>
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</field>
+
+		<field
+			name="participantDisplay"
+			type="list"
+			label="COM_ICAGENDA_LIST_OF_PARTICIPANTS_DISPLAY_LABEL"
+			description="COM_ICAGENDA_LIST_OF_PARTICIPANTS_DISPLAY_DESC"
+			default="1"
+			class="inputbox"
+			filter="options"
+			showon="participantList:1"
+			>
+			<option value="1">COM_ICAGENDA_LIST_OF_PARTICIPANTS_DISPLAY_FULL</option>
+			<option value="2">COM_ICAGENDA_LIST_OF_PARTICIPANTS_DISPLAY_AVATAR</option>
+			<option value="3">COM_ICAGENDA_LIST_OF_PARTICIPANTS_DISPLAY_NAMES</option>
+		</field>
+
+		<field
+			name="fullListColumns"
+			type="radio"
+			label="COM_ICAGENDA_LIST_DISPLAY_FULL_COLUMN_LABEL"
+			description="COM_ICAGENDA_LIST_DISPLAY_FULL_COLUMN_DESC"
+			default="tiers"
+			class="btn-group"
+			filter="options"
+			showon="participantList:1"
+			>
+			<option value="total">1</option>
+			<option value="demi">2</option>
+			<option value="tiers">3</option>
+			<option value="quart">4</option>
+		</field>
+	</fieldset>
+
+	<fieldset
+		name="register"
+		label="COM_ICAGENDA_REGISTRATION_LABEL"
+		description="COM_ICAGENDA_REGISTRATION_TO_EVENT_DESC"
+		addfieldpath="/administrator/components/com_icagenda/utilities/field"
+		>
+
+		<!-- Registrations -->
+		<field
+			name="separator_registrations"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_TITLE_REGISTRATION"
+			class="ic-lead ic-lead-first ic-lead-bg-light"
+			iconprefix="iCicon-"
+			icon="register"
+			iconclass="text-info"
+			labelclass="text-info"
+		/>
+
+		<field
+			name="statutReg"
+			type="radio"
+			label="COM_ICAGENDA_REGISTRATIONS_LABEL"
+			description="COM_ICAGENDA_REGISTRATIONS_DESC"
+			default="0"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JOFF</option>
+			<option value="1">JON</option>
+		</field>
+
+		<field
+			name="reg_form_access"
+			type="accesslevel"
+			label="JFIELD_ACCESS_LABEL"
+			description="COM_ICAGENDA_REGISTRATION_ACCESS_LEVEL_DESC"
+			default="2"
+		/>
+
+		<field
+			name="reg_deadline"
+			type="radio"
+			label="COM_ICAGENDA_REGISTRATION_DEADLINE_LABEL"
+			description="COM_ICAGENDA_REGISTRATION_DEADLINE_DESC"
+			default="1"
+			class="btn-group"
+			>
+			<option value="1">COM_ICAGENDA_REGISTRATION_DEADLINE_START</option>
+			<option value="2">COM_ICAGENDA_REGISTRATION_DEADLINE_END</option>
+		</field>
+
+		<field
+			name="maxRlist"
+			type="text"
+			label="COM_ICAGENDA_MAX_PER_REGISTRATION_LABEL"
+			description="COM_ICAGENDA_MAX_PER_REGISTRATION_DESC"
+			default="5"
+			class="inputbox input-mini"
+			size="2"
+			filter="integer"
+			validate="IC.PositiveInteger"
+		/>
+
+		<field
+			name="RegButtonText"
+			type="text"
+			label="COM_ICAGENDA_REGISTRATION_BUTTON_TEXT"
+			description="COM_ICAGENDA_REGISTRATION_BUTTON_TEXT_DESC"
+			default=""
+			hint="COM_ICAGENDA_REGISTRATION_REGISTER"
+		/>
+
+		<field
+			name="reg_cancellation"
+			type="radio"
+			label="COM_ICAGENDA_REGISTRATION_CANCELLATION_LABEL"
+			description="COM_ICAGENDA_REGISTRATION_CANCELLATION_DESC"
+			default="0"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</field>
+
+		<!-- Registration Form -->
+		<field
+			name="separator_regform"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_FORM_LABEL"
+			class="ic-lead ic-lead-bg-light"
+			iconprefix="iCicon-"
+			icon="form"
+			iconclass="text-info"
+			labelclass="text-info"
+		/>
+
+		<field
+			name="emailRequired"
+			type="radio"
+			label="COM_ICAGENDA_REGISTRATION_EMAIL_REQUIRED_LABEL"
+			description="COM_ICAGENDA_REGISTRATION_EMAIL_REQUIRED_DESC"
+			default="1"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</field>
+
+		<field
+			name="emailConfirm"
+			type="radio"
+			label="COM_ICAGENDA_REGISTRATION_EMAIL_CONFIRM_DISPLAY_LABEL"
+			description="COM_ICAGENDA_REGISTRATION_EMAIL_CONFIRM_DISPLAY_DESC"
+			default="1"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</field>
+
+		<field
+			name="limitRegEmail"
+			type="radio"
+			label="COM_ICAGENDA_REGISTRATION_LIMIT_EMAIL_LABEL"
+			description="COM_ICAGENDA_REGISTRATION_LIMIT_EMAIL_DESC"
+			default="1"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</field>
+
+		<field
+			name="limitRegDate"
+			type="radio"
+			label="COM_ICAGENDA_REGISTRATION_LIMIT_DATE_LABEL"
+			description="COM_ICAGENDA_REGISTRATION_LIMIT_DATE_DESC"
+			default="1"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</field>
+
+		<field
+			name="phoneDisplay"
+			type="radio"
+			label="COM_ICAGENDA_REGISTRATION_PHONE_DISPLAY_LABEL"
+			description="COM_ICAGENDA_REGISTRATION_PHONE_DISPLAY_DESC"
+			default="0"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field
+			name="phoneRequired"
+			type="radio"
+			label="COM_ICAGENDA_REGISTRATION_PHONE_REQUIRED_LABEL"
+			description="COM_ICAGENDA_REGISTRATION_PHONE_REQUIRED_DESC"
+			default="0"
+			layout="joomla.form.field.radio.switcher"
+			showon="phoneDisplay:1"
+			>
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</field>
+
+		<field
+			name="notesDisplay"
+			type="radio"
+			label="COM_ICAGENDA_REGISTRATION_NOTES_DISPLAY_LABEL"
+			description="COM_ICAGENDA_REGISTRATION_NOTES_DISPLAY_DESC"
+			default="0"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field
+			name="reg_form_validation"
+			type="hidden"
+			label="COM_ICAGENDA_FORM_VALIDATE_LBL"
+			description="COM_ICAGENDA_FORM_VALIDATE_DESC"
+			default=""
+			class="btn-group"
+			>
+			<option value="">COM_ICAGENDA_FORM_SERVER_CLIENT_VALIDATION</option>
+			<option value="1">COM_ICAGENDA_FORM_SERVER_VALIDATION</option>
+		</field>
+
+		<field
+			name="separator_regconsents"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_REGISTRATION_CONSENT_PERSONAL_DATA_LEGEND"
+			class="ic-lead ic-lead-bg-light"
+			iconprefix="iCicon-"
+			icon="user-shield"
+			iconclass="text-info"
+			labelclass="text-info"
+		/>
+
+		<field
+			name="participant_name_visibility"
+			type="list"
+			label="COM_ICAGENDA_PRIVACY_PARTICIPANT_NAME_VISIBILITY_LABEL"
+			description="COM_ICAGENDA_PRIVACY_PARTICIPANT_INFORMATION_VISIBILITY_DESC"
+			default=""
+			class="btn-group"
+			filter="options"
+			>
+			<option value="">COM_ICAGENDA_PRIVACY_ORGANISER</option>
+			<option value="1">COM_ICAGENDA_PRIVACY_PUBLIC</option>
+			<option value="2">COM_ICAGENDA_PRIVACY_USERS</option>
+		</field>
+
+		<field
+			name="participant_name_consent"
+			type="list"
+			label="COM_ICAGENDA_PRIVACY_PARTICIPANT_NAME_REQUIRE_CONSENT_LABEL"
+			description="COM_ICAGENDA_PRIVACY_PARTICIPANT_NAME_REQUIRE_CONSENT_DESC"
+			default=""
+			class="btn-group"
+			filter="options"
+			showon="participant_name_visibility:1,2"
+			>
+			<option value="">IC_AUTO</option>
+			<option value="1">COM_ICAGENDA_PRIVACY_REQUIRE_CONSENT</option>
+			<option value="0">COM_ICAGENDA_PRIVACY_FORCE_NAME_VISIBILITY_AS_SET</option>
+		</field>
+
+		<field
+			name="privacy_consent_alert"
+			type="note"
+			label="COM_ICAGENDA_PRIVACY_PARTICIPANT_FORCE_VISIBILITY_ALERT_LABEL"
+			description="COM_ICAGENDA_PRIVACY_PARTICIPANT_FORCE_VISIBILITY_ALERT_DESC"
+			class="alert alert-warning"
+			showon="participant_name_visibility:1,2[AND]participant_name_consent:0"
+		/>
+
+		<field
+			name="participant_gravatar_consent"
+			type="list"
+			label="COM_ICAGENDA_PRIVACY_PARTICIPANT_GRAVATAR_REQUIRE_CONSENT_LABEL"
+			description="COM_ICAGENDA_PRIVACY_PARTICIPANT_GRAVATAR_REQUIRE_CONSENT_DESC"
+			default=""
+			class="btn-group"
+			filter="options"
+			>
+			<option value="">IC_AUTO</option>
+			<option value="1">COM_ICAGENDA_PRIVACY_REQUIRE_CONSENT</option>
+			<option value="0">JDISABLED</option>
+		</field>
+
+		<field
+			name="privacy_gravatar_alert"
+			type="note"
+			label="COM_ICAGENDA_PRIVACY_PARTICIPANT_GRAVATAR_ALERT_LABEL"
+			description="COM_ICAGENDA_PRIVACY_PARTICIPANT_GRAVATAR_ALERT_DESC"
+			class="alert alert-info"
+			showon="participant_gravatar_consent:"
+		/>
+
+		<field
+			name="privacy_organiser"
+			type="radio"
+			label="COM_ICAGENDA_REGISTRATION_CONSENT_ORGANISER_LABEL"
+			description="COM_ICAGENDA_REGISTRATION_CONSENT_ORGANISER_DESC"
+			default="0"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JDISABLED</option>
+			<option value="1">JENABLED</option>
+		</field>
+
+		<field
+			name="separator_reg_validation"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_FORM_VALIDATE_LBL"
+			class="ic-lead ic-lead-bg-light"
+			iconprefix="iCicon-"
+			icon="file-form-checked"
+			iconclass="text-info"
+			labelclass="text-info"
+		/>
+
+		<field
+			name="reg_captcha"
+			type="radio"
+			label="COM_ICAGENDA_CAPTCHA"
+			description="COM_ICAGENDA_REGISTRATION_CAPTCHA_DESC"
+			default="0"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field
+			name="separator_reg_terms"
+			type="icagenda.Separator"
+			label=" "
+			separatortype="subheader"
+			hr="true"
+			class="col-12"
+		/>
+
+		<field
+			name="terms"
+			type="radio"
+			label="COM_ICAGENDA_REGISTRATION_TERMS_LABEL"
+			description="COM_ICAGENDA_REGISTRATION_TERMS_DESC"
+			default="1"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JDISABLED</option>
+			<option value="1">JENABLED</option>
+		</field>
+
+		<field
+			name="terms_type"
+			type="radio"
+			label="COM_ICAGENDA_REGISTRATION_TERMS_TEXTTYPE_LABEL"
+			description="COM_ICAGENDA_REGISTRATION_TERMS_TEXTTYPE_DESC"
+			default=""
+			class="btn-group"
+			showon="terms:1"
+			>
+			<option value="">IC_WEBSITE_TERMS</option>
+			<option value="1">IC_ARTICLE</option>
+			<option value="2">IC_CUSTOM_TEXT</option>
+			<option value="3">IC_LANGUAGE_STRING</option>
+		</field>
+
+		<field 
+			name="termsArticle" 
+			type="modal_article"
+			label=""
+			select="true"
+			new="true"
+			edit="true"
+			clear="true"
+			showon="terms:1[AND]terms_type:1"
+		/>
+
+		<field 
+			name="termsContent"
+			type="editor"
+			label=""
+			filter="\Joomla\CMS\Component\ComponentHelper::filterText"
+			buttons="readmore,pagebreak"
+			showon="terms:1[AND]terms_type:2"
+		/>
+
+		<field
+			name="termsDefault"
+			type="icagenda.ConfigTermsDefault"
+			label=""
+			constant="COM_ICAGENDA_REGISTRATION_TERMS"
+			showon="terms:1[AND]terms_type:3"
+		/>
+
+		<field
+			name="separator_reg_checkdnsrr"
+			type="icagenda.Separator"
+			label=" "
+			separatortype="subheader"
+			hr="true"
+			class="col-12"
+		/>
+
+		<field
+			name="emailCheckdnsrr"
+			type="radio"
+			label="COM_ICAGENDA_REGISTRATION_EMAIL_CHECKDNSRR_LABEL"
+			default="0"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JDISABLED</option>
+			<option value="1">JENABLED</option>
+		</field>
+		<field
+			name="separator_checkdnsrr"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_REGISTRATION_CHECKDNSRR_INFO_SUMMARY"
+			description="COM_ICAGENDA_REGISTRATION_EMAIL_CHECKDNSRR_DESC"
+			separatortype="details"
+			class="-mt-1 mb-0 ic-n-mt-3 form-text"
+		/>
+
+		<!-- Hidden Control Field for Checkdnsrr -->
+		<field
+			name="Checkdnsrr"
+			type="icagenda.Checkdnsrr"
+			label=""
+			description=""
+		/>
+
+		<!-- Registrations Notifications -->
+		<field
+			name="separator_regnotifications"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_TITLE_REGISTRATION_NOTIFICATIONS"
+			class="ic-lead ic-lead-bg-light"
+			iconprefix="iCicon-"
+			icon="envelope-open-text"
+			iconclass="text-info"
+			labelclass="text-info"
+		/>
+
+		<field
+			name="separator_regemailadmin"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_NOTIFICATION_BY_EMAIL_ADMIN"
+			separatortype="subheader"
+			class="col-12"
+			labelclass="text-info"
+		/>
+
+		<field
+			name="emailAdminSend"
+			type="radio"
+			label="COM_ICAGENDA_NOTIFICATION_BY_EMAIL_ADMIN_LBL"
+			description="COM_ICAGENDA_NOTIFICATION_BY_EMAIL_ADMIN_DESC"
+			default="1"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JDISABLED</option>
+			<option value="1">JENABLED</option>
+		</field>
+
+		<field
+			name="separator_regmailadmininfo"
+			type="icagenda.Separator"
+			description="COM_ICAGENDA_NOTIFICATION_BY_EMAIL_ADMIN_SELECTION_INFO"
+			separatortype="information"
+			class="alert alert-info mb-0 py-3"
+			labelclass="text-info"
+			showon="emailAdminSend:1"
+		/>
+
+		<field
+			name="emailAdminSend_select"
+			type="list"
+			label=""
+			default="0"
+			multiple="true"
+			extension="com_icagenda"
+			layout="joomla.form.field.list-fancy-select"
+			showon="emailAdminSend:1"
+			>
+			<option value="0">COM_ICAGENDA_EMAIL_SITE</option>
+			<option value="1">COM_ICAGENDA_EMAIL_CREATOR</option>
+			<option value="3">COM_ICAGENDA_EMAIL_EVENT_CONTACT</option>
+			<option value="2">COM_ICAGENDA_EMAIL_CUSTOM_LIST</option>
+		</field>
+
+		<field
+			name="emailAdminSend_Placeholder"
+			type="text"
+			label="COM_ICAGENDA_EMAIL_CUSTOM_LIST"
+			description="COM_ICAGENDA_REGISTRATION_EMAIL_ADMIN_CUSTOM_LIST_DESC"
+			class="input-xxlarge"
+			hint="COM_ICAGENDA_EMAILADMINSEND_PLACEHOLDER"
+			showon="emailAdminSend:1"
+		/>
+
+		<field
+			name="separator_regemailuser"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_REGISTRATION_EMAIL_USER"
+			separatortype="subheader"
+			hr="true"
+			class="col-12"
+			labelclass="text-info"
+		/>
+
+		<field
+			name="emailUserSend"
+			type="radio"
+			label="COM_ICAGENDA_CONFIRMATION_BY_EMAIL_USER_LBL"
+			description="COM_ICAGENDA_CONFIRMATION_BY_EMAIL_USER_DESC"
+			default="1"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JDISABLED</option>
+			<option value="1">JENABLED</option>
+		</field>
+
+		<field
+			name="regEmailUser"
+			type="radio"
+			label="COM_ICAGENDA_REGISTRATION_EMAIL_USER_CONTENT_LABEL"
+			description="COM_ICAGENDA_REGISTRATION_EMAIL_USER_CONTENT_DESC"
+			default="1"
+			class="btn-group"
+			showon="emailUserSend:1"
+			>
+			<option value="1">JDEFAULT</option>
+			<option value="0">COM_ICAGENDA_CUSTOM_EMAILS</option>
+		</field>
+
+		<field
+			name="separator_regcustomemails"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_CUSTOM_EMAILS"
+			class="ic-lead ic-lead-bg-light"
+			iconprefix="iCicon-"
+			icon="envelope-open"
+			iconclass="text-info"
+			labelclass="text-info"
+			showon="emailUserSend:1[AND]regEmailUser:0"
+		/>
+
+		<field
+			name="separator_regcustomemailsinfo"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_REGISTRATION_EMAIL_USER_NOTICE"
+			separatortype="note"
+			class="col-12 alert alert-info"
+			iconprefix="iCicon-"
+			icon="info-circle"
+			showon="emailUserSend:1[AND]regEmailUser:0"
+		/>
+
+		<field
+			name="separator_regcustomemailperiod"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_REGISTRATION_EMAIL_USER_PERIOD"
+			separatortype="subheader"
+			class="col-12"
+			labelclass="text-info"
+			showon="emailUserSend:1[AND]regEmailUser:0"
+		/>
+
+		<field
+			name="emailUserSubjectPeriod"
+			type="text"
+			label="COM_ICAGENDA_REGISTRATION_EMAIL_USER_PERIOD_CUSTOM_SUBJECT_LBL"
+			description="COM_ICAGENDA_REGISTRATION_EMAIL_USER_PERIOD_CUSTOM_SUBJECT_DESC"
+			class="input-xxlarge"
+			hint="COM_ICAGENDA_EMAILUSERSUBJECTPERIOD_PLACEHOLDER"
+			showon="emailUserSend:1[AND]regEmailUser:0"
+		/>
+
+		<field
+			name="emailUserBodyPeriod"
+			type="editor"
+			label="COM_ICAGENDA_REGISTRATION_EMAIL_USER_PERIOD_CUSTOM_BODY_LBL"
+			description="COM_ICAGENDA_REGISTRATION_EMAIL_USER_PERIOD_CUSTOM_BODY_DESC"
+			filter="\Joomla\CMS\Component\ComponentHelper::filterText"
+			buttons="false"
+			showon="emailUserSend:1[AND]regEmailUser:0"
+		/>
+
+		<field
+			name="separator_regcustomemaildate"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_REGISTRATION_EMAIL_USER_DATE"
+			separatortype="subheader"
+			class="col-12"
+			labelclass="text-info"
+			showon="emailUserSend:1[AND]regEmailUser:0"
+		/>
+
+		<field
+			name="emailUserSubjectDate"
+			type="text"
+			label="COM_ICAGENDA_REGISTRATION_EMAIL_USER_DATE_CUSTOM_SUBJECT_LBL"
+			description="COM_ICAGENDA_REGISTRATION_EMAIL_USER_DATE_CUSTOM_SUBJECT_DESC"
+			class="input-xxlarge"
+			hint="COM_ICAGENDA_EMAILUSERSUBJECTDATE_PLACEHOLDER"
+			showon="emailUserSend:1[AND]regEmailUser:0"
+		/>
+
+		<field
+			name="emailUserBodyDate"
+			type="editor"
+			label="COM_ICAGENDA_REGISTRATION_EMAIL_USER_DATE_CUSTOM_BODY_LBL"
+			description="COM_ICAGENDA_REGISTRATION_EMAIL_USER_DATE_CUSTOM_BODY_DESC"
+			filter="\Joomla\CMS\Component\ComponentHelper::filterText"
+			buttons="false"
+			showon="emailUserSend:1[AND]regEmailUser:0"
+		/>
+	</fieldset>
+
+	<fieldset
+		name="submit"
+		label="COM_ICAGENDA_SUBMIT_AN_EVENT_LABEL"
+		description="COM_ICAGENDA_SUBMIT_AN_EVENT_DESC"
+		addfieldpath="/administrator/components/com_content/models/fields"
+		addfieldprefix="Joomla\Component\Content\Administrator\Field"
+		>
+
+		<field
+			name="separator_submitpermissions"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_SUBMIT_PERMISSIONS_LABEL"
+			class="ic-lead ic-lead-first ic-lead-bg-light"
+			iconprefix="iCicon-"
+			icon="private"
+			iconclass="text-info"
+			labelclass="text-info"
+		/>
+
+		<field
+			name="separator_submitaccess"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_SUBMIT_FRONTEND_ACCESS_LABEL"
+			separatortype="subheader"
+			class="col-12"
+			labelclass="text-info"
+		/>
+
+		<field
+			name="submitAccess"
+			type="accesslevel"
+			label="JFIELD_ACCESS_LABEL"
+			description="COM_ICAGENDA_SUBMIT_FRONTEND_ACCESS_DESC"
+			default="2"
+			class="forn-vertical"
+			multiple="true"
+			extension="com_icagenda"
+			layout="joomla.form.field.list-fancy-select"
+		/>
+
+		<field
+			name="submitNotLogin"
+			type="radio"
+			label="COM_ICAGENDA_SUBMIT_NOT_LOGIN_LBL"
+			description="COM_ICAGENDA_SUBMIT_NOT_LOGIN_DESC"
+			default=""
+			class="btn-group"
+			>
+			<option value="">IC_DEFAULT</option>
+			<option value="2">IC_CUSTOM_TEXT</option>
+		</field>
+
+		<field
+			name="submitNotLogin_Content"
+			type="editor"
+			label=" "
+			class="inputbox"
+			buttons="false"
+			placeholder="text"
+			filter="\Joomla\CMS\Component\ComponentHelper::filterText"
+			showon="submitNotLogin:2"
+		/>
+
+		<field
+			name="submitNoRights"
+			type="radio"
+			label="COM_ICAGENDA_SUBMIT_NO_RIGHTS_LBL"
+			description="COM_ICAGENDA_SUBMIT_NO_RIGHTS_DESC"
+			default=""
+			class="btn-group"
+			>
+			<option value="">IC_DEFAULT</option>
+			<option value="2">IC_CUSTOM_TEXT</option>
+		</field>
+
+		<field
+			name="submitNoRights_Content"
+			type="editor"
+			label=" "
+			class="inputbox"
+			buttons="false"
+			placeholder="text"
+			filter="\Joomla\CMS\Component\ComponentHelper::filterText"
+			showon="submitNoRights:2"
+		/>
+
+		<field
+			name="separator_submitapproval"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_SUBMIT_APPROVAL_LABEL"
+			separatortype="subheader"
+			hr="true"
+			class="col-12"
+			labelclass="text-info"
+		/>
+		<field
+			name="separator_submitmanagernote"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_SUBMIT_MANAGERS_NOTE"
+			separatortype="note"
+			class="col-12 alert alert-warning mt-0"
+			iconprefix="icon-"
+			icon="warning"
+		/>
+
+		<field
+			name="approvalGroups"
+			type="usergrouplist"
+			label="IC_MANAGERS"
+			description="COM_ICAGENDA_SUBMIT_APPROVAL_GROUPS_DESC"
+			default="8"
+			class="forn-vertical"
+			multiple="true"
+			extension="com_icagenda"
+			layout="joomla.form.field.list-fancy-select"
+		/>
+
+		<!-- Submit Form Settings -->
+		<field
+			name="separator_submitform"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_FORM_LABEL"
+			class="ic-lead ic-lead-bg-light"
+			iconprefix="iCicon-"
+			icon="form"
+			iconclass="text-info"
+			labelclass="text-info"
+		/>
+
+		<field
+			name="submit_language_display"
+			type="radio"
+			label="JFIELD_LANGUAGE_LABEL"
+			description=""
+			default="0"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field
+			name="submit_imageDisplay"
+			type="radio"
+			label="COM_ICAGENDA_SUBMIT_EVENT_IMAGE_DISPLAY_LABEL"
+			description="COM_ICAGENDA_SUBMIT_EVENT_IMAGE_DISPLAY_DESC"
+			default="1"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field
+			name="submit_imageMaxSize"
+			type="text"
+			label="COM_ICAGENDA_SUBMIT_EVENT_IMAGE_MAX_SIZE_LABEL"
+			description="COM_ICAGENDA_SUBMIT_EVENT_IMAGE_MAX_SIZE_DESC"
+			default="800"
+			class="inputbox input-mini"
+			showon="submit_imageDisplay:1"
+		/>
+
+		<field
+			name="submit_periodDisplay"
+			type="radio"
+			label="COM_ICAGENDA_SUBMIT_PERIOD_DISPLAY_LABEL"
+			description="COM_ICAGENDA_SUBMIT_PERIOD_DISPLAY_DESC"
+			default="1"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field
+			name="submit_weekdaysDisplay"
+			type="radio"
+			label="COM_ICAGENDA_SUBMIT_WEEKDAYS_DISPLAY_LABEL"
+			description="COM_ICAGENDA_SUBMIT_WEEKDAYS_DISPLAY_DESC"
+			default="1"
+			layout="joomla.form.field.radio.switcher"
+			showon="submit_periodDisplay:1"
+			>
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field
+			name="submit_datesDisplay"
+			type="radio"
+			label="COM_ICAGENDA_SUBMIT_DATES_DISPLAY_LABEL"
+			description="COM_ICAGENDA_SUBMIT_DATES_DISPLAY_DESC"
+			default="1"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field
+			name="submit_displaytimeDisplay"
+			type="radio"
+			label="COM_ICAGENDA_SUBMIT_DISPLAYTIME_DISPLAY_LABEL"
+			description="COM_ICAGENDA_SUBMIT_DISPLAYTIME_DISPLAY_DESC"
+			default="0"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field
+			name="submit_shortdescDisplay"
+			type="radio"
+			label="COM_ICAGENDA_SUBMIT_SHORTDESC_DISPLAY_LABEL"
+			description="COM_ICAGENDA_SUBMIT_SHORTDESC_DISPLAY_DESC"
+			default="1"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field
+			name="submit_descDisplay"
+			type="radio"
+			label="COM_ICAGENDA_SUBMIT_DESCRIPTION_DISPLAY_LABEL"
+			description="COM_ICAGENDA_SUBMIT_DESCRIPTION_DISPLAY_DESC"
+			default="1"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field
+			name="submit_metadescDisplay"
+			type="radio"
+			label="COM_ICAGENDA_SUBMIT_METADESCRIPTION_DISPLAY_LABEL"
+			description="COM_ICAGENDA_SUBMIT_METADESCRIPTION_DISPLAY_DESC"
+			default="0"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field
+			name="submit_venueDisplay"
+			type="radio"
+			label="COM_ICAGENDA_SUBMIT_VENUE_DISPLAY_LABEL"
+			description="COM_ICAGENDA_SUBMIT_VENUE_DISPLAY_DESC"
+			default="1"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field
+			name="submit_emailDisplay"
+			type="radio"
+			label="COM_ICAGENDA_SUBMIT_EMAIL_DISPLAY_LABEL"
+			description="COM_ICAGENDA_SUBMIT_EMAIL_DISPLAY_DESC"
+			default="1"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field
+			name="submit_phoneDisplay"
+			type="radio"
+			label="COM_ICAGENDA_SUBMIT_PHONE_DISPLAY_LABEL"
+			description="COM_ICAGENDA_SUBMIT_PHONE_DISPLAY_DESC"
+			default="1"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field
+			name="submit_websiteDisplay"
+			type="radio"
+			label="COM_ICAGENDA_SUBMIT_WEBSITE_DISPLAY_LABEL"
+			description="COM_ICAGENDA_SUBMIT_WEBSITE_DISPLAY_DESC"
+			default="1"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field
+			name="submit_customfieldsDisplay"
+			type="radio"
+			label="COM_ICAGENDA_CUSTOMFIELDS"
+			description="COM_ICAGENDA_SUBMIT_CUSTOMFIELDS_DISPLAY_DESC"
+			default="1"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field
+			name="submit_fileDisplay"
+			type="radio"
+			label="COM_ICAGENDA_SUBMIT_ATTACHMENT_DISPLAY_LABEL"
+			description="COM_ICAGENDA_SUBMIT_ATTACHMENT_DISPLAY_DESC"
+			default="1"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field
+			name="submit_gmapDisplay"
+			type="radio"
+			label="COM_ICAGENDA_SUBMIT_MAP_DISPLAY_LABEL"
+			description="COM_ICAGENDA_SUBMIT_MAP_DISPLAY_DESC"
+			default="1"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field
+			name="submit_regoptionsDisplay"
+			type="radio"
+			label="COM_ICAGENDA_SUBMIT_REGISTRATION_OPTIONS_DISPLAY_LABEL"
+			description="COM_ICAGENDA_SUBMIT_REGISTRATION_OPTIONS_DISPLAY_DESC"
+			default="1"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field
+			name="separator_submit_validation"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_FORM_VALIDATE_LBL"
+			class="ic-lead ic-lead-bg-light"
+			iconprefix="iCicon-"
+			icon="file-form-checked"
+			iconclass="text-info"
+			labelclass="text-info"
+		/>
+
+		<field
+			name="submit_captcha"
+			type="radio"
+			label="COM_ICAGENDA_CAPTCHA"
+			description="COM_ICAGENDA_SUBMIT_CAPTCHA_DESC"
+			default="0"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field
+			name="separator_submit_terms"
+			type="icagenda.Separator"
+			label=" "
+			separatortype="subheader"
+			hr="true"
+			class="col-12"
+		/>
+
+		<field
+			name="tos"
+			type="radio"
+			label="COM_ICAGENDA_SUBMIT_TOS_LABEL"
+			description="COM_ICAGENDA_SUBMIT_TOS_DESC"
+			default="1"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JDISABLED</option>
+			<option value="1">JENABLED</option>
+		</field>
+
+		<field
+			name="tos_type"
+			type="radio"
+			label="COM_ICAGENDA_SUBMIT_TOS_TEXTTYPE_LABEL"
+			description="COM_ICAGENDA_SUBMIT_TOS_TEXTTYPE_DESC"
+			default=""
+			class="btn-group"
+			showon="tos:1"
+			>
+			<option value="">IC_WEBSITE_TERMS</option>
+			<option value="1">IC_ARTICLE</option>
+			<option value="2">IC_CUSTOM_TEXT</option>
+			<option value="3">IC_LANGUAGE_STRING</option>
+		</field>
+
+		<field 
+			name="tosArticle" 
+			type="modal_article"
+			label=" "
+			select="true"
+			new="true"
+			edit="true"
+			clear="true"
+			showon="tos:1[AND]tos_type:1"
+		/>
+
+		<field 
+			name="tosContent"
+			type="editor"
+			label=""
+			filter="\Joomla\CMS\Component\ComponentHelper::filterText"
+			buttons="readmore,pagebreak"
+			showon="tos:1[AND]tos_type:2"
+		/>
+
+		<field
+			name="tosDefault"
+			type="icagenda.ConfigTermsDefault"
+			label=""
+			constant="COM_ICAGENDA_TOS"
+			showon="tos:1[AND]tos_type:3"
+		/>
+
+		<field
+			name="submit_form_validation"
+			type="hidden"
+			label="COM_ICAGENDA_FORM_VALIDATE_LBL"
+			description="COM_ICAGENDA_FORM_VALIDATE_DESC"
+			default=""
+			class="btn-group"
+			>
+			<option value="">COM_ICAGENDA_FORM_SERVER_CLIENT_VALIDATION</option>
+			<option value="1">COM_ICAGENDA_FORM_SERVER_VALIDATION</option>
+		</field>
+
+		<field
+			name="separator_submit_return"
+			type="icagenda.Separator"
+			label=" "
+			separatortype="subheader"
+			hr="true"
+			class="col-12"
+		/>
+
+		<field
+			name="submitReturn"
+			type="radio"
+			label="COM_ICAGENDA_SUBMIT_RETURN_LBL"
+			description="COM_ICAGENDA_SUBMIT_RETURN_DESC"
+			default=""
+			class="btn-group"
+			>
+			<option value="">IC_DEFAULT</option>
+			<option value="1">IC_ARTICLE</option>
+			<option value="2">IC_URL</option>
+		</field>
+
+		<field
+			name="submitReturn_Article"
+			type="modal_article"
+			label=""
+			showon="submitReturn:1"
+		/>
+
+		<field
+			name="submitReturn_Url"
+			type="url"
+			label=""
+			hint="IC_HINT_URL"
+			showon="submitReturn:2"
+		/>
+
+	</fieldset>
+
+	<fieldset
+		name="global"
+		label="COM_ICAGENDA_GLOBAL_PARAMS_LABEL"
+		description="COM_ICAGENDA_GLOBAL_PARAMS_INFO"
+		>
+
+		<!-- Maps Service -->
+		<field
+			name="separator_mapservice"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_LEGEND_MAP"
+			class="ic-lead ic-lead-first ic-lead-bg-light"
+			iconprefix="iCicon-"
+			icon="location"
+			iconclass="text-info"
+			labelclass="text-info"
+		/>
+
+		<field
+			name="maps_service"
+			type="list"
+			label="COM_ICAGENDA_MAPS_SERVICE_LABEL"
+			description="COM_ICAGENDA_MAPS_SERVICE_DESC"
+			default="1"
+			>
+			<option value="">COM_ICAGENDA_SELECT_MAPS_SERVICE</option>
+			<option value="1">COM_ICAGENDA_LEAFLET_OPENSTREETMAP</option>
+			<option value="2">COM_ICAGENDA_GOOGLE_MAPS_EMBED_API</option>
+			<option value="3">COM_ICAGENDA_GOOGLE_MAPS_JAVASCRIPT_API</option>
+		</field>
+
+		<field
+			name="separator_globalgooglemapsnote"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_GLOBAL_GOOGLEMAPS_INFO_SUMMARY"
+			description="COM_ICAGENDA_GOOGLE_MAPS_API_INFO"
+			separatortype="details"
+			class="-mt-1 mb-0 ic-n-mt-3 form-text"
+			showon="maps_service:2,3"
+		/>
+
+		<field
+			name="googlemaps_embed_key"
+			type="text"
+			label="COM_ICAGENDA_GOOGLE_MAPS_EMBED_KEY_LABEL"
+			showon="maps_service:2"
+		/>
+
+		<field
+			name="separator_globalgooglemapsembednote"
+			type="icagenda.Separator"
+			description="COM_ICAGENDA_GOOGLE_MAPS_EMBED_KEY_DESC"
+			separatortype="information"
+			class="alert alert-info mb-0 py-1"
+			showon="maps_service:2"
+		/>
+
+		<field
+			name="googlemaps_browser_key"
+			type="text"
+			label="COM_ICAGENDA_GOOGLE_MAPS_BROWSER_KEY_LABEL"
+			showon="maps_service:3"
+		/>
+
+		<field
+			name="separator_globalgooglemapsapinote"
+			type="icagenda.Separator"
+			description="COM_ICAGENDA_GOOGLE_MAPS_BROWSER_KEY_DESC"
+			separatortype="information"
+			class="alert alert-info mb-0 py-1"
+			showon="maps_service:3"
+		/>
+
+		<field
+			name="googlemaps_client_id"
+			type="text"
+			label="COM_ICAGENDA_GOOGLE_MAPS_CLIENT_ID_LABEL"
+			hint="gme-*"
+			showon="maps_service:3"
+		/>
+
+		<field
+			name="separator_globalgooglemapsclientidnote"
+			type="icagenda.Separator"
+			description="COM_ICAGENDA_GOOGLE_MAPS_CLIENT_ID_DESC"
+			separatortype="information"
+			class="alert alert-info mb-0 py-1"
+			showon="maps_service:3"
+		/>
+
+		<!-- Icons -->
+		<field
+			name="separator_icons"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_ICONS"
+			class="ic-lead ic-lead-bg-light"
+			iconprefix="iCicon-"
+			icon="icons"
+			iconclass="text-info"
+			labelclass="text-info"
+		/>
+
+		<!-- Print -->
+		<field
+			name="iconPrint_global"
+			type="list"
+			label="COM_ICAGENDA_ICON_PRINT_LABEL"
+			description="COM_ICAGENDA_ICON_PRINT_DESC"
+			default="0"
+			>
+			<option value="0">JHIDE</option>
+			<!--option value="1">IC_ONLY_EVENTS_LIST</option-->
+			<option value="2">IC_ONLY_EVENT_DETAILS</option>
+			<!--option value="3">JALL</option-->
+		</field>
+
+		<!-- Add to Cal -->
+		<field
+			name="separator_addtocal"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_ICON_ADDTOCAL_LABEL"
+			separatortype="subheader"
+			hr="true"
+			class="col-12"
+			labelclass="text-info"
+		/>
+
+		<field
+			name="iconAddToCal_global"
+			type="list"
+			label="COM_ICAGENDA_ICON_ADDTOCAL_LABEL"
+			description="COM_ICAGENDA_ICON_ADDTOCAL_DESC"
+			default="0"
+			>
+			<option value="0">JHIDE</option>
+			<!--option value="1">IC_ONLY_EVENTS_LIST</option-->
+			<option value="2">IC_ONLY_EVENT_DETAILS</option>
+			<!--option value="3">JALL</option-->
+		</field>
+
+		<field
+			name="iconAddToCal_size"
+			type="radio"
+			label="COM_ICAGENDA_ICON_ADDTOCAL_SIZE_LABEL"
+			description="COM_ICAGENDA_ICON_ADDTOCAL_SIZE_DESC"
+			default="24"
+			class="btn-group"
+			showon="iconAddToCal_global!:0"
+			>
+			<option value="16">16 px</option>
+			<option value="24">24 px</option>
+			<option value="32">32 px</option>
+		</field>
+
+		<field
+			name="iconAddToCal_options"
+			type="list"
+			label="COM_ICAGENDA_ICON_ADDTOCAL_OPTIONS_LABEL"
+			description="COM_ICAGENDA_ICON_ADDTOCAL_OPTIONS_DESC"
+			class="forn-vertical"
+			multiple="true"
+			extension="com_icagenda"
+			layout="joomla.form.field.list-fancy-select"
+			showon="iconAddToCal_global!:0"
+			>
+			<option value="1">COM_ICAGENDA_GCALENDAR_LABEL</option>
+			<option value="2">COM_ICAGENDA_VCAL_ICAL_LABEL</option>
+			<option value="3">COM_ICAGENDA_OUTLOOK_LABEL</option>
+			<option value="4">COM_ICAGENDA_LIVE_CALENDAR_LABEL</option>
+			<option value="5">COM_ICAGENDA_YAHOO_CALENDAR_LABEL</option>
+		</field>
+
+		<!-- Features -->
+		<field
+			name="separator_features"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_TITLE_FEATURES"
+			separatortype="subheader"
+			hr="true"
+			class="col-12"
+			labelclass="text-info"
+		/>
+
+		<field
+			name="features_icon_size_list"
+			type="list"
+			label="COM_ICAGENDA_FEATURES_ICONSIZE_LIST_LABEL"
+			description="COM_ICAGENDA_FEATURES_ICONSIZE_LIST_DESC"
+			default=""
+			class="inputbox"
+			filter="options"
+			>
+			<option value="">COM_ICAGENDA_FEATURES_ICONSIZE_NONE</option>
+			<option value="16_bit">COM_ICAGENDA_FEATURES_ICONSIZE_16</option>
+			<option value="24_bit">COM_ICAGENDA_FEATURES_ICONSIZE_24</option>
+			<option value="32_bit">COM_ICAGENDA_FEATURES_ICONSIZE_32</option>
+			<option value="48_bit">COM_ICAGENDA_FEATURES_ICONSIZE_48</option>
+			<option value="64_bit">COM_ICAGENDA_FEATURES_ICONSIZE_64</option>
+		</field>
+
+		<field
+			name="features_icon_size_event"
+			type="list"
+			label="COM_ICAGENDA_FEATURES_ICONSIZE_EVENT_LABEL"
+			description="COM_ICAGENDA_FEATURES_ICONSIZE_EVENT_DESC"
+			default=""
+			class="inputbox"
+			filter="options"
+			>
+			<option value="">COM_ICAGENDA_FEATURES_ICONSIZE_NONE</option>
+			<option value="16_bit">COM_ICAGENDA_FEATURES_ICONSIZE_16</option>
+			<option value="24_bit">COM_ICAGENDA_FEATURES_ICONSIZE_24</option>
+			<option value="32_bit">COM_ICAGENDA_FEATURES_ICONSIZE_32</option>
+			<option value="48_bit">COM_ICAGENDA_FEATURES_ICONSIZE_48</option>
+			<option value="64_bit">COM_ICAGENDA_FEATURES_ICONSIZE_64</option>
+		</field>
+
+		<field
+			name="show_icon_title"
+			type="radio"
+			label="COM_ICAGENDA_SHOW_FEATURE_ICON_TITLE_LABEL"
+			description="COM_ICAGENDA_SHOW_FEATURE_ICON_TITLE_DESC"
+			default="1"
+			layout="joomla.form.field.radio.switcher"
+			showon="features_icon_size_list!:[OR]features_icon_size_event!:"
+			>
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<!-- Remove AddThis on Options storing. @deprecated 3.8.18, AddThis service closed. -->
+		<field
+			name="addthis_removal"
+			type="hidden"
+			default="1"
+		/>
+
+		<!-- Screen Width Thresholds -->
+		<field
+			name="separator_responsive"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_SCREEN_WIDTH_THRESHOLDS_LABEL"
+			class="ic-lead ic-lead-bg-light"
+			iconprefix="iCicon-"
+			icon="desktop"
+			iconclass="text-info"
+			labelclass="text-info"
+		/>
+
+		<field
+			name="largewidththreshold"
+			type="text"
+			label="COM_ICAGENDA_LARGE_WIDTH_THRESHOLD_LABEL"
+			default="1201"
+			class="inputbox"
+			size="30"
+		/>
+		<field
+			name="separator_globallargewidthnote"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_GLOBAL_SCREEN_LARGESIZE_INFO_SUMMARY"
+			description="COM_ICAGENDA_LARGE_WIDTH_THRESHOLD_DESC"
+			separatortype="details"
+			class="-mt-1 mb-0 ic-n-mt-3 form-text"
+		/>
+
+		<field
+			name="mediumwidththreshold"
+			type="text"
+			label="COM_ICAGENDA_MEDIUM_WIDTH_THRESHOLD_LABEL"
+			default="769"
+			class="inputbox"
+			size="30"
+		/>
+		<field
+			name="separator_globalmediumwidthnote"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_GLOBAL_SCREEN_MEDIUMSIZE_INFO_SUMMARY"
+			description="COM_ICAGENDA_MEDIUM_WIDTH_THRESHOLD_DESC"
+			separatortype="details"
+			class="-mt-1 mb-0 ic-n-mt-3 form-text"
+		/>
+
+		<field
+			name="smallwidththreshold"
+			type="text"
+			label="COM_ICAGENDA_SMALL_WIDTH_THRESHOLD_LABEL"
+			default="481"
+			class="inputbox"
+			size="30"
+		/>
+		<field
+			name="separator_globalsmallwidthnote"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_GLOBAL_SCREEN_SMALLSIZE_INFO_SUMMARY"
+			description="COM_ICAGENDA_SMALL_WIDTH_THRESHOLD_DESC"
+			separatortype="details"
+			class="-mt-1 mb-0 ic-n-mt-3 form-text"
+		/>
+
+		<!-- Thumbnails -->
+		<field
+			name="separator_thumbnails"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_THUMBNAILS_LABEL"
+			class="ic-lead ic-lead-bg-light"
+			iconprefix="iCicon-"
+			icon="thumbs"
+			iconclass="text-info"
+			labelclass="text-info"
+		/>
+
+		<field
+			name="thumb_generator"
+			type="radio"
+			label="COM_ICAGENDA_ICTHUMB_LABEL"
+			description="COM_ICAGENDA_ICTHUMB_DESC"
+			default="1"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</field>
+
+		<field
+			name="thumb_large"
+			type="icagenda.Thumbnail"
+			label="COM_ICAGENDA_THUMB_LARGE_LBL"
+			description="COM_ICAGENDA_THUMB_LARGE_DESC"
+			class="input-small"
+			showon="thumb_generator:1"
+		/>
+
+		<field
+			name="thumb_medium"
+			type="icagenda.Thumbnail"
+			label="COM_ICAGENDA_THUMB_MEDIUM_LBL"
+			description="COM_ICAGENDA_THUMB_MEDIUM_DESC"
+			class="input-small"
+			showon="thumb_generator:1"
+		/>
+
+		<field
+			name="thumb_small"
+			type="icagenda.Thumbnail"
+			label="COM_ICAGENDA_THUMB_SMALL_LBL"
+			description="COM_ICAGENDA_THUMB_SMALL_DESC"
+			class="input-small"
+			showon="thumb_generator:1"
+		/>
+
+		<field
+			name="thumb_xsmall"
+			type="icagenda.Thumbnail"
+			label="COM_ICAGENDA_THUMB_XSMALL_LBL"
+			description="COM_ICAGENDA_THUMB_XSMALL_DESC"
+			class="input-small"
+			showon="thumb_generator:1"
+		/>
+
+		<!-- Date and Time -->
+		<field
+			name="separator_datetime"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_DATETIME_LABEL"
+			class="ic-lead ic-lead-bg-light"
+			iconprefix="iCicon-"
+			icon="clock"
+			iconclass="text-info"
+			labelclass="text-info"
+		/>
+
+		<field
+			name="date_format_global"
+			type="IC.LocaleDateFormats"
+			label="COM_ICAGENDA_LBL_FORMAT"
+			description="COM_ICAGENDA_LBL_FORMAT"
+			default=""
+			class="form-select"
+		/>
+
+		<field
+			name="date_separator"
+			type="text"
+			label="COM_ICAGENDA_LBL_DATE_SEPARATOR"
+			description="COM_ICAGENDA_DESC_DATE_COMPONENTS_SEPARATOR"
+			default=""
+			class="inputbox"
+			size="5"
+		/>
+
+		<field
+			name="displaytime"
+			type="radio"
+			label="COM_ICAGENDA_TIMEDISPLAY_DEFAULT_LABEL"
+			description="COM_ICAGENDA_TIMEDISPLAY_DEFAULT_DESC"
+			default="1"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+
+		<field
+			name="timeformat"
+			type="radio"
+			label="COM_ICAGENDA_TIME_FORMAT_LABEL"
+			description="COM_ICAGENDA_TIME_FORMAT_DESC"
+			default="1"
+			class="btn-group"
+			>
+			<option value="1">COM_ICAGENDA_24</option>
+			<option value="2">COM_ICAGENDA_12</option>
+		</field>
+
+		<field
+			name="firstday_week_global"
+			type="list"
+			label="COM_ICAGENDA_FIRSTDAY_WEEK_LABEL"
+			description="COM_ICAGENDA_FIRSTDAY_WEEK_DESC"
+			default="1"
+			>
+			<option value="1">MONDAY</option>
+			<option value="0">SUNDAY</option>
+		</field>
+
+		<!-- Categories -->
+		<field
+			name="separator_catlist"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_CATEGORY_SELECT_LIST"
+			class="ic-lead ic-lead-bg-light"
+			iconprefix="iCicon-"
+			icon="list-check"
+			iconclass="text-info"
+			labelclass="text-info"
+		/>
+
+		<field
+			name="orderby_catlist"
+			type="list"
+			label="COM_ICAGENDA_CATEGORY_ORDER_LABEL"
+			description="COM_ICAGENDA_CATEGORY_SELECT_LIST_ORDER_DESC"
+			default="alpha"
+			>
+			<option value="none">JGLOBAL_NO_ORDER</option>
+			<option value="alpha">JGLOBAL_TITLE_ALPHABETICAL</option>
+			<option value="ralpha">JGLOBAL_TITLE_REVERSE_ALPHABETICAL</option>
+			<option value="order">JGLOBAL_CATEGORY_MANAGER_ORDER</option>
+		</field>
+
+		<field
+			name="default_catlist"
+			type="icagenda.CategorySelect"
+			label="COM_ICAGENDA_CATEGORY_SELECT_LIST_DEFAULT_LABEL"
+			description="COM_ICAGENDA_CATEGORY_SELECT_LIST_DEFAULT_DESC"
+			class="form-select"
+		/>
+
+		<field
+			name="admin_status_catlist"
+			type="list"
+			label="COM_ICAGENDA_CATEGORY_SELECT_LIST_STATUS_ADMIN_LABEL"
+			description="COM_ICAGENDA_CATEGORY_SELECT_LIST_STATUS_ADMIN_DESC"
+			default="1"
+			class="forn-vertical"
+			multiple="true"
+			extension="com_icagenda"
+			layout="joomla.form.field.list-fancy-select"
+			>
+			<option value="1">JPUBLISHED</option>
+			<option value="0">JUNPUBLISHED</option>
+			<option value="2">JARCHIVED</option>
+		</field>
+
+		<field
+			name="site_status_catlist"
+			type="list"
+			label="COM_ICAGENDA_CATEGORY_SELECT_LIST_STATUS_SITE_LABEL"
+			description="COM_ICAGENDA_CATEGORY_SELECT_LIST_STATUS_SITE_DESC"
+			default="1"
+			class="forn-vertical"
+			multiple="true"
+			extension="com_icagenda"
+			layout="joomla.form.field.list-fancy-select"
+			>
+			<option value="1">JPUBLISHED</option>
+			<option value="0">JUNPUBLISHED</option>
+			<option value="2">JARCHIVED</option>
+		</field>
+
+		<!-- Miscellaneous -->
+		<field
+			name="separator_miscellaneous"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_MISCELLANEOUS_LABEL"
+			class="ic-lead ic-lead-bg-light"
+			iconprefix="iCicon-"
+			icon="options"
+			iconclass="text-info"
+			labelclass="text-info"
+		/>
+
+		<field
+			name="separator_eventtitle"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_EVENT_TITLE_LBL"
+			separatortype="subheader"
+			class="col-12"
+			labelclass="text-info"
+		/>
+
+		<field
+			name="titleTransform"
+			type="list"
+			label="COM_ICAGENDA_TEXT_TRANSFORM_LBL"
+			description="COM_ICAGENDA_TEXT_TRANSFORM_DESC"
+			default=""
+			class="btn-group"
+			>
+			<option value="">JNONE</option>
+			<option value="1">IC_FIRST_UPPERCASE</option>
+			<option value="2">IC_CAPITALIZE</option>
+			<option value="3">IC_UPPERCASE</option>
+			<option value="4">IC_LOWERCASE</option>
+		</field>
+
+		<field
+			name="separator_shortdesc"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_SHORT_DESCRIPTION_LBL"
+			separatortype="subheader"
+			hr="true"
+			class="col-12"
+			labelclass="text-info"
+		/>
+
+		<field
+			name="char_limit_short_description"
+			type="text"
+			label="COM_ICAGENDA_LBL_LIMIT"
+			description="COM_ICAGENDA_SHORT_DESCRIPTION_LIMIT_DESC"
+			default="100"
+			class="inputbox input-mini"
+			size="5"
+			filter="integer"
+		/>
+
+		<field
+			name="separator_metadesc"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_META_DESCRIPTION_LBL"
+			separatortype="subheader"
+			hr="true"
+			class="col-12"
+			labelclass="text-info"
+		/>
+
+		<field
+			name="char_limit_meta_description"
+			type="text"
+			label="COM_ICAGENDA_LBL_LIMIT"
+			description="COM_ICAGENDA_META_DESCRIPTION_LIMIT_DESC"
+			default="320"
+			class="inputbox input-mini"
+			size="5"
+			filter="integer"
+		/>
+
+		<field
+			name="separator_introtext"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_AUTO_SHORT_DESCRIPTION_LBL"
+			separatortype="subheader"
+			hr="true"
+			class="col-12"
+			labelclass="text-info"
+		/>
+
+		<field
+			name="ShortDescLimit"
+			type="text"
+			label="COM_ICAGENDA_LBL_LIMIT"
+			description="COM_ICAGENDA_AUTO_INTROTEXT_LIMIT_DESC"
+			default="100"
+			class="inputbox input-mini"
+			size="5"
+			filter="integer"
+		/>
+
+		<field
+			name="Filtering_ShortDesc_Global"
+			type="list"
+			label="COM_ICAGENDA_HTML_FILTERING_LABEL"
+			description="COM_ICAGENDA_FILTERING_SHORTDESC_DESC"
+			default=""
+			>
+			<option value="">COM_ICAGENDA_ALL_ITALIC</option>
+			<option value="0">COM_ICAGENDA_NO_HTML</option>
+			<option value="1">COM_ICAGENDA_AUTHORIZED_HTML_TAGS</option>
+		</field>
+
+		<field
+			name="HTMLTags_ShortDesc_Global"
+			type="list"
+			label="COM_ICAGENDA_AUTHORIZED_HTML_TAGS"
+			description="COM_ICAGENDA_FILTERING_SHORTDESC_AUTHORIZED_HTML_TAGS_DESC"
+			default=""
+			class="forn-vertical"
+			multiple="true"
+			extension="com_icagenda"
+			layout="joomla.form.field.list-fancy-select"
+			showon="Filtering_ShortDesc_Global:1"
+			>
+			<option value="1">&lt;br &#47;&gt;</option>
+			<option value="2">&lt;b&gt;</option>
+			<option value="3">&lt;strong&gt;</option>
+			<option value="4">&lt;i&gt;</option>
+			<option value="5">&lt;em&gt;</option>
+			<option value="6">&lt;u&gt;</option>
+			<option value="7">&lt;p&gt;</option>
+		</field>
+
+		<field
+			name="separator_customization"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_CUSTOMIZATION"
+			class="ic-lead ic-lead-bg-light"
+			iconprefix="icon-"
+			icon="brush"
+			iconclass="text-info"
+			labelclass="text-info"
+		/>
+
+		<field
+			name="customCSS_activation"
+			type="radio"
+			label="COM_ICAGENDA_CUSTOM_CSS_ACTIVATION_LBL"
+			description="COM_ICAGENDA_CUSTOM_CSS_ACTIVATION_DESC"
+			default="0"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</field>
+
+		<field
+			name="customCSS"
+			type="textarea"
+			label="COM_ICAGENDA_CUSTOM_CSS_LBL"
+			description="COM_ICAGENDA_CUSTOM_CSS_DESC"
+			default=""
+			class="input-xxlarge"
+			rows="5"
+			cols="50"
+			hint="COM_ICAGENDA_CUSTOM_CSS_HINT"
+			showon="customCSS_activation:1"
+		/>
+	</fieldset>
+
+	<fieldset
+		name="integration"
+		label="JGLOBAL_INTEGRATION_LABEL"
+		description="COM_ICAGENDA_CONFIG_INTEGRATION_SETTINGS_DESC"
+		>
+
+		<!-- Captcha plugin -->
+		<field
+			name="separator_captcha"
+			type="icagenda.Separator"
+			label="COM_ICAGENDA_CAPTCHA"
+			class="ic-lead ic-lead-first ic-lead-bg-light"
+			iconprefix="iCicon-"
+			icon="shield"
+			iconclass="text-info"
+			labelclass="text-info"
+		/>
+
+		<field
+			name="captcha"
+			type="plugins"
+			label="COM_ICAGENDA_CAPTCHA_LABEL"
+			description="COM_ICAGENDA_CAPTCHA_DESC"
+			default=""
+			folder="captcha"
+			filter="cmd"
+			>
+			<option value="">JOPTION_USE_DEFAULT</option>
+		</field>
+
+		<!-- Routing -->
+		<field
+			name="separator_routing"
+			type="icagenda.Separator"
+			label="JGLOBAL_SEF_TITLE"
+			class="ic-lead ic-lead-bg-light"
+			icon="tree-2"
+			iconclass="text-info"
+			labelclass="text-info"
+		/>
+
+		<field
+			name="sef_ids"
+			type="radio"
+			layout="joomla.form.field.radio.switcher"
+			default="0"
+			label="JGLOBAL_SEF_NOIDS_LABEL"
+			filter="integer"
+			>
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</field>
+
+		<!-- Users -->
+		<field
+			name="separator_users"
+			type="icagenda.Separator"
+			label="IC_USERS"
+			class="ic-lead ic-lead-bg-light"
+			iconprefix="iCicon-"
+			icon="people"
+			iconclass="text-info"
+			labelclass="text-info"
+		/>
+
+		<field
+			name="autofilluser"
+			type="radio"
+			label="COM_ICAGENDA_REGISTRATION_JOOMLA_USER_AUTOFILL_LABEL"
+			description="COM_ICAGENDA_REGISTRATION_JOOMLA_USER_AUTOFILL_DESC"
+			default="1"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</field>
+
+		<field
+			name="nameJoomlaUser"
+			type="radio"
+			label="COM_ICAGENDA_REGISTRATION_JOOMLA_USER_NAME_LABEL"
+			description="COM_ICAGENDA_REGISTRATION_JOOMLA_USER_NAME_DESC"
+			default="2"
+			class="btn-group"
+			showon="autofilluser:1"
+			>
+			<option value="1">IC_NAME</option>
+			<option value="2">IC_USERNAME</option>
+		</field>
+
+		<field
+			name="auto_login"
+			type="radio"
+			label="COM_ICAGENDA_AUTOLOGIN_LABEL"
+			description="COM_ICAGENDA_AUTOLOGIN_DESC"
+			default="1"
+			layout="joomla.form.field.radio.switcher"
+			>
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</field>
+
+	</fieldset>
+
+	<fieldset
+		name="permissions"
+		label="JCONFIG_PERMISSIONS_LABEL"
+		description="JCONFIG_PERMISSIONS_DESC"
+		>
+
+		<field
+			name="rules"
+			type="rules"
+			label="JCONFIG_PERMISSIONS_LABEL"
+			class="inputbox"
+			validate="rules"
+			filter="rules"
+			component="com_icagenda"
+			section="component"
+		/>
+	</fieldset>
+</config>

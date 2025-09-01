@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="package" method="upgrade">
+	<name>iCagenda Package</name>
+	<author>Cyril Reze</author>
+	<creationDate>2025-04-22</creationDate>
+	<copyright>Copyright (c) 2012-2025 Cyril Reze / JoomliC. All rights reserved.</copyright>
+	<license>GNU General Public License version 3 or later; see LICENSE.txt</license>
+	<authorEmail>info@joomlic.com</authorEmail>
+	<authorUrl>www.joomlic.com</authorUrl>
+	<packagename>icagenda</packagename>
+	<packager>Jooml!C</packager>
+	<packagerurl>https://www.joomlic.com</packagerurl>
+	<url>https://www.icagenda.com</url>
+	<version>3.9.11</version>
+	<description>PKG_ICAGENDA_DESC</description>
+	<variant>free</variant>
+	<blockChildUninstall>true</blockChildUninstall>
+
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.pkg_icagenda.sys.ini</language>
+		<language tag="fr-FR">fr-FR/fr-FR.pkg_icagenda.sys.ini</language>
+		<language tag="it-IT">it-IT/it-IT.pkg_icagenda.sys.ini</language>
+	</languages>
+
+	<!-- List of extensions to install -->
+	<files>
+		<!-- Component -->
+		<file type="component" id="com_icagenda">com_icagenda.zip</file>
+
+		<!-- Modules -->
+		<file type="module" client="site" id="mod_iccalendar">mod_iccalendar.zip</file>
+
+		<!-- Library -->
+		<file type="library" id="ic_library">lib_ic_library.zip</file>
+
+		<!-- Plugins: actionlog -->
+		<file type="plugin" group="actionlog" id="icagenda">plg_actionlog_icagenda.zip</file>
+
+		<!-- Plugins: installer -->
+		<file type="plugin" group="installer" id="icagenda">plg_installer_icagenda.zip</file>
+
+		<!-- Plugins: privacy -->
+		<file type="plugin" group="privacy" id="icagenda">plg_privacy_icagenda.zip</file>
+
+		<!-- Plugins: quickicon -->
+		<file type="plugin" group="quickicon" id="icagendaupdate">plg_quickicon_icagendaupdate.zip</file>
+
+		<!-- Plugins: search -->
+		<file type="plugin" group="search" id="icagenda">plg_search_icagenda.zip</file>
+
+		<!-- Plugins: system -->
+		<file type="plugin" group="system" id="ic_autologin">plg_system_ic_autologin.zip</file>
+		<file type="plugin" group="system" id="ic_library">plg_system_ic_library.zip</file>
+		<file type="plugin" group="system" id="icagenda">plg_system_icagenda.zip</file>
+	</files>
+
+	<!-- Installation script -->
+	<scriptfile>script.icagenda.php</scriptfile>
+
+	<!-- Update servers -->
+	<updateservers>
+		<server type="extension" priority="1" name="iCagenda Update Site">https://www.joomlic.com/icupdates/icagenda.xml</server>
+	</updateservers>
+</extension>

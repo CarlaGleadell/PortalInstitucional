@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+
+	<fieldset name="user" label="COM_ICAGENDA_LEGEND_USERINFOS">
+
+		<field
+			name="created_by"
+			type="hidden"
+			label="JGLOBAL_FIELD_CREATED_BY_LABEL"
+			description="JGLOBAL_FIELD_CREATED_BY_DESC"
+		/>
+
+		<field
+			name="username"
+			type="text"
+			label="COM_ICAGENDA_SUBMIT_FORM_USER_NAME"
+			description="COM_ICAGENDA_SUBMIT_USERNAME_DESC"
+			size="30"
+			filter="string"
+		/>
+		<field name="note_username" type="note" description="COM_ICAGENDA_SUBMIT_USERNAME_DESC" class="controls ic-input-note" />
+
+		<field
+			name="created_by_email"
+			type="email"
+			label="COM_ICAGENDA_SUBMIT_FORM_USER_EMAIL"
+			description="COM_ICAGENDA_SUBMIT_CREATED_BY_EMAIL_DESC"
+			size="30"
+			filter="string"
+			validate="email"
+		/>
+		<field name="note_created_by_email" type="note" description="COM_ICAGENDA_SUBMIT_CREATED_BY_EMAIL_DESC" class="controls ic-input-note" />
+
+	</fieldset>
+
+	<fieldset name="event" label="COM_ICAGENDA_LEGEND_NEW_EVENT" >
+
+		<field
+			name="title"
+			type="text"
+			label="COM_ICAGENDA_FORM_LBL_EVENT_TITLE"
+			description="COM_ICAGENDA_SUBMIT_TITLE_DESC"
+			size="60"
+			required="true"
+		/>
+		<field name="note_title" type="note" description="COM_ICAGENDA_SUBMIT_TITLE_DESC" class="controls ic-input-note" />
+
+		<field
+			name="catid"
+			type="icagenda.CategorySelect"
+			label="COM_ICAGENDA_FORM_LBL_EVENT_CATID"
+			description="COM_ICAGENDA_SUBMIT_CATID_DESC"
+			class="form-select"
+			required="true"
+		/>
+		<field name="note_catid" type="note" description="COM_ICAGENDA_SUBMIT_CATID_DESC" class="controls ic-input-note" />
+
+		<field
+			name="language_event"
+			type="contentlanguage"
+			label="JFIELD_LANGUAGE_LABEL"
+			description=""
+			validate="options"
+			>
+			<option value="*">JALL</option>
+		</field>
+		<field name="note_language" type="note" description="JFIELD_LANGUAGE_DESC" class="controls ic-input-note" />
+
+		<field
+			name="image"
+			type="icagenda.MediaUpload"
+			label="COM_ICAGENDA_FORM_LBL_EVENT_IMAGE"
+			description="COM_ICAGENDA_SUBMIT_IMAGE_DESC"
+			class="form-control"
+			accept="image/*"
+			filter="safehtml"
+			preview="true"
+			onchange="checkImage(this)"
+		/>
+		<field name="note_image" type="note" description="COM_ICAGENDA_SUBMIT_IMAGE_DESC" class="controls ic-input-note" />
+
+	</fieldset>
+
+	<fieldset name="dates" >
+
+		<field 
+			name="period_title" 
+			type="note" 
+			label="COM_ICAGENDA_LEGEND_PERIOD_DATES"
+			heading="h5"
+		/>
+
+		<field 
+			name="startdate" 
+			type="calendar" 
+			label="COM_ICAGENDA_FORM_LBL_EVENTPERIOD_START"
+			description="COM_ICAGENDA_SUBMIT_STARTDATE_DESC"
+			class="inputbox"
+			size="22"
+			translateformat="true"
+			showtime="true"
+			filter="none"
+		/>
+		<field name="note_startdate" type="note" description="COM_ICAGENDA_SUBMIT_STARTDATE_DESC" class="controls ic-input-note" />
+
+		<field
+			name="enddate"
+			type="calendar"
+			label="COM_ICAGENDA_FORM_LBL_EVENTPERIOD_END"
+			description="COM_ICAGENDA_SUBMIT_ENDDATE_DESC"
+			class="inputbox"
+			size="22"
+			translateformat="true"
+			showtime="true"
+			filter="none"
+		/>
+		<field name="note_enddate" type="note" description="COM_ICAGENDA_SUBMIT_ENDDATE_DESC" class="controls ic-input-note" />
+
+		<field
+			name="weekdays"
+			type="list"
+			label="COM_ICAGENDA_FORM_LBL_WEEK_DAYS"
+			description="COM_ICAGENDA_SUBMIT_WEEKDAYS_DESC"
+			default=""
+			class="inputbox"
+			multiple="true"
+			layout="joomla.form.field.list-fancy-select"
+			>
+			<option value="0">SUNDAY</option>
+			<option value="1">MONDAY</option>
+			<option value="2">TUESDAY</option>
+			<option value="3">WEDNESDAY</option>
+			<option value="4">THURSDAY</option>
+			<option value="5">FRIDAY</option>
+			<option value="6">SATURDAY</option>
+		</field>
+		<field name="note_weekdays" type="note" description="COM_ICAGENDA_SUBMIT_WEEKDAYS_DESC" class="controls ic-input-note" />
+
+		<field 
+			name="dates_title" 
+			type="note" 
+			label="COM_ICAGENDA_LEGEND_SINGLE_DATES"
+			class="pt-3"
+			heading="h5"
+		/>
+
+		<field name="note_dates" type="note" description="COM_ICAGENDA_SUBMIT_DATES_DESC" class="controls ic-input-note" />
+		<field
+			name="dates"
+			type="subform"
+			label=""
+			multiple="true"
+			layout="joomla.form.field.subform.repeatable"
+			>
+			<form>
+				<field
+					name="date"
+					type="calendar"
+					label="COM_ICAGENDA_SUBMIT_DATE_LABEL"
+					class="inputbox"
+					translateformat="true"
+					showtime="true"
+					filter="none"
+				/>
+			</form>
+		</field>
+
+		<field
+			name="displaytime_title" 
+			type="note" 
+			label="COM_ICAGENDA_SUBMIT_DATES_OPTIONS_LEGEND"
+			heading="h5"
+		/>
+
+		<field
+			name="displaytime"
+			type="radio"
+			label="COM_ICAGENDA_SUBMIT_DISPLAYTIME_LABEL"
+			description="COM_ICAGENDA_SUBMIT_DISPLAYTIME_DESC"
+			default="1"
+			class="btn-group btn-group-yesno"
+			>
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+		<field name="note_displaytime" type="note" description="COM_ICAGENDA_SUBMIT_DISPLAYTIME_DESC" class="controls ic-input-note" />
+
+	</fieldset>
+
+	<fieldset name="description" >
+
+		<field 
+			name="shortdesc_title" 
+			type="note" 
+			label="COM_ICAGENDA_SUBMIT_SHORTDESC_TITLE"
+			description="COM_ICAGENDA_SUBMIT_SHORTDESC_DESC"
+			class="ic-field-note"
+			heading="h5"
+		/>
+
+		<field
+			name="shortdesc"
+			type="icagenda.TextareaCounter"
+			label=""
+			class="ic-submit-shortdesc"
+			rows="3"
+			cols="80"
+		/>
+
+		<field 
+			name="desc_title" 
+			type="note" 
+			label="COM_ICAGENDA_SUBMIT_DESC_TITLE"
+			class="ic-field-note"
+			heading="h5"
+		/>
+
+		<field
+			name="desc"
+			type="editor"
+			label=""
+			buttons="false"
+			filter="safehtml"
+		/>
+
+		<field 
+			name="metadesc_title" 
+			type="note" 
+			label="COM_ICAGENDA_SUBMIT_METADESC_TITLE"
+			description="COM_ICAGENDA_SUBMIT_METADESC_DESC"
+			class="ic-field-note"
+			heading="h5"
+		/>
+
+		<field
+			name="metadesc"
+			type="icagenda.TextareaCounter"
+			label=""
+			default=""
+			class="ic-submit-metadesc"
+			rows="4"
+			cols="80"
+		/>
+
+	</fieldset>
+
+	<fieldset name="information">
+
+		<field
+			name="global_info_title" 
+			type="note" 
+			label="COM_ICAGENDA_SUBMIT_GLOBAL_INFO_TITLE"
+			heading="h5"
+		/>
+
+		<field
+			name="place"
+			type="text"
+			label="COM_ICAGENDA_SUBMIT_PLACE_LABEL"
+			description="COM_ICAGENDA_SUBMIT_PLACE_DESC"
+			default=""
+			size="30"
+		/>
+		<field name="note_place" type="note" description="COM_ICAGENDA_SUBMIT_PLACE_DESC" class="controls ic-input-note" />
+
+		<field
+			name="website"
+			type="url"
+			label="COM_ICAGENDA_FORM_LBL_EVENT_WEBSITE"
+			description="COM_ICAGENDA_SUBMIT_WEBSITE_DESC"
+			size="30"
+			validate="url"
+			filter="url"
+			hint="COM_ICAGENDA_SUBMIT_WEBSITE_PLACEHOLDER"
+		/>
+		<field name="note_website" type="note" description="COM_ICAGENDA_SUBMIT_WEBSITE_DESC" class="controls ic-input-note" />
+
+		<field
+			name="contact_title" 
+			type="note" 
+			label="COM_ICAGENDA_LEGEND_CONTACT"
+			class="pt-3"
+			heading="h5"
+		/>
+
+		<field
+			name="email"
+			type="email"
+			label="COM_ICAGENDA_FORM_LBL_EVENT_EMAIL"
+			description="COM_ICAGENDA_SUBMIT_EMAIL_DESC"
+			size="30"
+			filter="string"
+			validate="email"
+		/>
+		<field name="note_email" type="note" description="COM_ICAGENDA_SUBMIT_EMAIL_DESC" class="controls ic-input-note" />
+
+		<field
+			name="phone"
+			type="tel"
+			label="COM_ICAGENDA_FORM_LBL_EVENT_PHONE"
+			description="COM_ICAGENDA_SUBMIT_PHONE_DESC"
+			size="30"
+			validate="tel"
+		/>
+		<field name="note_phone" type="note" description="COM_ICAGENDA_SUBMIT_PHONE_DESC" class="controls ic-input-note" />
+
+		<field
+			name="attachments_title" 
+			type="note" 
+			label="COM_ICAGENDA_SUBMIT_ATTACHMENTS_TITLE"
+			class="pt-3"
+			heading="h5"
+		/>
+
+		<field
+			name="file"
+			type="icagenda.MediaUpload"
+			label="COM_ICAGENDA_SUBMIT_FILE_LABEL"
+			description="COM_ICAGENDA_SUBMIT_FILE_DESC"
+			class="form-control"
+			id="upload_file"
+			preview="true"
+			filter="safehtml"
+		/>
+		<field name="note_file" type="note" description="COM_ICAGENDA_SUBMIT_FILE_DESC" class="controls ic-input-note" />
+
+	</fieldset>
+
+	<fieldset name="customfields">
+
+		<field
+			name="other_info_title" 
+			type="note" 
+			label="COM_ICAGENDA_SUBMIT_OTHER_INFO_TITLE"
+			class="pt-3"
+			heading="h5"
+		/>
+
+		<field
+			name="custom_fields"
+			type="hidden"
+			default=""
+		/>
+
+	</fieldset>
+
+	<fieldset name="map">
+
+		<field
+			name="address"
+			type="text"
+			label="COM_ICAGENDA_SUBMIT_ADDRESS_LABEL"
+			description="COM_ICAGENDA_SUBMIT_ADDRESS_DESC"
+			class="form-control"
+			filter="safehtml"
+		/>
+
+		<!-- J4 -->
+		<field
+			name="address_note"
+			type="note"
+			description="COM_ICAGENDA_SUBMIT_ADDRESS_DESC"
+			class="form-text ic-float-left"
+		/>
+
+		<!-- J3 -->
+		<field
+			name="note_address"
+			type="note"
+			description="COM_ICAGENDA_SUBMIT_ADDRESS_DESC"
+			class="controls ic-input-note form-text"
+		/>
+
+		<field
+			name="city"
+			type="icagenda.MapLocality"
+			label="COM_ICAGENDA_FORM_LBL_EVENT_CITY"
+			description="COM_ICAGENDA_FORM_DESC_EVENT_CITY"
+			class="input-medium icmap-input form-control"
+			filter="safehtml"
+		/>
+
+		<field
+			name="country"
+			type="icagenda.MapCountry"
+			label="COM_ICAGENDA_FORM_LBL_EVENT_COUNTRY"
+			description="COM_ICAGENDA_FORM_DESC_EVENT_COUNTRY"
+			class="input-medium icmap-input form-control"
+			filter="safehtml"
+		/>
+
+		<field
+			name="lat"
+			type="icagenda.MapLatitude"
+			label="LATITUDE"
+			description="COM_ICAGENDA_FORM_DESC_EVENT_MAP"
+			default="0"
+			class="input-medium icmap-input form-control"
+		/>
+
+		<field
+			name="lng"
+			type="icagenda.MapLongitude"
+			label="LONGITUDE"
+			description="COM_ICAGENDA_FORM_DESC_EVENT_MAP"
+			default="0"
+			class="input-medium icmap-input form-control"
+		/>
+
+
+	</fieldset>
+
+	<fields name="params">
+
+		<fieldset
+			name="registration"
+			label="COM_ICAGENDA_REGISTRATION_OPTIONS"
+			>
+
+			<field
+				name="statutReg"
+				type="radio"
+				label="COM_ICAGENDA_SUBMIT_STATUTREG_LABEL"
+				description=""
+				default="0"
+				class="btn-group btn-group-yesno"
+				layout="joomla.form.field.radio.switcher"
+				>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+			<field name="note_statutReg" type="note" description="COM_ICAGENDA_SUBMIT_STATUTREG_DESC" class="controls ic-input-note" />
+
+			<field
+				name="maxReg"
+				type="text"
+				label="COM_ICAGENDA_SUBMIT_MAXREG_LABEL"
+				description="COM_ICAGENDA_SUBMIT_MAXREG_DESC"
+				default=""
+				class="input-small validate-positiveinteger"
+				size="3"
+				filter="integer"
+				validate="IC.PositiveInteger"
+				showon="statutReg:1"
+			/>
+			<field name="note_maxReg" type="note" description="COM_ICAGENDA_SUBMIT_MAXREG_DESC" class="controls ic-input-note" showon="statutReg:1" />
+
+			<field
+				name="typeReg"
+				type="list"
+				label="COM_ICAGENDA_TYPE_REG_LABEL"
+				description="COM_ICAGENDA_SUBMIT_TYPEREG_DESC"
+				default="1"
+				showon="statutReg:1[AND]maxReg!:"
+				>
+				<option value="1">COM_ICAGENDA_REG_BY_INDIVIDUAL_DATE</option>
+				<option value="2">COM_ICAGENDA_REG_FOR_ALL_DATES</option>
+			</field>
+			<field name="note_typeReg" type="note" description="COM_ICAGENDA_SUBMIT_TYPEREG_DESC" class="controls ic-input-note" showon="statutReg:1" />
+
+			<field
+				name="reg_deadline_time"
+				type="icagenda.DeadlineTime"
+				label="COM_ICAGENDA_REGISTRATION_DEADLINE_LABEL"
+				description=""
+				class="form-select"
+				showon="statutReg:1"
+			/>
+
+			<field
+				name="reg_deadline"
+				type="icagenda.DeadlineBefore"
+				label="COM_ICAGENDA_REGISTRATION_DEADLINE_BEFORE_LABEL"
+				description=""
+				default=""
+				useglobal="true"
+				showon="statutReg:1"
+				>
+				<option value="1">COM_ICAGENDA_REGISTRATION_DEADLINE_START</option>
+				<option value="2">COM_ICAGENDA_REGISTRATION_DEADLINE_END</option>
+			</field>
+
+			<field
+				name="reg_deadline_info"
+				type="note"
+				label=""
+				description="COM_ICAGENDA_REGISTRATION_DEADLINE_INFO_DESC"
+				class="form-text"
+				showon="statutReg:1"
+			/>
+		</fieldset>
+
+	</fields>
+
+	<!-- Terms of Service (ToS) -->
+	<fields name="consent">
+
+		<field
+			name="consent_tos"
+			type="icagenda.Terms"
+			label="COM_ICAGENDA_SUBMIT_CONSENT_TOS_LABEL"
+			required="true"
+			slug="tos"
+			>
+			<option value="tos">COM_ICAGENDA_SUBMIT_CONSENT_TOS</option>
+		</field>
+
+	</fields>
+
+	<!-- Extra -->
+	<fieldset name="extra" >
+
+		<field
+			name="captcha"
+			type="captcha"
+			label="COM_ICAGENDA_CAPTCHA_LABEL"
+			validate="captcha"
+			namespace="submit"
+		/>
+
+	</fieldset>
+
+	<!-- Hidden -->
+	<fieldset name="hidden" >
+
+		<field
+			name="itemid"
+			type="hidden"
+		/>
+
+		<field
+			name="itemid_title"
+			type="hidden"
+		/>
+
+	</fieldset>
+
+</form>

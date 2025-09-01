@@ -1,0 +1,883 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+
+	<config>
+		<inlinehelp button="show"/>
+	</config>
+
+	<fieldset>
+
+		<field
+			name="id"
+			type="text"
+			label="JGLOBAL_FIELD_ID_LABEL"
+			default="0"
+			class="readonly"
+			size="10"
+			readonly="true"
+		/>
+
+		<field
+			name="title"
+			type="text"
+			label="COM_ICAGENDA_FORM_LBL_EVENT_TITLE"
+			size="40"
+			required="true"
+			maxlength="255"
+		/>
+
+		<field
+			name="alias"
+			type="text"
+			label="JFIELD_ALIAS_LABEL"
+			description="JFIELD_ALIAS_DESC"
+			hint="JFIELD_ALIAS_PLACEHOLDER"
+		/>
+
+		<field
+			name="state"
+			type="list"
+			label="JSTATUS"
+			default="1"
+			class="form-select-color-state"
+			size="1"
+			validate="options"
+			>
+			<option value="1">JPUBLISHED</option>
+			<option value="0">JUNPUBLISHED</option>
+			<option value="2">JARCHIVED</option>
+			<option value="-2">JTRASHED</option>
+		</field>
+
+		<field
+			name="catid"
+			type="icagenda.CategorySelect"
+			label="COM_ICAGENDA_FORM_LBL_EVENT_CATID"
+			class="form-select"
+			required="true"
+		/>
+
+		<field
+			name="access"
+			type="accesslevel"
+			label="JFIELD_ACCESS_LABEL"
+			default="1"
+		/>
+		<field
+			name="language"
+			type="contentlanguage"
+			label="JFIELD_LANGUAGE_LABEL"
+			description="COM_ICAGENDA_FORM_DESC_LANGUAGE"
+			class="form-select"
+			>
+			<option value="*">JALL</option>
+		</field>
+		<field
+			name="approval"
+			type="list"
+			label="COM_ICAGENDA_EVENTS_APPROVAL"
+			description="COM_ICAGENDA_EVENTS_APPROVAL_DESC"
+			class="form-select"
+			filter="intval"
+			size="1"
+			default="0"
+			>
+			<option value="0">COM_ICAGENDA_APPROVED</option>
+			<option value="1">COM_ICAGENDA_UNAPPROVED</option>
+		</field>
+		<field
+			name="site_itemid"
+			type="test"
+			label="COM_ICAGENDA_FORM_FRONTEND_SUBMIT_ITEMID_LBL"
+			description="COM_ICAGENDA_FORM_FRONTEND_SUBMIT_ITEMID_DESC"
+			size="3"
+			class="inputbox"
+			readonly="true"
+			default="0"
+			/>
+		<field
+			name="username"
+			type="text"
+			label="COM_ICAGENDA_FORM_LBL_EVENT_USERNAME"
+			description="COM_ICAGENDA_FORM_DESC_EVENT_USERNAME"
+			size="40"
+			class="inputbox"
+			filter="safehtml"
+			readonly="true"
+			/>
+
+		<field
+			name="hits"
+			type="text"
+			label="JGLOBAL_HITS"
+			description="COM_ICAGENDA_FIELD_HITS_DESC"
+			class="readonly"
+			readonly="true"
+			filter="unset"
+			default="0"
+		/>
+
+		<field
+			name="created"
+			type="calendar"
+			label="JGLOBAL_FIELD_CREATED_LABEL"
+			translateformat="true"
+			showtime="true"
+			filter="user_utc"
+			/>
+		<field
+			name="created_by"
+			type="user"
+			label="JGLOBAL_FIELD_CREATED_BY_LABEL"
+			description="JGLOBAL_FIELD_CREATED_BY_DESC"
+			/>
+		<field
+			name="created_by_email"
+			type="email"
+			label="COM_ICAGENDA_EVENT_CREATED_BY_EMAIL_LBL"
+			filter="string"
+			validate="email"
+		/>
+		<field
+			name="created_by_alias"
+			type="text"
+			label="JGLOBAL_FIELD_CREATED_BY_ALIAS_LABEL"
+			description="JGLOBAL_FIELD_CREATED_BY_ALIAS_DESC"
+			class="inputbox"
+			size="20"
+			/>
+		<field
+			name="modified"
+			type="calendar"
+			label="JGLOBAL_FIELD_MODIFIED_LABEL"
+			class="readonly"
+			size="22"
+			readonly="true"
+			translateformat="true"
+			showtime="true"
+			filter="user_utc"
+			/>
+		<field
+			name="modified_by"
+			type="user"
+			label="JGLOBAL_FIELD_MODIFIED_BY_LABEL"
+			description="JGLOBAL_FIELD_MODIFIED_BY_DESC"
+			class="readonly"
+			readonly="true"
+			filter="unset"
+			/>
+		<field name="checked_out" type="hidden" filter="unset" />
+		<field name="checked_out_time" type="hidden" filter="unset" />
+
+		<field
+			name="image"
+			type="media"
+			label="COM_ICAGENDA_FORM_LBL_EVENT_IMAGE"
+			description="COM_ICAGENDA_FORM_DESC_EVENT_IMAGE"
+			hide_none="1"
+			/>
+		<field
+			name="file"
+			type="icagenda.MediaUpload"
+			label="COM_ICAGENDA_FORM_LBL_EVENT_FILE"
+			description="COM_ICAGENDA_FORM_DESC_EVENT_FILE"
+			class="form-control"
+			id="upload_file"
+		/>
+
+		<field 
+			name="dates_title" 
+			type="note" 
+			label="COM_ICAGENDA_LEGEND_SINGLE_DATES"
+		/>
+
+		<field
+			name="startdate"
+			type="calendar"
+			label="COM_ICAGENDA_FORM_LBL_EVENTPERIOD_START"
+			size="40"
+			translateformat="true"
+			showtime="true"
+			filter="none"
+		/>
+
+		<field
+			name="enddate"
+			type="calendar"
+			label="COM_ICAGENDA_FORM_LBL_EVENTPERIOD_END"
+			size="40"
+			translateformat="true"
+			showtime="true"
+			filter="none"
+		/>
+
+		<field
+			name="weekdays"
+			type="list"
+			label="COM_ICAGENDA_FORM_LBL_WEEK_DAYS"
+			default=""
+			class="forn-vertical"
+			multiple="true"
+			extension="com_icagenda"
+			layout="joomla.form.field.list-fancy-select"
+			>
+			<option value="0">SUNDAY</option>
+			<option value="1">MONDAY</option>
+			<option value="2">TUESDAY</option>
+			<option value="3">WEDNESDAY</option>
+			<option value="4">THURSDAY</option>
+			<option value="5">FRIDAY</option>
+			<option value="6">SATURDAY</option>
+		</field>
+
+		<field
+			name="weekdays_note"
+			type="note"
+			label="COM_ICAGENDA_FORM_WEEK_DAYS_INFO_TITLE"
+			description="COM_ICAGENDA_FORM_WEEK_DAYS_INFO_DESC"
+			class="row alert alert-info"
+		/>
+
+		<field
+			name="dates"
+			type="subform"
+			label=""
+			multiple="true"
+			buttons="add,remove"
+			layout="joomla.form.field.subform.repeatable"
+			>
+			<form>
+				<field
+					name="date"
+					type="calendar"
+					label="ICDATE"
+					class="form-field"
+					translateformat="true"
+					showtime="true"
+					filter="none"
+				/>
+			</form>
+		</field>
+
+		<field
+			name="displaytime"
+			type="radio"
+			label="COM_ICAGENDA_DISPLAY_TIME_LABEL"
+			class="btn-group btn-group-yesno"
+			>
+			<option value="1">JSHOW</option>
+			<option value="0">JHIDE</option>
+		</field>
+
+		<field
+			name="shortdesc_note"
+			type="note"
+			description="COM_ICAGENDA_FORM_EVENT_SHORT_DESCRIPTION_DESC"
+			class="row alert alert-info"
+		/>
+
+		<field
+			name="shortdesc"
+			type="icagenda.TextareaCounter"
+			label="COM_ICAGENDA_FORM_EVENT_SHORT_DESCRIPTION_LBL"
+			description="COM_ICAGENDA_FORM_EVENT_SHORT_DESCRIPTION_DESC"
+			class="span-12"
+			rows="3"
+			cols="80"
+		/>
+
+		<field
+			name="desc"
+			type="editor"
+			label="COM_ICAGENDA_FORM_LBL_EVENT_DESC"
+			description="COM_ICAGENDA_FORM_DESC_EVENT_DESC"
+			buttons="true"
+			hide="readmore,pagebreak,helix_shortcode"
+			class="inputbox"
+			filter="\Joomla\CMS\Component\ComponentHelper::filterText"
+		/>
+
+		<field
+			name="metadesc_note"
+			type="note"
+			description="COM_ICAGENDA_FORM_EVENT_METADESC_DESC"
+			class="row alert alert-info"
+		/>
+
+		<field
+			name="metadesc"
+			type="icagenda.TextareaCounter"
+			label="COM_ICAGENDA_FORM_EVENT_METADESC_LBL"
+			description="COM_ICAGENDA_FORM_EVENT_METADESC_DESC"
+			class="span-12"
+			rows="4"
+			cols="80"
+		/>
+
+		<field
+			name="next"
+			type="hidden"
+			class="inputbox"
+			default="0000-00-00 00:00:00"
+			/>
+		<field
+			name="email"
+			type="email"
+			label="COM_ICAGENDA_FORM_LBL_EVENT_EMAIL"
+			description="COM_ICAGENDA_FORM_DESC_EVENT_EMAIL"
+			size="30"
+			class="inputbox"
+			filter="safehtml"
+			/>
+		<field
+			name="phone"
+			type="tel"
+			label="COM_ICAGENDA_FORM_LBL_EVENT_PHONE"
+			description="COM_ICAGENDA_FORM_DESC_EVENT_PHONE"
+			size="30"
+			filter="string"
+			validate="tel"
+			/>
+		<field
+			name="website"
+			type="text"
+			label="COM_ICAGENDA_FORM_LBL_EVENT_WEBSITE"
+			description="COM_ICAGENDA_FORM_DESC_EVENT_WEBSITE"
+			size="30"
+			class="inputbox"
+			filter="safehtml"
+			/>
+		<field
+			name="features"
+			type="sql"
+			label="COM_ICAGENDA_FORM_LBL_EVENT_FEATURES"
+			description="COM_ICAGENDA_FORM_DESC_EVENT_FEATURES"
+			query="SELECT id AS value, title AS features FROM #__icagenda_feature WHERE state=1 AND icon IS NOT NULL AND icon!='' ORDER BY features"
+			multiple="true"
+			extension="com_icagenda"
+			layout="joomla.form.field.list-fancy-select"
+			/>
+		<field
+			name="custom_fields"
+			type="hidden"
+			label="COM_ICAGENDA_CUSTOMFIELDS"
+			class="inputbox"
+			default=""
+			/>
+		<field
+			name="place"
+			type="text"
+			label="COM_ICAGENDA_FORM_LBL_EVENT_VENUE"
+			description="COM_ICAGENDA_FORM_DESC_EVENT_VENUE"
+			size="30"
+			class="inputbox"
+			filter="safehtml"
+			/>
+		<field
+			name="address"
+			type="text"
+			label="COM_ICAGENDA_GOOGLE_MAPS_ADDRESS_LBL"
+			description="COM_ICAGENDA_FORM_DESC_EVENT_LOCATION"
+			class="form-control"
+			filter="safehtml"
+			/>
+		<field
+			name="address_note"
+			type="note"
+			description="COM_ICAGENDA_FORM_DESC_EVENT_LOCATION"
+			class="form-text"
+		/>
+		<field
+			name="city"
+			type="icagenda.MapLocality"
+			label="COM_ICAGENDA_FORM_LBL_EVENT_CITY"
+			description="COM_ICAGENDA_FORM_DESC_EVENT_CITY"
+			class="form-control"
+			filter="safehtml"
+			/>
+		<field
+			name="country"
+			type="icagenda.MapCountry"
+			label="COM_ICAGENDA_FORM_LBL_EVENT_COUNTRY"
+			description="COM_ICAGENDA_FORM_DESC_EVENT_COUNTRY"
+			class="form-control"
+			filter="safehtml"
+			/>
+		<field
+			name="lat"
+			type="icagenda.MapLatitude"
+			label="COM_ICAGENDA_MAPS_LATITUDE_LBL"
+			description="COM_ICAGENDA_FORM_DESC_EVENT_MAP"
+			default="0"
+			class="form-control"
+			/>
+		<field
+			name="lng"
+			type="icagenda.MapLongitude"
+			label="COM_ICAGENDA_MAPS_LONGITUDE_LBL"
+			description="COM_ICAGENDA_FORM_DESC_EVENT_MAP"
+			default="0"
+			class="form-control"
+			/>
+
+		<field
+			name="version_note"
+			type="text"
+			label="JGLOBAL_FIELD_VERSION_NOTE_LABEL"
+			description="COM_ICAGENDA_EVENT_FIELD_VERSION_NOTE_DESC"
+			class="inputbox" 
+			size="45"
+		/>
+
+		<field
+			name="version"
+			type="text"
+			label="COM_ICAGENDA_FIELD_VERSION_LABEL"
+			class="readonly"
+			size="6"
+			readonly="true"
+			filter="unset"
+		/>
+
+		<field
+			name="version_customfields"
+			label="COM_ICAGENDA_CUSTOMFIELDS"
+			type="hidden"
+		/>
+
+		<field
+			name="version_features"
+			label="COM_ICAGENDA_FORM_LBL_EVENT_FEATURES"
+			type="hidden"
+		/>
+	</fieldset>
+
+	<fields
+		name="params"
+		label="JFIELD_PARAMS_LABEL"
+		addfieldpath="/administrator/components/com_content/models/fields"
+		>
+
+		<!-- Registrations Tab - Individual Params -->
+		<fieldset name="registration" label="COM_ICAGENDA_REGISTRATION_LABEL">
+
+			<field
+				name="statutReg"
+				type="radio"
+				label="COM_ICAGENDA_REGISTRATION_LABEL"
+				description="COM_ICAGENDA_REGISTRATION_DESC"
+				default=""
+				class="btn-group btn-group-yesno"
+				useglobal="true"
+				>
+				<option value="1">JON</option>
+				<option value="0">JOFF</option>
+			</field>
+
+			<field
+				name="accessReg"
+				type="accesslevel"
+				label="JFIELD_ACCESS_LABEL"
+				description="COM_ICAGENDA_REGISTRATION_ACCESS_LEVEL_DESC"
+				default=""
+				showon="statutReg:1"
+				>
+				<option value="">JGLOBAL_USE_GLOBAL</option>
+			</field>
+
+		</fieldset>
+
+		<fieldset name="registrations">
+
+
+		<!--field
+			name="reg"
+			type="subform"
+			label="COM_ICAGENDA_MAX_REGISTRATIONS_LABEL"
+			multiple="false"
+			buttons="add,remove"
+			layout="joomla.form.field.subform.repeatable-table"
+			>
+			<form>
+			<field
+				name="maxReg"
+				type="text"
+				label=""
+				description=""
+				class="input-small"
+				size="3"
+				default=""
+			/>
+			<field
+				name="typeReg"
+				type="list"
+				label=""
+				description=""
+				default="1"
+				>
+				<option value="1">COM_ICAGENDA_ADMIN_REGISTRATION_BY_INDIVIDUAL_DATE</option>
+				<option value="2">COM_ICAGENDA_ADMIN_REGISTRATION_FOR_ALL_DATES</option>
+			</field>
+			</form>
+		</field-->
+		</fieldset>
+
+			<field 
+				name="registration_tickets_title" 
+				type="note" 
+				label="COM_ICAGENDA_REGISTRATION_TICKETS_LABEL"
+				heading="h3"
+				showon="statutReg:1"
+			/>
+
+			<field 
+				name="registration_tickets_spacer" 
+				type="spacer" 
+				hr="true"
+				showon="statutReg:1"
+			/>
+
+		<!-- Registrations Tab - Tickets -->
+		<fieldset name="registration_tickets" label="COM_ICAGENDA_REGISTRATION_TICKETS_LABEL" showon="statutReg:1">
+
+			<field
+				name="maxReg"
+				type="text"
+				label="COM_ICAGENDA_REGISTRATION_NB_OF_TICKETS_LABEL"
+				description="COM_ICAGENDA_REGISTRATION_NB_OF_TICKETS_DESC"
+				default=""
+				size="3"
+				filter="integer"
+				showon="statutReg:1"
+			/>
+
+			<field
+				name="typeReg"
+				type="list"
+				label=" "
+				default="1"
+				showon="statutReg:1"
+				>
+				<option value="1">COM_ICAGENDA_REGISTRATION_NB_OF_TICKETS_PER_DATE</option>
+				<option value="2">COM_ICAGENDA_REGISTRATION_NB_OF_TICKETS_FOR_ALL_DATES</option>
+			</field>
+
+			<!--field
+				name="tickets"
+				type="hidden"
+				showon="statutReg:1"
+			/-->
+
+			<!--field
+				name="tickets_note"
+				type="spacer"
+				label=""
+				description="COM_ICAGENDA_REGISTRATION_NB_OF_TICKETS_DESC"
+				class="form-text ic-label-hidden"
+				showon="statutReg:1"
+			/-->
+
+			<field
+				name="maxRlistGlobal"
+				type="radio"
+				label="COM_ICAGENDA_MAX_PER_REGISTRATION_LABEL"
+				description="COM_ICAGENDA_MAX_PER_REGISTRATION_DESC"
+				class="btn-group"
+				default=""
+				showon="statutReg:1"
+				>
+				<option value="">JGLOBAL_USE_GLOBAL</option>
+				<option value="2">COM_ICAGENDA_LBL_CUSTOM_VALUE</option>
+			</field>
+
+			<field
+				name="maxRlist"
+				type="text"
+				label=" "
+				description="COM_ICAGENDA_DESC_CUSTOM_VALUE"
+				class="input-small"
+				size="2"
+				default=""
+				filter="integer"
+				showon="statutReg:1[AND]maxRlistGlobal:2"
+			/>
+
+			<!--field
+				name="max_tickets_per_registration"
+				type="radio"
+				label="COM_ICAGENDA_MAX_PER_REGISTRATION_LABEL"
+				description="COM_ICAGENDA_MAX_PER_REGISTRATION_DESC"
+				class="btn-group btn-group-yesno"
+				default=""
+				useglobal="true"
+				showon="statutReg:1"
+				>
+				<option value="1">COM_ICAGENDA_LBL_CUSTOM_VALUE</option>
+			</field>
+
+			<field
+				name="max_tickets_per_registration_custom"
+				type="text"
+				label=" "
+				description="COM_ICAGENDA_DESC_CUSTOM_VALUE"
+				class="input-small"
+				size="2"
+				default=""
+				filter="integer"
+				showon="statutReg:1[AND]max_tickets_per_registration:1"
+			/-->
+
+		</fieldset>
+
+		<!-- Registrations Tab - Actions -->
+		<fieldset name="registration_actions" label="COM_ICAGENDA_REGISTRATION_ADDONS_LABEL" showon="statutReg:1">
+		</fieldset>
+
+			<!-- Kept for J3 -->
+			<field 
+				name="registration_options_title" 
+				type="note" 
+				label="COM_ICAGENDA_REGISTRATION_OPTIONS_LABEL"
+				heading="h3"
+				showon="statutReg:1"
+			/>
+
+		<fieldset name="registration_options" label="COM_ICAGENDA_REGISTRATION_OPTIONS_LABEL" showon="statutReg:1">
+
+			<field
+				name="reg_deadline_time"
+				type="icagenda.DeadlineTime"
+				label="COM_ICAGENDA_REGISTRATION_DEADLINE_LABEL"
+				description=""
+				class="form-select"
+				showon="statutReg:1"
+			/>
+
+			<field
+				name="reg_deadline"
+				type="icagenda.DeadlineBefore"
+				label="COM_ICAGENDA_REGISTRATION_DEADLINE_BEFORE_LABEL"
+				description=""
+				default=""
+				useglobal="true"
+				showon="statutReg:1"
+				>
+				<option value="1">COM_ICAGENDA_REGISTRATION_DEADLINE_START</option>
+				<option value="2">COM_ICAGENDA_REGISTRATION_DEADLINE_END</option>
+			</field>
+
+			<field
+				name="reg_deadline_info"
+				type="spacer"
+				label=""
+				description="COM_ICAGENDA_REGISTRATION_DEADLINE_INFO_DESC"
+			/>
+
+			<field
+				name="reg_cancellation"
+				type="list"
+				label="COM_ICAGENDA_REGISTRATION_CANCELLATION_LABEL"
+				description="COM_ICAGENDA_REGISTRATION_CANCELLATION_DESC"
+				default=""
+				class="form-select-color-state"
+				useglobal="true"
+				showon="statutReg:1"
+				>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+
+			<field
+				name="custom_form"
+				type="icagenda.CustomForm"
+				label="COM_ICAGENDA_REGISTRATION_FORM_GROUPS_LABEL"
+				description="COM_ICAGENDA_REGISTRATION_FORM_GROUPS_DESC"
+				default=""
+				multiple="true"
+				extension="com_icagenda"
+				layout="joomla.form.field.list-fancy-select"
+				showon="statutReg:1"
+			/>
+
+		</fieldset>
+
+			<field 
+				name="registration_button_title" 
+				type="note" 
+				label="COM_ICAGENDA_REGISTRATION_BUTTON"
+				heading="h3"
+				showon="statutReg:1"
+			/>
+
+		<fieldset
+			name="registration_button"
+			label="COM_ICAGENDA_REGISTRATION_BUTTON"
+			addfieldprefix="Joomla\Component\Content\Administrator\Field"
+			>
+
+			<field
+				name="RegButtonText"
+				type="text"
+				label="COM_ICAGENDA_REGISTRATION_BUTTON_TEXT"
+				description="COM_ICAGENDA_REGISTRATION_BUTTON_TEXT_DESC"
+				default=""
+				showon="statutReg:1"
+			/>
+
+			<field
+				name="RegButtonLink"
+				type="radio"
+				label="COM_ICAGENDA_REGISTRATION_LINK_LBL"
+				description="COM_ICAGENDA_REGISTRATION_LINK_DESC"
+				default=""
+				class="btn-group"
+				showon="statutReg:1"
+				>
+				<option value="">IC_DEFAULT</option>
+				<option value="1">IC_ARTICLE</option>
+				<option value="2">IC_URL</option>
+			</field>
+
+			<field
+				name="RegButtonLink_Article"
+				type="modal_article"
+				label=" "
+				showon="statutReg:1[AND]RegButtonLink:1"
+			/>
+
+			<field
+				name="RegButtonLink_Url"
+				type="url"
+				label=" "
+				hint="IC_HINT_URL"
+				showon="statutReg:1[AND]RegButtonLink:2"
+			/>
+
+			<field
+				name="RegButtonTarget"
+				type="list"
+				label="COM_ICAGENDA_BROWSER_TARGET"
+				description="COM_ICAGENDA_REGISTRATION_LINK_BROWSER_TARGET_DESC"
+				default="0"
+				showon="statutReg:1"
+				>
+				<option value="0">JBROWSERTARGET_PARENT</option>
+				<option value="1">JBROWSERTARGET_NEW</option>
+			</field>
+
+		</fieldset>
+
+		<!-- Option Tab - Options -->
+		<!--fieldset name="options">
+
+			<field
+				name="mapTypeId"
+				type="list"
+				label="mapTypeId"
+				description="mapTypeId"
+				default="ROADMAP"
+				filter="safehtml"
+				>
+				<option value="ROADMAP">ROADMAP</option>
+				<option value="TERRAIN">TERRAIN</option>
+				<option value="SATELLITE">SATELLITE</option>
+				<option value="HYBRID">HYBRID</option>
+			</field>
+		</fieldset-->
+
+			<field 
+				name="event_cancelled_spacer" 
+				type="spacer" 
+				hr="true"
+			/>
+
+		<!-- Publishing Tab -->
+		<!--fieldset name="publishing">
+		</fieldset-->
+
+		<!-- Event Cancel Tab -->
+		<fieldset name="publishing" label="COM_ICAGENDA_EVENT_CANCELLATION_LABEL">
+
+			<field
+				name="event_cancelled"
+				type="list"
+				label="COM_ICAGENDA_EVENT_CANCELLED_LABEL"
+				description="COM_ICAGENDA_EVENT_CANCELLED_DESC"
+				default="0"
+				>
+				<option value="0">JNO</option>
+				<option value="1">JYES</option>
+			</field>
+
+			<field
+				name="event_cancelled_customlabel"
+				type="radio"
+				label="COM_ICAGENDA_EVENT_CANCELLED_CUSTOMLABEL_LABEL"
+				description="COM_ICAGENDA_EVENT_CANCELLED_CUSTOMLABEL_DESC"
+				class="btn-group btn-group-yesno"
+				default=""
+				showon="event_cancelled:1"
+				>
+				<option value="">JDEFAULT</option>
+				<option value="1">JYES</option>
+			</field>
+
+			<field
+				name="event_cancelled_customlabel_text"
+				type="text"
+				label="COM_ICAGENDA_EVENT_CANCELLED_CUSTOMLABEL_TEXT_LABEL"
+				description="COM_ICAGENDA_EVENT_CANCELLED_CUSTOMLABEL_TEXT_DESC"
+				size="40"
+				class="inputbox"
+				default=""
+				hint="COM_ICAGENDA_EVENT_CANCELLED_TEXT"
+				showon="event_cancelled:1[AND]event_cancelled_customlabel:1"
+			/>
+
+			<field
+				name="event_cancelled_customlabel_css"
+				type="text"
+				label="COM_ICAGENDA_EVENT_CANCELLED_CUSTOMLABEL_CSS_LABEL"
+				description="COM_ICAGENDA_EVENT_CANCELLED_CUSTOMLABEL_CSS_DESC"
+				size="40"
+				class="inputbox"
+				default=""
+				hint="label label-important"
+				showon="event_cancelled:1[AND]event_cancelled_customlabel:1"
+			/>
+
+			<field 
+				name="event_cancelled_desc"
+				type="editor"
+				label="COM_ICAGENDA_EVENT_CANCELLED_INFOTEXT_LABEL"
+				description="COM_ICAGENDA_EVENT_CANCELLED_INFOTEXT_DESC"
+				buttons="readmore,pagebreak"
+				filter="safehtml"
+				showon="event_cancelled:1"
+			/>
+
+			<field
+				name="event_cancelled_date"
+				type="calendar"
+				label="COM_ICAGENDA_EVENT_CANCELLED_DATE_LABEL"
+				class="readonly"
+				size="22"
+				readonly="true"
+				translateformat="true"
+				showtime="true"
+				filter="user_utc"
+				showon="event_cancelled:1"
+			/>
+		</fieldset>
+
+		<!-- Management Actions -->
+		<fieldset name="management_actions">
+			<field
+				name="first_published_and_approved"
+				type="hidden"
+				label="Published and Approved"
+				default="0"
+			/>
+		</fieldset>
+	</fields>
+</form>

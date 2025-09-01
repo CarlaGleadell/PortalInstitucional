@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+
+	<fields name="filter">
+
+		<field
+			name="search"
+			type="text"
+			inputmode="search"
+			label="COM_ICAGENDA_REGISTRATIONS_FILTER_SEARCH_LABEL"
+			description="COM_ICAGENDA_REGISTRATIONS_FILTER_SEARCH_DESC"
+			hint="JSEARCH_FILTER"
+		/>
+
+		<field
+			name="registration_state"
+			type="list"
+			label="COM_ICAGENDA_REGISTRATION_STATE"
+			class="form-select"
+			onchange="this.form.submit();"
+			>
+			<option value="">COM_ICAGENDA_REGISTRATIONS_SELECT_REGISTRATION_STATE</option>
+			<option value="2">IC_PENDING</option>
+			<option value="1">IC_COMPLETED</option>
+			<option value="0">IC_CANCELLED</option>
+			<option value="-1">IC_ERROR</option>
+		</field>
+
+		<field
+			name="categories"
+			type="icagenda.FilterCategories"
+			label="COM_ICAGENDA_REGISTRATIONS_SELECT_CATEGORY"
+			class="form-select"
+			onchange="this.form.submit();"
+			>
+			<option value="">COM_ICAGENDA_REGISTRATIONS_SELECT_CATEGORY</option>
+		</field>
+
+		<field
+			name="events"
+			type="icagenda.FilterEvents"
+			label="COM_ICAGENDA_REGISTRATIONS_SELECT_EVENT"
+			class="form-select"
+			onchange="this.form.submit();"
+			>
+			<option value="">COM_ICAGENDA_REGISTRATIONS_SELECT_EVENT</option>
+		</field>
+
+		<field
+			name="dates"
+			type="icagenda.FilterDates"
+			label="COM_ICAGENDA_REGISTRATIONS_SELECT_DATE"
+			class="form-select"
+			onchange="this.form.submit();"
+			>
+			<option value="">COM_ICAGENDA_REGISTRATIONS_SELECT_DATE</option>
+		</field>
+
+		<field
+			name="published"
+			type="status"
+			label="JSTATUS"
+			onchange="this.form.submit();"
+			>
+			<option value="">COM_ICAGENDA_SELECT_STATE</option>
+		</field>
+	</fields>
+
+	<fields name="list">
+
+		<field
+			name="fullordering"
+			type="list"
+			label="JGLOBAL_SORT_BY"
+			default="a.id DESC"
+			statuses="*,0,1,2,-2"
+			onchange="this.form.submit();"
+			validate="options"
+			>
+			<option value="">JGLOBAL_SORT_BY</option>
+			<option value="a.ordering ASC">JGRID_HEADING_ORDERING_ASC</option>
+			<option value="a.ordering DESC">JGRID_HEADING_ORDERING_DESC</option>
+			<option value="a.status ASC">IC_REGISTRATION_STATE_ASC</option>
+			<option value="a.status DESC">IC_REGISTRATION_STATE_DESC</option>
+			<option value="a.name ASC">JGLOBAL_NAME_ASC</option>
+			<option value="a.name DESC">JGLOBAL_NAME_DESC</option>
+			<option value="a.state ASC">JSTATUS_ASC</option>
+			<option value="a.state DESC">JSTATUS_DESC</option>
+			<option value="a.id ASC">JGRID_HEADING_ID_ASC</option>
+			<option value="a.id DESC">JGRID_HEADING_ID_DESC</option>
+		</field>
+
+		<field
+			name="limit"
+			type="limitbox"
+			label="JGLOBAL_LIST_LIMIT"
+			default="25"
+			onchange="this.form.submit();"
+		/>
+	</fields>
+</form>
