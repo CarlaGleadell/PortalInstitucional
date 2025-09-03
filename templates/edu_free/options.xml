@@ -1290,7 +1290,7 @@
 			type="helixpresets"
 			label="HELIX_ULTIMATE_PREDEFINED_PRESETS"
 			separator="true"
-			default="preset1">
+			default="preset2">
 			<preset name="preset1" label="Preset 1" default="#4c4ab5">
 				<color name="text_color" value="#6b6b6b" />
 				<color name="bg_color" value="#FFFFFF" />

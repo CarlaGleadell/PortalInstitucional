@@ -2,12 +2,12 @@
 <extension type="component" method="upgrade">
 	<name>iCagenda</name>
 	<author>Cyril Reze</author>
-	<creationDate>2025-04-22</creationDate>
+	<creationDate>2025-08-14</creationDate>
 	<copyright>Copyright (c) 2012-2025 Cyril Reze / JoomliC. All rights reserved.</copyright>
 	<license>GNU General Public License version 3 or later; see LICENSE.txt</license>
 	<authorEmail>info@joomlic.com</authorEmail>
 	<authorUrl>www.joomlic.com</authorUrl>
-	<version>3.9.11</version>
+	<version>3.9.12</version>
 	<description>COM_ICAGENDA_DESC</description>
 	<namespace path="src">WebiC\Component\iCagenda</namespace>
 

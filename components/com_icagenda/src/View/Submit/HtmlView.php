@@ -3,14 +3,14 @@
  *----------------------------------------------------------------------------
  * iCagenda     Events Management Extension for Joomla!
  *----------------------------------------------------------------------------
- * @version     3.9.4 2024-06-13
+ * @version     3.9.12 2025-08-01
  *
  * @package     iCagenda.Site
  * @subpackage  src.View
- * @link        https://www.icagenda.com
+ * @link        https://www.joomlic.com
  *
- * @author      Cyril Rezé
- * @copyright   (c) 2012-2024 Cyril Rezé / iCagenda. All rights reserved.
+ * @author      Cyril Reze
+ * @copyright   (c) 2012-2025 Cyril Reze / JoomliC. All rights reserved.
  * @license     GNU General Public License version 3 or later; see LICENSE.txt
  *
  * @since       3.2
@@ -61,7 +61,7 @@ class HtmlView extends BaseHtmlView
 				. '<ul><li>'
 				. Text::_('COM_ICAGENDA_SUBMIT_ERROR_NO_CATEGORY_PUBLISHED')
 				. '</li></ul>'
-				. Text::_('COM_ICAGENDA_SUBMIT_ERROR_CONTACT_ADMIN')				
+				. Text::_('COM_ICAGENDA_SUBMIT_ERROR_CONTACT_ADMIN')
 				, 'error'
 			);
 
@@ -200,45 +200,39 @@ class HtmlView extends BaseHtmlView
 		$title = null;
 		$menu  = $menus->getActive();
 
-		if ($menu)
-		{
+		if ($menu) {
 			$this->params->def('page_heading', $this->params->get('page_title', $menu->title));
-		}
-		else
-		{
+		} else {
 			$this->params->def('page_heading', Text::_('JGLOBAL_ARTICLES'));
 		}
 
 		$title = $this->params->get('page_title', '');
 
-		if (empty($title))
-		{
+		if (empty($title)) {
 			$title = $app->getCfg('sitename');
-		}
-		elseif ($app->getCfg('sitename_pagetitles', 0) == 1)
-		{
+		} elseif ($app->getCfg('sitename_pagetitles', 0) == 1) {
 			$title = Text::sprintf('JPAGETITLE', $app->getCfg('sitename'), $title);
-		}
-		elseif ($app->getCfg('sitename_pagetitles', 0) == 2)
-		{
+		} elseif ($app->getCfg('sitename_pagetitles', 0) == 2) {
 			$title = Text::sprintf('JPAGETITLE', $title, $app->getCfg('sitename'));
 		}
 
 		$this->document->setTitle($title);
 
-		if ($this->params->get('menu-meta_description', ''))
-		{
+		if ($this->params->get('menu-meta_description', '')) {
 			$this->document->setDescription($this->params->get('menu-meta_description', ''));
 		}
 
-		if ($this->params->get('menu-meta_keywords', ''))
-		{
+		if ($this->params->get('menu-meta_keywords', '')) {
 			$this->document->setMetadata('keywords', $this->params->get('menu-meta_keywords', ''));
 		}
 
+		if ($this->params->get('robots')) {
+			$this->getDocument()->setMetaData('robots', $this->params->get('robots'));
+		}
+
 		if ($app->getCfg('MetaTitle') == '1'
-			&& $this->params->get('menupage_title', ''))
-		{
+			&& $this->params->get('menupage_title', '')
+		) {
 			$this->document->setMetaData('title', $this->params->get('page_title', ''));
 		}
 	}

@@ -3,14 +3,14 @@
  *----------------------------------------------------------------------------
  * iCagenda     Events Management Extension for Joomla!
  *----------------------------------------------------------------------------
- * @version     3.9.4 2024-06-14
+ * @version     3.9.12 2025-07-31
  *
  * @package     iCagenda.Admin
  * @subpackage  Utilities
- * @link        https://www.icagenda.com
+ * @link        https://www.joomlic.com
  *
- * @author      Cyril Rezé
- * @copyright   (c) 2012-2024 Cyril Rezé / iCagenda. All rights reserved.
+ * @author      Cyril Reze
+ * @copyright   (c) 2012-2025 Cyril Reze / JoomliC. All rights reserved.
  * @license     GNU General Public License version 3 or later; see LICENSE.txt
  *
  * @since       3.4.1
@@ -62,7 +62,7 @@ if ($this->items && $this->cat_description && \count($this->getAllDates) > 0
 					. ' class="ic-title-cat-btn ic-button ic-margin-1 ic-padding-x-3 ic-padding-y-1 ic-radius-1'
 					. ' ic-bg-' . iCColor::getBrightness($data['color']) . '"'
 					. ' style="background:' . $data['color'] . '">';
-				echo Jtext::_($data['title']);
+				echo JText::_($data['title']);
 				echo '</a>';
 			}
 

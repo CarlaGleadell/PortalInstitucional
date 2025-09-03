@@ -3,7 +3,7 @@
  *----------------------------------------------------------------------------
  * iCagenda     Events Management Extension for Joomla!
  *----------------------------------------------------------------------------
- * @version     3.9.0 2024-02-23
+ * @version     3.9.12 2025-08-01
  *
  * @package     iCagenda.Site
  * @link        https://www.icagenda.com
@@ -227,6 +227,11 @@ class iCagendaViewSubmit extends JViewLegacy
 		if ($this->params->get('menu-meta_keywords', ''))
 		{
 			$this->document->setMetadata('keywords', $this->params->get('menu-meta_keywords', ''));
+		}
+
+		if ($this->params->get('robots', ''))
+		{
+			$this->document->setMetadata('robots', $this->params->get('robots', ''));
 		}
 
 		if ($app->getCfg('MetaTitle') == '1'

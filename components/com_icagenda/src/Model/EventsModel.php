@@ -3,14 +3,14 @@
  *----------------------------------------------------------------------------
  * iCagenda     Events Management Extension for Joomla!
  *----------------------------------------------------------------------------
- * @version     3.9.3 2024-04-17
+ * @version     3.9.12 2025-07-31
  *
  * @package     iCagenda.Site
  * @subpackage  src.Model
- * @link        https://www.icagenda.com
+ * @link        https://www.joomlic.com
  *
- * @author      Cyril Rezé
- * @copyright   (c) 2012-2024 Cyril Rezé / iCagenda. All rights reserved.
+ * @author      Cyril Reze
+ * @copyright   (c) 2012-2025 Cyril Reze / JoomliC. All rights reserved.
  * @license     GNU General Public License version 3 or later; see LICENSE.txt
  *
  * @since       3.4
@@ -489,6 +489,8 @@ class EventsModel extends ListModel
 						? $params->get('filters_mode', 1)
 						: ComponentHelper::getParams('com_icagenda')->get('filters_mode', 1);
 
+		$orderby_catlist = $params->get('orderby_catlist', 'alpha');
+
 		// Initialize variables.
 		$options = [];
 
@@ -496,7 +498,7 @@ class EventsModel extends ListModel
 
 		$query = $db->getQuery(true);
 
-		$query->select('id AS catid, title AS cattitle');
+		$query->select('id AS catid, title AS cattitle, ordering AS catorder');
 		$query->from('#__icagenda_category AS c');
 		$query->where('state = 1');
 
@@ -516,7 +518,13 @@ class EventsModel extends ListModel
 			}
 		}
 
-		$query->order('c.title');
+		if ($orderby_catlist == 'alpha') {
+			$query->order('c.title ASC');
+		} elseif ($orderby_catlist == 'ralpha') {
+			$query->order('c.title DESC');
+		} elseif ($orderby_catlist == 'order') {
+			$query->order('c.ordering ASC');
+		}
 
 		// Get the options.
 		$db->setQuery($query);

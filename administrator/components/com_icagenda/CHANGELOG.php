@@ -2,10 +2,27 @@
 
 <div style="text-align:center"><img src='../media/com_icagenda/images/iconicagenda48.png' alt='iCagenda' /><br/><big style="color:#555">ChangeLog</big></div>
 ================================================================================
-? <center><strong><big>Welcome to iCagenda 3.9.11 release!</big></strong></center><br /><p><strong></strong></p><p>iCagenda 3.9 is cross-platform Joomla 3, 4 and 5. This version is the last version to support Joomla 3.</p><p>Update and take advantage of all the improvements done in latest version of iCagenda!</p><p><strong>Enjoy!</strong></p><br />
+? <center><strong><big>Welcome to iCagenda 3.9.12 release!</big></strong></center><br /><p><strong></strong></p><p>iCagenda 3.9 is cross-platform Joomla 3, 4 and 5. This version is the last version to support Joomla 3.</p><p>Update and take advantage of all the improvements done in latest version of iCagenda!</p><p><strong>Enjoy!</strong></p><br />
 ================================================================================
 : <span class="ic-box-important ic-box-12">!</span><span class="ic-important">important</span>&nbsp;<span class="ic-box-added ic-box-12">+</span><span class="ic-added">added</span>&nbsp;<span class="ic-box-removed ic-box-12">-</span><span class="ic-removed">removed</span>&nbsp;<span class="ic-box-changed ic-box-12">~</span><span class="ic-changed">changed</span>&nbsp;<span class="ic-box-fixed ic-box-12">#</span><span class="ic-fixed">fixed</span><br/><i>Info: access to the beta versions and pre-releases are reserved to users with a valid pro subscription.</i><br/>iCagenda™ is distributed under the terms of the GNU General Public License version 3 or later; see LICENSE.txt.
 ================================================================================
+
+
+iCagenda 3.9.12 <small style="font-weight:normal;">(2025.08.14)</small>
+================================================================================
+~ Changed: Add robots metadata for frontend list of events and submit form views.
+~ [J4/J5] Changed: Integrate Category Order option for frontend search filter category.
+# [LOW] Fixed: Quicktask text for Add Event in admin menu.
+# [LOW][J3] Fixed: typo JText.
+
+* Changed files in 3.9.12
+~ com_icagenda/icagenda.xml
+~ com_icagenda/site/src/Model/EventsModel.php
+~ com_icagenda/site/src/View/Events/HtmlView.php
+~ com_icagenda/site/src/View/Submit/HtmlView.php
+~ com_icagenda/site/views/list/view.html.php
+~ com_icagenda/site/views/list/tmpl/default_categories.php
+~ com_icagenda/site/views/submit/view.html.php
 
 
 iCagenda 3.9.11 <small style="font-weight:normal;">(2025.04.22)</small>

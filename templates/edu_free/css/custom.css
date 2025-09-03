@@ -231,19 +231,16 @@
     }
 }
 
-/* === OCULTAR LA IMAGEN ORIGINAL DEL ARTÍCULO === */
 #sp-position1 ul.mod-articles-items li img {
     display: none !important;
 }
 
-/* === FORZAR COLOR BLANCO EN TÍTULO Y BOTÓN === */
 #sp-position1 ul.mod-articles-items li a.mod-articles-category-title,
 #sp-position1 ul.mod-articles-items li .mod-articles-category-readmore a {
     color: white !important;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5) !important;
 }
 
-//* ==== SERVICIOS: grilla y sin toggle ==== */
 .moduletable.nuevos-servicios .uk-subnav-toggle,
 .moduletable.nuevos-servicios .uk-navbar-toggle,
 .moduletable.nuevos-servicios .menu-toggle,
@@ -252,7 +249,6 @@
   display: none !important;
 }
 
-/* Fuerzo que la lista se vea siempre */
 .moduletable.nuevos-servicios ul,
 .moduletable.nuevos-servicios .uk-subnav,
 .moduletable.nuevos-servicios .uk-nav {
@@ -291,3 +287,68 @@
 .uk-subnav-toggle, .uk-navbar-toggle { display: none !important; }
 
 .nuevos-servicios ul { display: flex !important; flex-wrap: wrap; }
+
+/* ====== HEADER / BANNER SUPERIOR ====== */
+
+#sp-header,
+.sp-header,
+.menu-fixed,
+.is-sticky #sp-header,
+#sp-top-bar {
+  background: #f1f3f5 !important;
+}
+
+#sp-header .logo a,
+#sp-header .logo-sitename {
+  color: #0d3d8b !important;  
+  font-weight: 800;
+  letter-spacing: .3px;
+}
+
+#sp-header .sp-megamenu-parent > li > a {
+  color: #000 !important;      
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.08rem;          
+  letter-spacing: .03em;
+  line-height: 1.2;
+}
+
+#sp-header .sp-megamenu-parent > li:hover > a,
+#sp-header .sp-megamenu-parent > li.active > a {
+  color: #0d3d8b !important;    /* azul */
+}
+
+#sp-header .social-icons li a,
+#sp-header .sp-contact-info .sp-contact-social a {
+  color: #fff !important;
+  font-size: 22px;              
+  opacity: 1;
+}
+#sp-header .social-icons li a:hover,
+#sp-header .sp-contact-info .sp-contact-social a:hover {
+  opacity: .85;
+}
+
+/* !!!!HEADERBAR COLOR AZUL UNPA UARG HEADER¡¡¡¡¡¡¡¡¡ */
+
+
+.tm-headerbar-top{
+  background: #082489 !important;
+}
+
+.button-primary, .uk-card-primary.uk-card-hover:hover {
+    background-color: #082489 !important;
+}
+
+.uk-navbar-dropdown .uk-navbar-dropdown-nav > li > a {
+  font-size: 20px !important;  
+  line-height: 1.25;
+  font-weight: 500;             
+}
+
+.sp-megamenu-parent .uk-navbar-dropdown .uk-navbar-dropdown-nav > li > a {
+  font-size: 18px !important;
+}
+
+#sp-component:has(> .uk-container:empty) { display:none !important; }

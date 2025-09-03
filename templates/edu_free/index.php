@@ -244,10 +244,10 @@ if ($custom_js = $this->params->get('custom_js', null))
 		<?php endif; ?>
 
 <!-- Custom CSS for News Carousel -->
-<?php $this->addStyleSheet('templates/'.$this->template.'/css/carousel-custom.css'); ?>
+<?php $this->addStyleSheet('templates/'.$this->template.'/css/custom.css'); ?>
 
 <!-- Custom JS for News Carousel -->
-<?php $this->addScript('templates/'.$this->template.'/js/carousel-custom.js'); ?>
+<?php $this->addScript('templates/'.$this->template.'/js/custom.js'); ?>
 </head>
 
 <body class="<?php echo $theme->bodyClass(); ?>">  
@@ -286,11 +286,40 @@ if ($custom_js = $this->params->get('custom_js', null))
                 <?php echo $theme->getHeaderStyle(); ?>
             <?php endif; ?>
             
+            <!--DESPLIEGUE DE ARTICULOS-->
+            <?php
+                $opt  = $app->input->getCmd('option', '');
+                $view = $app->input->getCmd('view', '');
+
+                $mostrarComponente = in_array($opt, ['com_content'], true);
+
+                ob_start();
+            ?>
+            <jdoc:include type="message" />
+            <jdoc:include type="component" />
+            <?php
+            $componentOutput = ob_get_clean();
+
+            $componentSanitized = preg_replace([
+                '/<!--.*?-->/s',
+                '/&nbsp;|\xC2\xA0/i',
+                '/\s+/u'
+            ], ['', '', ''], (string)$componentOutput);
+
+            if ($mostrarComponente && $componentSanitized !== ''): ?>
+                <div id="sp-component" class="uk-section">
+                    <div class="uk-container">
+                        <?php echo $componentOutput; ?>
+                    </div>
+                </div>
+            <?php endif; ?>
+
+
             <?php $theme->render_layout(); ?>
               
             <?php if ($boxed) : ?>
-            </div>
-        <?php endif; ?>
+                </div>
+            <?php endif; ?>
 
     </div>
     
@@ -300,11 +329,6 @@ if ($custom_js = $this->params->get('custom_js', null))
     
     <?php $theme->after_body(); ?>
 
-    <div id="sp-component" class="uk-section">
-      <div class="uk-container">
-        <jdoc:include type="component" />
-      </div>
-    </div>
 
 
     <?php if ($this->params->get('preloader')) : ?>
